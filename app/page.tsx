@@ -88,6 +88,8 @@ const benefits = [
   ["Desejo imediato", "Design branco, verde e preto com uma pegada premium de mobilidade limpa."],
 ];
 
+const whatsappUrl = "https://wa.me/5511925141848";
+
 export default function Home() {
   return (
     <main>
@@ -101,8 +103,8 @@ export default function Home() {
           <a href="#economia">Economia</a>
           <a href="#localizacao">Localizacao</a>
         </nav>
-        <a className="header-cta" href="https://www.instagram.com/cavalletta.leader/" target="_blank" rel="noreferrer">
-          Instagram
+        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
+          WhatsApp
         </a>
       </header>
 
@@ -115,7 +117,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <a className="primary" href="#modelos">Ver modelos</a>
-            <a className="secondary" href="#localizacao">Visitar loja</a>
+            <a className="secondary" href={whatsappUrl} target="_blank" rel="noreferrer">Chamar no WhatsApp</a>
           </div>
           <div className="proof-strip" aria-label="Destaques">
             <span><strong>32 km/h</strong> velocidade urbana</span>
@@ -212,7 +214,7 @@ export default function Home() {
             <span>Economia potencial</span>
             <strong>ate R$ 755/mes</strong>
           </div>
-          <a className="primary full" href="https://www.instagram.com/cavalletta.leader/" target="_blank" rel="noreferrer">
+          <a className="primary full" href={whatsappUrl} target="_blank" rel="noreferrer">
             Quero simular meu trajeto
           </a>
         </div>
@@ -249,6 +251,7 @@ export default function Home() {
       <footer>
         <img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" />
         <p>cavalletta.leader - mobilidade eletrica premium.</p>
+        <a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a>
         <a href="https://www.instagram.com/cavalletta.leader/" target="_blank" rel="noreferrer">@cavalletta.leader</a>
       </footer>
     </main>
