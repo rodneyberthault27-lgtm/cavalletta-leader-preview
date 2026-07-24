@@ -1,242 +1,318 @@
+const whatsappUrl = "https://wa.me/5511925141848";
+const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
+
+const navTabs = [
+  ["Nossos produtos", "#produtos"],
+  ["Venda imperdivel", "#ofertas"],
+  ["Lojas", "#lojas"],
+  ["Suporte", "#suporte"],
+  ["Explorar mais", "#explorar"],
+];
+
+const searchChips = [
+  "T3",
+  "C3",
+  "C12",
+  "C15",
+  "C3 Pro",
+  "Scooter eletrica",
+  "Bateria de litio",
+  "Moto eletrica",
+  "Triciclo eletrico",
+  "1000W",
+];
+
+const heroSlides = [
+  {
+    name: "C3 Pro",
+    headline: "Controle inteligente pelo app",
+    text: "GPS, antifurto e autonomia para quem quer tecnologia de verdade no deslocamento urbano.",
+    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490",
+  },
+  {
+    name: "T3",
+    headline: "Onde a familia vive cada viagem",
+    text: "Tres rodas, estabilidade e conforto para transformar trajetos em momentos mais seguros.",
+    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/Frame15.jpg?v=1765848580",
+  },
+  {
+    name: "C12",
+    headline: "Leve, moderna e pronta",
+    text: "A favorita para quem quer estilo, autonomia e economia no mesmo pacote.",
+    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C12white1.png?v=1773131725",
+  },
+];
+
 const models = [
   {
-    name: "Cavalletta C2",
-    tag: "Entrada inteligente",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1_31.jpg?v=1784627413",
-    price: "R$ 5.027",
-    oldPrice: "R$ 6.097",
-    specs: ["750W", "65 km", "32 km/h", "Bateria removivel"],
-    colors: ["Preto", "Vermelho", "Azul", "Verde"],
-    copy: "Para rotina urbana com baixo custo, agilidade e recarga simples.",
-  },
-  {
-    name: "Cavalletta C3",
-    tag: "Melhor custo",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3-preto5_3c5e875a-2486-4497-9e76-8e7c4951bf8a.jpg?v=1772529411",
-    price: "R$ 6.099",
-    oldPrice: "R$ 6.999",
-    specs: ["800W", "75 km", "32 km/h", "Uso em ciclovia"],
-    colors: ["Preto", "Azul", "Cinza"],
-    copy: "Scooter eletrica para quem quer economia sem abrir mao de presenca.",
-  },
-  {
-    name: "Cavalletta C3 Pro",
-    tag: "Mais tech",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490",
-    price: "R$ 6.599",
-    oldPrice: "R$ 7.999",
-    specs: ["App", "GPS", "75 km", "Antifurto"],
-    colors: ["Preto", "Azul", "Cinza"],
-    copy: "Controle pelo app, rastreamento e recursos de seguranca para a cidade.",
-  },
-  {
-    name: "Cavalletta C10",
-    tag: "NFC antifurto",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C10-white1.png?v=1773130104",
-    price: "R$ 7.999",
-    oldPrice: "R$ 8.699",
-    specs: ["1000W", "65 km", "NFC", "Sem CNH"],
-    colors: ["Branco", "Verde", "Cinza", "Marrom"],
-    copy: "Design limpo, partida moderna e potencia para deslocamentos diarios.",
-  },
-  {
-    name: "Cavalletta AE8",
-    tag: "Aventura urbana",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/AE8_1.jpg?v=1781167662",
-    price: "R$ 7.999",
-    oldPrice: "R$ 8.990",
-    specs: ["1000W", "80 km", "32 km/h", "Freio a disco"],
-    colors: ["Estilo bike"],
-    copy: "Para quem quer uma pegada mais esportiva sem perder praticidade.",
-  },
-  {
-    name: "Cavalletta C12",
+    name: "C12 Ciclomotor Eletrico",
     tag: "Mais vendida",
+    category: "Scooter",
+    discount: "-10%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C12white1.png?v=1773131725",
     price: "R$ 8.999",
     oldPrice: "R$ 9.999",
     specs: ["1000W", "75 km", "60V 20Ah", "32 km/h"],
     colors: ["Branco", "Azul", "Caqui", "Preto"],
-    copy: "Elegancia, autonomia e conforto para quem quer chegar melhor.",
   },
   {
-    name: "Cavalletta C15",
+    name: "C3 Scooter Eletrica",
+    tag: "Hot",
+    category: "Scooter",
+    discount: "-13%",
+    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3-preto5_3c5e875a-2486-4497-9e76-8e7c4951bf8a.jpg?v=1772529411",
+    price: "R$ 6.099",
+    oldPrice: "R$ 6.999",
+    specs: ["800W", "75 km", "Ciclovia", "Litio"],
+    colors: ["Preto", "Azul", "Cinza"],
+  },
+  {
+    name: "C15 Scooter Eletrica",
     tag: "Robusta",
+    category: "Scooter",
+    discount: "-9%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1000px-1000px-_2.jpg?v=1778833824",
     price: "R$ 9.999",
     oldPrice: "R$ 10.999",
     specs: ["1000W", "65 km", "25 graus", "Disco duplo"],
     colors: ["Preto", "Cinza", "Branco", "Amarela", "Verde", "Azul"],
-    copy: "Mais corpo, mais presenca e mais confianca para subir o nivel.",
   },
   {
-    name: "Cavalletta T3",
-    tag: "Triciclo premium",
+    name: "C10 NFC Antifurto",
+    tag: "Sem CNH",
+    category: "Moto eletrica",
+    discount: "-8%",
+    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C10-white1.png?v=1773130104",
+    price: "R$ 7.999",
+    oldPrice: "R$ 8.699",
+    specs: ["1000W", "65 km", "NFC", "Antifurto"],
+    colors: ["Branco", "Verde", "Cinza", "Marrom"],
+  },
+  {
+    name: "C3 Pro App + GPS",
+    tag: "New",
+    category: "Tecnologia",
+    discount: "-17%",
+    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490",
+    price: "R$ 6.599",
+    oldPrice: "R$ 7.999",
+    specs: ["App", "GPS", "75 km", "Antifurto"],
+    colors: ["Preto", "Azul", "Cinza"],
+  },
+  {
+    name: "C2 Removivel Litio",
+    tag: "Entrada",
+    category: "Bicicleta eletrica",
+    discount: "-18%",
+    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1_31.jpg?v=1784627413",
+    price: "R$ 5.027",
+    oldPrice: "R$ 6.097",
+    specs: ["750W", "65 km", "Removivel", "32 km/h"],
+    colors: ["Preto", "Vermelho", "Azul", "Verde"],
+  },
+  {
+    name: "AE8 Mobilidade Urbana",
+    tag: "Aventura",
+    category: "Bicicleta eletrica",
+    discount: "-11%",
+    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/AE8_1.jpg?v=1781167662",
+    price: "R$ 7.999",
+    oldPrice: "R$ 8.990",
+    specs: ["1000W", "80 km", "Disco", "Esportiva"],
+    colors: ["Bike style"],
+  },
+  {
+    name: "T3 Triciclo Eletrico",
+    tag: "Familia",
+    category: "Triciclo eletrico",
+    discount: "-14%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/Frame15.jpg?v=1765848580",
     price: "R$ 11.999",
     oldPrice: "R$ 13.999",
-    specs: ["3 rodas", "1000W", "Urbano", "Estavel"],
+    specs: ["3 rodas", "1000W", "Estavel", "Urbano"],
     colors: ["Caqui", "Azul-marinho", "Vermelho"],
-    copy: "Estabilidade extra para quem busca seguranca, conforto e estilo.",
   },
 ];
 
-const benefits = [
-  ["Economia visivel", "Troque gasolina, app e onibus por uma rotina eletrica previsivel."],
-  ["Compra sem friccao", "Modelos organizados por uso, autonomia e tecnologia para decidir rapido."],
-  ["Confiança local", "Atendimento presencial na Galeria Extra Ricardo Jafet, loja 26."],
-  ["Desejo imediato", "Design branco, verde e preto com uma pegada premium de mobilidade limpa."],
+const categories = [
+  ["Scooter", "C3, C10, C12 e C15 para cidade", models[0].image],
+  ["Triciclos Eletricos", "T3 com estabilidade e conforto", models[7].image],
+  ["Bicicleta Eletrica", "C2 e AE8 para rotina e aventura", models[5].image],
+  ["Tecnologia", "App, GPS, NFC e antifurto", models[4].image],
 ];
 
-const whatsappUrl = "https://wa.me/5511925141848";
+const supportItems = [
+  ["Fale Conosco", "Tire duvidas e combine seu atendimento pelo WhatsApp."],
+  ["Rastrear pedido", "Acompanhamento simples para compras e entregas."],
+  ["Guias e Tutoriais", "Orientacao de recarga, bateria e conservacao."],
+  ["Trabalhe conosco", "Expansao, parcerias e oportunidades locais."],
+];
 
 export default function Home() {
   return (
     <main>
+      <div className="topline">
+        <span>Loja fisica Cavalletta Leader</span>
+        <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +55 11 92514-1848</a>
+      </div>
+
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Cavalletta Leader">
           <img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" />
           <span>leader</span>
         </a>
-        <nav aria-label="Navegacao principal">
-          <a href="#modelos">Modelos</a>
-          <a href="#economia">Economia</a>
-          <a href="#localizacao">Localizacao</a>
+        <nav className="main-tabs" aria-label="Abas principais">
+          {navTabs.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
         </nav>
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
-          WhatsApp
-        </a>
+        <div className="header-actions">
+          <a className="ghost-action" href="#busca" aria-label="Buscar modelos">Buscar</a>
+          <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Comprar ja</a>
+        </div>
       </header>
 
-      <section className="hero" id="top">
+      <section className="search-cloud" id="busca" aria-label="Pesquisas populares">
+        <strong>Sempre pesquise</strong>
+        <div>
+          {searchChips.map((chip) => <a href="#produtos" key={chip}>{chip}</a>)}
+        </div>
+      </section>
+
+      <section className="hero-store" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Loja Cavalletta Leader</p>
-          <h1>Mobilidade eletrica com presenca, economia e tecnologia.</h1>
+          <p className="eyebrow">Cavalletta Leader</p>
+          <h1>Mobilidade eletrica com vitrine de loja premium.</h1>
           <p className="hero-text">
-            Scooters e bikes eletricas Cavalletta para transformar o caminho diario em uma decisao mais leve, inteligente e desejavel.
+            Scooters, triciclos e bikes eletricas Cavalletta com tecnologia, test-drive e atendimento presencial na Ricardo Jafet.
           </p>
           <div className="hero-actions">
-            <a className="primary" href="#modelos">Ver modelos</a>
+            <a className="primary" href="#produtos">Ver produtos</a>
             <a className="secondary" href={whatsappUrl} target="_blank" rel="noreferrer">Chamar no WhatsApp</a>
           </div>
-          <div className="proof-strip" aria-label="Destaques">
-            <span><strong>32 km/h</strong> velocidade urbana</span>
-            <span><strong>ate 80 km</strong> autonomia</span>
-            <span><strong>sem CNH</strong> em modelos selecionados</span>
-          </div>
         </div>
-        <div className="hero-visual" aria-label="Cavalletta C12 em destaque">
-          <div className="glass-panel">
-            <span className="live-dot">Pronta entrega</span>
-            <img src="https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C12white1.png?v=1773131725" alt="Cavalletta C12 branca" />
-            <div className="panel-row">
-              <span>C12 Leader Edition</span>
-              <strong>R$ 8.999</strong>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="signal-band" aria-label="Indicadores da loja">
-        <div><strong>0 emissao local</strong><span>mais silencio, menos custo</span></div>
-        <div><strong>1000W</strong><span>potencia em modelos premium</span></div>
-        <div><strong>loja fisica</strong><span>test-drive e atendimento humano</span></div>
-        <div><strong>bateria de litio</strong><span>recarga facil para o dia a dia</span></div>
-      </section>
-
-      <section className="section intro">
-        <div>
-          <p className="eyebrow">Neurodesign aplicado</p>
-          <h2>Clareza para escolher. Desejo para agir. Segurança para comprar.</h2>
-        </div>
-        <p>
-          A pagina conduz o visitante por prova, comparacao e acao: primeiro mostra liberdade, depois organiza os modelos, reforca economia e fecha com localizacao simples.
-        </p>
-      </section>
-
-      <section className="benefits-grid" aria-label="Beneficios">
-        {benefits.map(([title, text]) => (
-          <article key={title}>
-            <span></span>
-            <h3>{title}</h3>
-            <p>{text}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="section models-section" id="modelos">
-        <div className="section-head">
-          <p className="eyebrow">Catalogo completo</p>
-          <h2>Todos os modelos Cavalletta para comparar em segundos.</h2>
-          <p>Cards diretos, foco em autonomia, potencia, tecnologia e cores disponiveis.</p>
-        </div>
-        <div className="model-grid">
-          {models.map((model) => (
-            <article className="model-card" key={model.name}>
-              <div className="model-media">
-                <span>{model.tag}</span>
-                <img src={model.image} alt={model.name} />
+        <div className="hero-stage" aria-label="Produtos em destaque">
+          {heroSlides.map((slide, index) => (
+            <article className={`hero-card hero-card-${index + 1}`} key={slide.name}>
+              <div>
+                <span>{slide.name}</span>
+                <h2>{slide.headline}</h2>
+                <p>{slide.text}</p>
               </div>
-              <div className="model-body">
-                <div className="model-title">
-                  <h3>{model.name}</h3>
-                  <div>
-                    <del>{model.oldPrice}</del>
-                    <strong>{model.price}</strong>
-                  </div>
-                </div>
-                <p>{model.copy}</p>
-                <ul>
-                  {model.specs.map((spec) => <li key={spec}>{spec}</li>)}
-                </ul>
-                <div className="color-list">
-                  {model.colors.map((color) => <span key={color}>{color}</span>)}
-                </div>
+              <img src={slide.image} alt={slide.name} />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="ticker" aria-label="Destaques Cavalletta">
+        <div>
+          <span>Sem CNH em modelos selecionados</span>
+          <span>Bateria de litio</span>
+          <span>App + GPS</span>
+          <span>Test-drive na loja</span>
+          <span>Atendimento por WhatsApp</span>
+          <span>Autonomia ate 80 km</span>
+        </div>
+      </section>
+
+      <section className="promo-duo" id="ofertas">
+        <article className="promo-card dark">
+          <div>
+            <p className="eyebrow">Venda imperdivel</p>
+            <h2>Conheca o Novo C3 Pro</h2>
+            <p>Tecnologia, estilo, controle inteligente pelo app, GPS e antifurto.</p>
+            <a className="primary" href={whatsappUrl} target="_blank" rel="noreferrer">Comprar ja</a>
+          </div>
+          <img src={models[4].image} alt="Cavalletta C3 Pro" />
+        </article>
+        <article className="promo-card light">
+          <div>
+            <p className="eyebrow">Familia e conforto</p>
+            <h2>Onde a familia vive cada viagem</h2>
+            <p>Cavalletta T3 com estabilidade, presenca e liberdade no trajeto.</p>
+            <a className="secondary" href="#produtos">Ver T3</a>
+          </div>
+          <img src={models[7].image} alt="Cavalletta T3" />
+        </article>
+      </section>
+
+      <section className="section categories" id="explorar">
+        <div className="section-head compact">
+          <p className="eyebrow">Categoria</p>
+          <h2>Compre pelo tipo de uso.</h2>
+        </div>
+        <div className="category-grid">
+          {categories.map(([title, text, image]) => (
+            <article key={title}>
+              <img src={image} alt={title} />
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <a href="#produtos">Saiba mais</a>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="calculator" id="economia">
-        <div className="calc-copy">
-          <p className="eyebrow">Economia percebida</p>
-          <h2>Mostre o custo invisivel de continuar como esta.</h2>
-          <p>
-            A troca fica mais facil quando o cliente enxerga gasolina, transporte por app, estacionamento e tempo perdido como uma unica conta mensal.
-          </p>
-        </div>
-        <div className="calc-panel">
-          <div className="calc-line"><span>Transporte atual</span><strong>R$ 780/mes</strong></div>
-          <div className="calc-line green"><span>Energia estimada</span><strong>R$ 25/mes</strong></div>
-          <div className="calc-line"><span>Manutencao media</span><strong>baixo custo</strong></div>
-          <div className="saving">
-            <span>Economia potencial</span>
-            <strong>ate R$ 755/mes</strong>
+      <section className="section products" id="produtos">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Produtos populares</p>
+            <h2>Todos os modelos em uma vitrine moderna.</h2>
           </div>
-          <a className="primary full" href={whatsappUrl} target="_blank" rel="noreferrer">
-            Quero simular meu trajeto
-          </a>
+          <p>Visual de ecommerce, etiquetas de promocao, cores, especificacoes e chamada direta para atendimento.</p>
+        </div>
+        <div className="product-grid">
+          {models.map((model) => (
+            <article className="product-card" key={model.name}>
+              <div className="product-media">
+                <span className="discount">{model.discount}</span>
+                <button aria-label={`Visao rapida de ${model.name}`}>Visao rapida</button>
+                <img src={model.image} alt={model.name} />
+              </div>
+              <div className="product-body">
+                <div className="product-meta">
+                  <span>{model.category}</span>
+                  <strong>{model.tag}</strong>
+                </div>
+                <h3>{model.name}</h3>
+                <div className="price-row">
+                  <del>{model.oldPrice}</del>
+                  <strong>{model.price}</strong>
+                </div>
+                <ul>
+                  {model.specs.map((spec) => <li key={spec}>{spec}</li>)}
+                </ul>
+                <div className="swatches" aria-label={`Cores de ${model.name}`}>
+                  {model.colors.slice(0, 6).map((color) => <span key={color}>{color}</span>)}
+                </div>
+                <a className="quick-buy" href={whatsappUrl} target="_blank" rel="noreferrer">Adicao rapida</a>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="support">
+      <section className="lifestyle">
         <div>
-          <p className="eyebrow">Pos-venda</p>
-          <h2>Compra com suporte, pecas e orientacao.</h2>
+          <p className="eyebrow">Mais do que mobilidade</p>
+          <h2>Uma forma de viver com menos custo e mais liberdade.</h2>
         </div>
-        <div className="support-grid">
-          <article><strong>Test-drive</strong><span>Experimente antes de decidir.</span></article>
-          <article><strong>Entrega orientada</strong><span>Aprenda uso, recarga e cuidados.</span></article>
-          <article><strong>Atendimento local</strong><span>Loja fisica para conversar pessoalmente.</span></article>
+        <div className="metrics">
+          <article><strong>+20</strong><span>anos de inovacao global</span></article>
+          <article><strong>+100</strong><span>paises atendidos</span></article>
+          <article><strong>0</strong><span>emissao local no seu trajeto</span></article>
+          <article><strong>80 km</strong><span>autonomia em modelos selecionados</span></article>
         </div>
       </section>
 
-      <section className="location" id="localizacao">
-        <div>
-          <p className="eyebrow">Onde encontrar</p>
-          <h2>Galeria Extra Ricardo Jafet</h2>
-          <p>Av. Ricardo Jafet, 1501 - loja 26. Atendimento para conhecer modelos, tirar duvidas e escolher sua Cavalletta.</p>
+      <section className="test-drive" id="lojas">
+        <div className="test-panel">
+          <p className="eyebrow">Liberdade eletrica, em qualquer lugar</p>
+          <h2>TEST DRIVE</h2>
+          <p>Experimente a emocao de andar de Cavalletta. Fale pelo WhatsApp e combine sua visita na Galeria Extra Ricardo Jafet.</p>
+          <a className="primary" href={whatsappUrl} target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a>
         </div>
         <div className="address-card">
           <span>Cavalletta Leader</span>
@@ -248,11 +324,36 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="support" id="suporte">
+        <div>
+          <p className="eyebrow">Suporte</p>
+          <h2>Antes, durante e depois da compra.</h2>
+        </div>
+        <div className="support-grid">
+          {supportItems.map(([title, text]) => (
+            <article key={title}>
+              <strong>{title}</strong>
+              <span>{text}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="community">
+        <p className="eyebrow">A voz da comunidade Cavalletta</p>
+        <h2>Cliente quer ver produto real, resposta rapida e decisao facil.</h2>
+        <div className="social-row">
+          <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href="#produtos">Produtos</a>
+        </div>
+      </section>
+
       <footer>
         <img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" />
         <p>cavalletta.leader - mobilidade eletrica premium.</p>
         <a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a>
-        <a href="https://www.instagram.com/cavalletta.leader/" target="_blank" rel="noreferrer">@cavalletta.leader</a>
+        <a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a>
       </footer>
     </main>
   );
