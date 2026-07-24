@@ -1,5 +1,7 @@
 const whatsappUrl = "https://wa.me/5511925141848";
 const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
+const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026";
+const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
 const navTabs = [
   ["Nossos produtos", "#produtos"],
@@ -318,9 +320,18 @@ export default function Home() {
           <span>Cavalletta Leader</span>
           <strong>Loja 26</strong>
           <p>Galeria Extra Ricardo Jafet - 1501</p>
-          <a className="secondary dark" href="https://www.google.com/maps/search/?api=1&query=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026" target="_blank" rel="noreferrer">
+          <a className="secondary dark" href={mapsUrl} target="_blank" rel="noreferrer">
             Abrir no mapa
           </a>
+        </div>
+        <div className="map-card" aria-label="Mapa da loja Cavalletta Leader">
+          <iframe
+            title="Mapa da Cavalletta Leader na Galeria Extra Ricardo Jafet"
+            src={mapsEmbedUrl}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
         </div>
       </section>
 
