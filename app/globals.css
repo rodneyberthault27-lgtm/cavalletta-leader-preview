@@ -1,15 +1,17 @@
 :root {
-  --bg: #f4f8f5;
+  --bg: #f5f6f1;
   --paper: #ffffff;
-  --ink: #06110c;
-  --muted: #65736b;
-  --line: #dfe9e2;
-  --green: #00ba69;
-  --green-2: #75f5a7;
-  --green-dark: #006d44;
-  --black: #050806;
-  --soft: #ecf8f1;
-  --shadow: 0 24px 70px rgba(5, 16, 10, 0.14);
+  --ink: #090b08;
+  --muted: #656b61;
+  --line: #e0e3dc;
+  --green: #b8ff00;
+  --green-2: #dcff59;
+  --green-dark: #536f00;
+  --black: #070806;
+  --soft: #f2f6df;
+  --chrome: #d9ded5;
+  --danger: #ff3d2e;
+  --shadow: 0 24px 70px rgba(5, 8, 6, 0.18);
 }
 
 * {
@@ -23,8 +25,9 @@ html {
 body {
   margin: 0;
   background:
-    linear-gradient(120deg, rgba(0, 186, 105, 0.10), transparent 34%),
-    radial-gradient(circle at 88% 4%, rgba(117, 245, 167, 0.24), transparent 28%),
+    linear-gradient(120deg, rgba(184, 255, 0, 0.14), transparent 34%),
+    radial-gradient(circle at 88% 4%, rgba(220, 255, 89, 0.30), transparent 28%),
+    linear-gradient(155deg, transparent 0 72%, rgba(7, 8, 6, 0.06) 72% 100%),
     var(--bg);
   color: var(--ink);
   font-family: var(--font-inter), Arial, sans-serif;
@@ -51,7 +54,8 @@ button {
   gap: 14px;
   padding: 9px clamp(16px, 4vw, 70px);
   background: var(--black);
-  color: #d8eee2;
+  color: #f2f5ed;
+  border-bottom: 2px solid var(--danger);
   font-size: 0.82rem;
   font-weight: 800;
 }
@@ -88,7 +92,8 @@ button {
 }
 
 .brand span {
-  color: var(--green-dark);
+  color: var(--black);
+  text-transform: uppercase;
 }
 
 .main-tabs {
@@ -122,7 +127,7 @@ button {
 
 .main-tabs a:hover {
   background: var(--soft);
-  color: var(--green-dark);
+  color: var(--black);
 }
 
 .header-actions {
@@ -142,9 +147,9 @@ button {
 .primary,
 .quick-buy {
   padding: 0 20px;
-  background: linear-gradient(135deg, var(--green), #00d57b);
-  color: white;
-  box-shadow: 0 14px 30px rgba(0, 186, 105, 0.26);
+  background: linear-gradient(135deg, var(--green), #f1ff4a);
+  color: #070806;
+  box-shadow: 0 14px 30px rgba(184, 255, 0, 0.32);
 }
 
 .secondary {
@@ -218,8 +223,8 @@ button {
   inset: auto -12% 8% 44%;
   height: 48%;
   background:
-    repeating-linear-gradient(90deg, rgba(0, 186, 105, 0.12) 0 2px, transparent 2px 34px),
-    linear-gradient(135deg, rgba(0, 186, 105, 0.18), transparent);
+    repeating-linear-gradient(90deg, rgba(184, 255, 0, 0.18) 0 2px, transparent 2px 34px),
+    linear-gradient(135deg, rgba(184, 255, 0, 0.22), transparent);
   transform: skewY(-9deg);
   pointer-events: none;
 }
@@ -306,7 +311,7 @@ h3 {
   border-radius: 18px;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.68)),
-    radial-gradient(circle at 80% 12%, rgba(0, 186, 105, 0.22), transparent 34%);
+    radial-gradient(circle at 80% 12%, rgba(184, 255, 0, 0.30), transparent 34%);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
   transform-style: preserve-3d;
@@ -326,7 +331,7 @@ h3 {
 }
 
 .hero-card span {
-  color: var(--green-dark);
+  color: #435900;
   font-weight: 1000;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -429,7 +434,8 @@ h3 {
 
 .promo-card.dark {
   background:
-    linear-gradient(135deg, rgba(0, 186, 105, 0.22), transparent 44%),
+    linear-gradient(135deg, rgba(184, 255, 0, 0.28), transparent 44%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 18px),
     var(--black);
   color: white;
 }
@@ -489,7 +495,7 @@ h3 {
   height: 210px;
   object-fit: contain;
   padding: 22px;
-  background: linear-gradient(135deg, #eef8f2, #ffffff);
+  background: linear-gradient(135deg, #f3f6ea, #ffffff);
   mix-blend-mode: multiply;
 }
 
@@ -537,8 +543,8 @@ h3 {
   place-items: center;
   min-height: 285px;
   background:
-    radial-gradient(circle at 72% 20%, rgba(0, 186, 105, 0.16), transparent 32%),
-    linear-gradient(145deg, #f1f8f4, #ffffff);
+    radial-gradient(circle at 72% 20%, rgba(184, 255, 0, 0.26), transparent 32%),
+    linear-gradient(145deg, #f5f6ef, #ffffff);
 }
 
 .product-media img {
@@ -564,7 +570,7 @@ h3 {
   left: 16px;
   padding: 8px 10px;
   background: var(--green);
-  color: white;
+  color: #070806;
 }
 
 .product-media button {
@@ -572,6 +578,7 @@ h3 {
   padding: 8px 12px;
   background: var(--black);
   color: white;
+  box-shadow: inset 0 -2px 0 var(--danger);
 }
 
 .product-body {
@@ -593,7 +600,7 @@ h3 {
 }
 
 .product-meta strong {
-  color: var(--green-dark);
+  color: #5d7900;
   font-size: 0.76rem;
   text-transform: uppercase;
 }
@@ -613,7 +620,7 @@ h3 {
 }
 
 .price-row strong {
-  color: var(--green-dark);
+  color: #11150a;
   font-size: 1.18rem;
 }
 
@@ -630,7 +637,7 @@ h3 {
   padding: 9px 10px;
   border-radius: 9px;
   background: var(--soft);
-  color: var(--green-dark);
+  color: #4d6500;
   font-size: 0.79rem;
   font-weight: 1000;
 }
@@ -662,14 +669,15 @@ h3 {
   gap: clamp(28px, 6vw, 76px);
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(0, 186, 105, 0.14), transparent),
+    linear-gradient(135deg, rgba(184, 255, 0, 0.20), transparent),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 46px),
     var(--black);
   color: white;
 }
 
 .lifestyle .eyebrow,
 .lifestyle p {
-  color: #8df0bd;
+  color: var(--green-2);
 }
 
 .metrics {
@@ -713,7 +721,7 @@ h3 {
   padding: clamp(30px, 5vw, 56px);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.68)),
-    radial-gradient(circle at 80% 10%, rgba(0, 186, 105, 0.22), transparent 36%);
+    radial-gradient(circle at 80% 10%, rgba(184, 255, 0, 0.28), transparent 36%);
 }
 
 .test-panel h2 {
@@ -723,7 +731,8 @@ h3 {
 .address-card {
   padding: 30px;
   background:
-    linear-gradient(135deg, rgba(0, 186, 105, 0.18), transparent),
+    linear-gradient(135deg, rgba(184, 255, 0, 0.22), transparent),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 20px),
     var(--black);
   color: white;
 }
@@ -820,7 +829,7 @@ h3 {
   text-align: center;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.66), white),
-    radial-gradient(circle at 50% 0, rgba(0, 186, 105, 0.18), transparent 40%);
+    radial-gradient(circle at 50% 0, rgba(184, 255, 0, 0.24), transparent 40%);
 }
 
 .community h2 {
@@ -840,7 +849,7 @@ h3 {
   padding: 0 22px;
   border: 1px solid var(--line);
   background: white;
-  color: var(--green-dark);
+  color: #435900;
 }
 
 footer {
@@ -860,7 +869,7 @@ footer img {
 }
 
 footer a {
-  color: var(--green-dark);
+  color: #435900;
   font-weight: 1000;
 }
 
