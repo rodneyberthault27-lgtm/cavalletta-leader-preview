@@ -1,5 +1,7 @@
 const whatsappUrl = "https://wa.me/5511925141848";
 const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
+const siteUrl = "https://cavalletta-leader.rodead.chatgpt.site";
+const storeAddress = "Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501 - loja 26, Sao Paulo";
 const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026";
 const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
@@ -150,9 +152,126 @@ const supportItems = [
   ["Trabalhe conosco", "Expansao, parcerias e oportunidades locais."],
 ];
 
+const desireSteps = [
+  ["Imagine chegar sem barulho", "Voce sai do transito mental de gasolina, posto e manutencao pesada."],
+  ["Sinta controle no primeiro toque", "App, GPS, NFC, bateria de litio e modelos com tecnologia antifurto."],
+  ["Escolha com menos duvida", "A vitrine compara potencia, autonomia, cores e preco antes do WhatsApp."],
+  ["Compre com seguranca local", "Loja fisica, mapa, test-drive e atendimento humano na Ricardo Jafet."],
+];
+
+const trustSignals = [
+  ["Resposta rapida", "Atendimento direto pelo WhatsApp da loja."],
+  ["Produto real", "Modelos Cavalletta com fotos, especificacoes e cores."],
+  ["Sem pressao", "Voce compara online e decide com suporte presencial."],
+  ["Decisao inteligente", "Economia, autonomia e tecnologia lado a lado."],
+];
+
+const faqs = [
+  {
+    question: "Onde fica a Cavalletta Leader?",
+    answer: "A Cavalletta Leader fica na Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501, loja 26, em Sao Paulo.",
+  },
+  {
+    question: "Como falar com a loja pelo WhatsApp?",
+    answer: "O atendimento e feito pelo WhatsApp +55 11 92514-1848 ou pelo link wa.me/5511925141848.",
+  },
+  {
+    question: "Posso fazer test-drive?",
+    answer: "Sim. Voce pode chamar no WhatsApp para combinar uma visita e conhecer os modelos disponiveis na loja.",
+  },
+  {
+    question: "Quais modelos Cavalletta aparecem no site?",
+    answer: "O site apresenta C2, C3, C3 Pro, C10, C12, C15, AE8 e T3, com foco em scooters, motos, triciclos e bicicletas eletricas.",
+  },
+  {
+    question: "Tem modelo que nao precisa de CNH?",
+    answer: "Alguns modelos sao apresentados como sem CNH ou voltados para ciclovia. A loja pode confirmar a regra ideal para seu uso e cidade no atendimento.",
+  },
+];
+
+const toNumber = (price: string) => Number(price.replace("R$ ", "").replace(".", ""));
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#store`,
+      name: "Cavalletta Leader",
+      url: siteUrl,
+      image: "https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500",
+      telephone: "+55 11 92514-1848",
+      priceRange: "$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. Ricardo Jafet, 1501 - loja 26",
+        addressLocality: "Sao Paulo",
+        addressRegion: "SP",
+        addressCountry: "BR",
+      },
+      sameAs: [instagramUrl, whatsappUrl],
+      hasMap: mapsUrl,
+      areaServed: "Sao Paulo",
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "Cavalletta Leader",
+      url: siteUrl,
+      inLanguage: "pt-BR",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${siteUrl}/#produtos?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${siteUrl}/#produtos`,
+      name: "Modelos Cavalletta Leader",
+      itemListElement: models.map((model, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: model.name,
+          image: model.image,
+          brand: { "@type": "Brand", name: "Cavalletta" },
+          category: model.category,
+          description: `${model.name} com ${model.specs.join(", ")}. Cores: ${model.colors.join(", ")}.`,
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "BRL",
+            price: toNumber(model.price),
+            availability: "https://schema.org/InStock",
+            url: siteUrl,
+            seller: { "@id": `${siteUrl}/#store` },
+          },
+        },
+      })),
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteUrl}/#faq`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <div className="topline">
         <span>Loja fisica Cavalletta Leader</span>
         <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +55 11 92514-1848</a>
@@ -182,9 +301,9 @@ export default function Home() {
       <section className="hero-store" id="top">
         <div className="hero-copy">
           <p className="eyebrow">Cavalletta Leader</p>
-          <h1>Mobilidade eletrica com vitrine de loja premium.</h1>
+          <h1>Scooters e motos eletricas Cavalletta com atitude.</h1>
           <p className="hero-text">
-            Scooters, triciclos e bikes eletricas Cavalletta com tecnologia, test-drive e atendimento presencial na Ricardo Jafet.
+            Escolha sua Cavalletta com tecnologia, test-drive, mapa da loja e atendimento direto pelo WhatsApp na Ricardo Jafet.
           </p>
           <div className="hero-actions">
             <a className="primary" href="#produtos">Ver produtos</a>
@@ -215,6 +334,15 @@ export default function Home() {
           <span>Atendimento por WhatsApp</span>
           <span>Autonomia ate 80 km</span>
         </div>
+      </section>
+
+      <section className="decision-strip" aria-label="Motivos para escolher a Cavalletta Leader">
+        {trustSignals.map(([title, text]) => (
+          <article key={title}>
+            <strong>{title}</strong>
+            <span>{text}</span>
+          </article>
+        ))}
       </section>
 
       <section className="promo-duo" id="ofertas">
@@ -296,6 +424,25 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="neuro-panel" aria-label="Experiencia de compra Cavalletta Leader">
+        <div>
+          <p className="eyebrow">Sistema de decisao</p>
+          <h2>O cliente nao compra so transporte. Ele compra liberdade, status e controle.</h2>
+          <p>
+            Por isso a pagina guia o olhar por desejo, prova, comparacao e acao. Primeiro cria imaginacao, depois reduz risco e finalmente convida para o WhatsApp.
+          </p>
+          <a className="primary" href={whatsappUrl} target="_blank" rel="noreferrer">Quero minha Cavalletta</a>
+        </div>
+        <div className="desire-grid">
+          {desireSteps.map(([title, text]) => (
+            <article key={title}>
+              <strong>{title}</strong>
+              <span>{text}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="lifestyle">
         <div>
           <p className="eyebrow">Mais do que mobilidade</p>
@@ -350,6 +497,21 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="faq-section" id="faq">
+        <div className="section-head compact">
+          <p className="eyebrow">Perguntas frequentes</p>
+          <h2>Respostas rapidas para quem esta perto de decidir.</h2>
+        </div>
+        <div className="faq-list">
+          {faqs.map((faq) => (
+            <details key={faq.question}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section className="community">
         <p className="eyebrow">A voz da comunidade Cavalletta</p>
         <h2>Cliente quer ver produto real, resposta rapida e decisao facil.</h2>
@@ -362,7 +524,7 @@ export default function Home() {
 
       <footer>
         <img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" />
-        <p>cavalletta.leader - mobilidade eletrica premium.</p>
+        <p>cavalletta.leader - {storeAddress}</p>
         <a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a>
         <a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a>
       </footer>
