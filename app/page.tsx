@@ -7,10 +7,10 @@ const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20Extra%20Ricardo%2
 
 const navTabs = [
   ["Nossos produtos", "#produtos"],
-  ["Venda imperdivel", "#ofertas"],
+  ["Destaques", "#ofertas"],
   ["Lojas", "#lojas"],
-  ["Suporte", "#suporte"],
-  ["Explorar mais", "#explorar"],
+  ["Manutencao", "#manutencao"],
+  ["Fabrica e estoque", "#fabrica-estoque"],
 ];
 
 const searchChips = [
@@ -52,10 +52,7 @@ const models = [
     name: "C12 Ciclomotor Eletrico",
     tag: "Mais vendida",
     category: "Scooter",
-    discount: "-10%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C12white1.png?v=1773131725",
-    price: "R$ 8.999",
-    oldPrice: "R$ 9.999",
     specs: ["1000W", "75 km", "60V 20Ah", "32 km/h"],
     colors: ["Branco", "Azul", "Caqui", "Preto"],
   },
@@ -63,10 +60,7 @@ const models = [
     name: "C3 Scooter Eletrica",
     tag: "Hot",
     category: "Scooter",
-    discount: "-13%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3-preto5_3c5e875a-2486-4497-9e76-8e7c4951bf8a.jpg?v=1772529411",
-    price: "R$ 6.099",
-    oldPrice: "R$ 6.999",
     specs: ["800W", "75 km", "Ciclovia", "Litio"],
     colors: ["Preto", "Azul", "Cinza"],
   },
@@ -74,10 +68,7 @@ const models = [
     name: "C15 Scooter Eletrica",
     tag: "Robusta",
     category: "Scooter",
-    discount: "-9%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1000px-1000px-_2.jpg?v=1778833824",
-    price: "R$ 9.999",
-    oldPrice: "R$ 10.999",
     specs: ["1000W", "65 km", "25 graus", "Disco duplo"],
     colors: ["Preto", "Cinza", "Branco", "Amarela", "Verde", "Azul"],
   },
@@ -85,10 +76,7 @@ const models = [
     name: "C10 NFC Antifurto",
     tag: "Sem CNH",
     category: "Moto eletrica",
-    discount: "-8%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C10-white1.png?v=1773130104",
-    price: "R$ 7.999",
-    oldPrice: "R$ 8.699",
     specs: ["1000W", "65 km", "NFC", "Antifurto"],
     colors: ["Branco", "Verde", "Cinza", "Marrom"],
   },
@@ -96,10 +84,7 @@ const models = [
     name: "C3 Pro App + GPS",
     tag: "New",
     category: "Tecnologia",
-    discount: "-17%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490",
-    price: "R$ 6.599",
-    oldPrice: "R$ 7.999",
     specs: ["App", "GPS", "75 km", "Antifurto"],
     colors: ["Preto", "Azul", "Cinza"],
   },
@@ -107,10 +92,7 @@ const models = [
     name: "C2 Removivel Litio",
     tag: "Entrada",
     category: "Bicicleta eletrica",
-    discount: "-18%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1_31.jpg?v=1784627413",
-    price: "R$ 5.027",
-    oldPrice: "R$ 6.097",
     specs: ["750W", "65 km", "Removivel", "32 km/h"],
     colors: ["Preto", "Vermelho", "Azul", "Verde"],
   },
@@ -118,10 +100,7 @@ const models = [
     name: "AE8 Mobilidade Urbana",
     tag: "Aventura",
     category: "Bicicleta eletrica",
-    discount: "-11%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/AE8_1.jpg?v=1781167662",
-    price: "R$ 7.999",
-    oldPrice: "R$ 8.990",
     specs: ["1000W", "80 km", "Disco", "Esportiva"],
     colors: ["Bike style"],
   },
@@ -129,10 +108,7 @@ const models = [
     name: "T3 Triciclo Eletrico",
     tag: "Familia",
     category: "Triciclo eletrico",
-    discount: "-14%",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/Frame15.jpg?v=1765848580",
-    price: "R$ 11.999",
-    oldPrice: "R$ 13.999",
     specs: ["3 rodas", "1000W", "Estavel", "Urbano"],
     colors: ["Caqui", "Azul-marinho", "Vermelho"],
   },
@@ -146,16 +122,28 @@ const categories = [
 ];
 
 const supportItems = [
-  ["Fale Conosco", "Tire duvidas e combine seu atendimento pelo WhatsApp."],
-  ["Rastrear pedido", "Acompanhamento simples para compras e entregas."],
-  ["Guias e Tutoriais", "Orientacao de recarga, bateria e conservacao."],
-  ["Trabalhe conosco", "Expansao, parcerias e oportunidades locais."],
+  ["Manutencao tecnica", "Avaliacao, diagnostico e orientacao para manter sua Cavalletta pronta para a rotina."],
+  ["Pecas de reposicao", "Consulte componentes compativeis e disponibilidade diretamente com a equipe da loja."],
+  ["Cuidados com a bateria", "Orientacao de recarga, conservacao e uso adequado para preservar desempenho e autonomia."],
+  ["Pos-venda local", "Atendimento humano na Ricardo Jafet antes, durante e depois da sua escolha."],
+];
+
+const businessProof = [
+  ["Vendas realizadas", "Modelos entregues com orientacao de uso, conferencia e suporte direto da equipe Leader."],
+  ["Escolha acompanhada", "O cliente compara uso, autonomia, potencia e conforto antes de decidir."],
+  ["Entrega responsavel", "Cada venda e conduzida com explicacao dos recursos, bateria e cuidados essenciais."],
+];
+
+const factoryStockItems = [
+  ["Informacoes da fabrica", "Conheca a tecnologia, a construcao e os diferenciais de cada linha Cavalletta com nossa equipe."],
+  ["Estoque consultivo", "Cores e modelos podem variar. Confirmamos a disponibilidade atual antes da sua visita."],
+  ["Reposicao e chegada", "Quando um modelo nao estiver disponivel, informamos previsao e alternativas pelo WhatsApp."],
 ];
 
 const desireSteps = [
   ["Imagine chegar sem barulho", "Voce sai do transito mental de gasolina, posto e manutencao pesada."],
   ["Sinta controle no primeiro toque", "App, GPS, NFC, bateria de litio e modelos com tecnologia antifurto."],
-  ["Escolha com menos duvida", "A vitrine compara potencia, autonomia, cores e preco antes do WhatsApp."],
+  ["Escolha com menos duvida", "A vitrine compara potencia, autonomia e cores antes da conversa no WhatsApp."],
   ["Compre com seguranca local", "Loja fisica, mapa, test-drive e atendimento humano na Ricardo Jafet."],
 ];
 
@@ -187,9 +175,14 @@ const faqs = [
     question: "Tem modelo que nao precisa de CNH?",
     answer: "Alguns modelos sao apresentados como sem CNH ou voltados para ciclovia. A loja pode confirmar a regra ideal para seu uso e cidade no atendimento.",
   },
+  {
+    question: "Como consultar valores e estoque?",
+    answer: "Valores, cores e disponibilidade sao informados diretamente pela equipe no WhatsApp, de acordo com o modelo desejado.",
+  },
 ];
 
-const toNumber = (price: string) => Number(price.replace("R$ ", "").replace(".", ""));
+const whatsappFor = (subject: string) =>
+  `${whatsappUrl}?text=${encodeURIComponent(`Ola! Vim pelo site da Cavalletta Leader e gostaria de saber mais sobre ${subject}.`)}`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -201,7 +194,6 @@ const structuredData = {
       url: siteUrl,
       image: "https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500",
       telephone: "+55 11 92514-1848",
-      priceRange: "$$",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Av. Ricardo Jafet, 1501 - loja 26",
@@ -239,14 +231,6 @@ const structuredData = {
           brand: { "@type": "Brand", name: "Cavalletta" },
           category: model.category,
           description: `${model.name} com ${model.specs.join(", ")}. Cores: ${model.colors.join(", ")}.`,
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "BRL",
-            price: toNumber(model.price),
-            availability: "https://schema.org/InStock",
-            url: siteUrl,
-            seller: { "@id": `${siteUrl}/#store` },
-          },
         },
       })),
     },
@@ -287,7 +271,7 @@ export default function Home() {
         </nav>
         <div className="header-actions">
           <a className="ghost-action" href="#busca" aria-label="Buscar modelos">Buscar</a>
-          <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Comprar ja</a>
+          <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
         </div>
       </header>
 
@@ -348,10 +332,10 @@ export default function Home() {
       <section className="promo-duo" id="ofertas">
         <article className="promo-card dark">
           <div>
-            <p className="eyebrow">Venda imperdivel</p>
+            <p className="eyebrow">Destaque tecnologico</p>
             <h2>Conheca o Novo C3 Pro</h2>
             <p>Tecnologia, estilo, controle inteligente pelo app, GPS e antifurto.</p>
-            <a className="primary" href={whatsappUrl} target="_blank" rel="noreferrer">Comprar ja</a>
+            <a className="primary" href={whatsappFor("o C3 Pro")} target="_blank" rel="noreferrer">Consultar no WhatsApp</a>
           </div>
           <img src={models[4].image} alt="Cavalletta C3 Pro" />
         </article>
@@ -360,7 +344,7 @@ export default function Home() {
             <p className="eyebrow">Familia e conforto</p>
             <h2>Onde a familia vive cada viagem</h2>
             <p>Cavalletta T3 com estabilidade, presenca e liberdade no trajeto.</p>
-            <a className="secondary" href="#produtos">Ver T3</a>
+            <a className="secondary" href={whatsappFor("o T3 Triciclo Eletrico")} target="_blank" rel="noreferrer">Consultar T3</a>
           </div>
           <img src={models[7].image} alt="Cavalletta T3" />
         </article>
@@ -378,7 +362,7 @@ export default function Home() {
               <div>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <a href="#produtos">Saiba mais</a>
+                <a href={whatsappFor(title)} target="_blank" rel="noreferrer">Consultar modelos</a>
               </div>
             </article>
           ))}
@@ -391,14 +375,13 @@ export default function Home() {
             <p className="eyebrow">Produtos populares</p>
             <h2>Todos os modelos em uma vitrine moderna.</h2>
           </div>
-          <p>Visual de ecommerce, etiquetas de promocao, cores, especificacoes e chamada direta para atendimento.</p>
+          <p>Fotos, cores e especificacoes para escolher com seguranca. Valores e disponibilidade sao informados pela equipe no WhatsApp.</p>
         </div>
         <div className="product-grid">
           {models.map((model) => (
             <article className="product-card" key={model.name}>
               <div className="product-media">
-                <span className="discount">{model.discount}</span>
-                <button aria-label={`Visao rapida de ${model.name}`}>Visao rapida</button>
+                <span className="photo-label">Foto do modelo</span>
                 <img src={model.image} alt={model.name} />
               </div>
               <div className="product-body">
@@ -407,20 +390,63 @@ export default function Home() {
                   <strong>{model.tag}</strong>
                 </div>
                 <h3>{model.name}</h3>
-                <div className="price-row">
-                  <del>{model.oldPrice}</del>
-                  <strong>{model.price}</strong>
-                </div>
                 <ul>
                   {model.specs.map((spec) => <li key={spec}>{spec}</li>)}
                 </ul>
                 <div className="swatches" aria-label={`Cores de ${model.name}`}>
                   {model.colors.slice(0, 6).map((color) => <span key={color}>{color}</span>)}
                 </div>
-                <a className="quick-buy" href={whatsappUrl} target="_blank" rel="noreferrer">Adicao rapida</a>
+                <a className="quick-buy" href={whatsappFor(model.name)} target="_blank" rel="noreferrer">Consultar no WhatsApp</a>
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="service-showcase" id="manutencao">
+        <div className="service-intro">
+          <p className="eyebrow">Manutencao e reposicao</p>
+          <h2>Sua Cavalletta cuidada por quem entende do produto.</h2>
+          <p>Conte com orientacao tecnica, pecas de reposicao e atendimento pos-venda para manter sua mobilidade eletrica funcionando com confianca.</p>
+          <a className="primary" href={whatsappFor("manutencao tecnica ou pecas de reposicao")} target="_blank" rel="noreferrer">Falar com a assistencia</a>
+        </div>
+        <div className="service-grid">
+          {supportItems.map(([title, text], index) => (
+            <article key={title}>
+              <span>0{index + 1}</span>
+              <strong>{title}</strong>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="business-section" id="fabrica-estoque">
+        <div className="business-heading">
+          <p className="eyebrow">Confianca para decidir</p>
+          <h2>Vendas realizadas, fabrica e estoque.</h2>
+          <p>Informacao clara em cada etapa, da escolha do modelo ao suporte depois da entrega.</p>
+        </div>
+        <div className="business-columns">
+          <div>
+            <span className="column-kicker">Experiencia de venda</span>
+            {businessProof.map(([title, text]) => (
+              <article key={title}>
+                <strong>{title}</strong>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+          <div>
+            <span className="column-kicker">Informacao atualizada</span>
+            {factoryStockItems.map(([title, text]) => (
+              <article key={title}>
+                <strong>{title}</strong>
+                <p>{text}</p>
+              </article>
+            ))}
+            <a className="secondary dark" href={whatsappFor("informacoes da fabrica e disponibilidade em estoque")} target="_blank" rel="noreferrer">Consultar fabrica e estoque</a>
+          </div>
         </div>
       </section>
 
@@ -479,21 +505,6 @@ export default function Home() {
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
           />
-        </div>
-      </section>
-
-      <section className="support" id="suporte">
-        <div>
-          <p className="eyebrow">Suporte</p>
-          <h2>Antes, durante e depois da compra.</h2>
-        </div>
-        <div className="support-grid">
-          {supportItems.map(([title, text]) => (
-            <article key={title}>
-              <strong>{title}</strong>
-              <span>{text}</span>
-            </article>
-          ))}
         </div>
       </section>
 
