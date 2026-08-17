@@ -1,7 +1,7 @@
 const whatsappUrl = "https://wa.me/5511925141848";
 const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
 const siteUrl = "https://cavalletta-leader.rodead.chatgpt.site";
-const storeAddress = "Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501 - loja 26, Sao Paulo";
+const storeAddress = "Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501 - loja 26, São Paulo";
 const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026";
 const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
@@ -9,8 +9,8 @@ const navTabs = [
   ["Nossos produtos", "#produtos"],
   ["Destaques", "#ofertas"],
   ["Lojas", "#lojas"],
-  ["Manutencao", "#manutencao"],
-  ["Fabrica e estoque", "#fabrica-estoque"],
+  ["Manutenção", "#manutencao"],
+  ["Fábrica e estoque", "#fabrica-estoque"],
 ];
 
 const searchChips = [
@@ -19,10 +19,10 @@ const searchChips = [
   "C12",
   "C15",
   "C3 Pro",
-  "Scooter eletrica",
-  "Bateria de litio",
-  "Moto eletrica",
-  "Triciclo eletrico",
+  "Scooter elétrica",
+  "Bateria de lítio",
+  "Moto elétrica",
+  "Triciclo elétrico",
   "1000W",
 ];
 
@@ -35,8 +35,8 @@ const heroSlides = [
   },
   {
     name: "T3",
-    headline: "Onde a familia vive cada viagem",
-    text: "Tres rodas, estabilidade e conforto para transformar trajetos em momentos mais seguros.",
+    headline: "Onde a família vive cada viagem",
+    text: "Três rodas, estabilidade e conforto para transformar trajetos em momentos mais seguros.",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/Frame15.jpg?v=1765848580",
   },
   {
@@ -49,7 +49,7 @@ const heroSlides = [
 
 const models = [
   {
-    name: "C12 Ciclomotor Eletrico",
+    name: "C12 Ciclomotor Elétrico",
     tag: "Mais vendida",
     category: "Scooter",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C12white1.png?v=1773131725",
@@ -57,15 +57,15 @@ const models = [
     colors: ["Branco", "Azul", "Caqui", "Preto"],
   },
   {
-    name: "C3 Scooter Eletrica",
+    name: "C3 Scooter Elétrica",
     tag: "Hot",
     category: "Scooter",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3-preto5_3c5e875a-2486-4497-9e76-8e7c4951bf8a.jpg?v=1772529411",
-    specs: ["800W", "75 km", "Ciclovia", "Litio"],
+    specs: ["800W", "75 km", "Ciclovia", "Lítio"],
     colors: ["Preto", "Azul", "Cinza"],
   },
   {
-    name: "C15 Scooter Eletrica",
+    name: "C15 Scooter Elétrica",
     tag: "Robusta",
     category: "Scooter",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1000px-1000px-_2.jpg?v=1778833824",
@@ -75,7 +75,7 @@ const models = [
   {
     name: "C10 NFC Antifurto",
     tag: "Sem CNH",
-    category: "Moto eletrica",
+    category: "Moto elétrica",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C10-white1.png?v=1773130104",
     specs: ["1000W", "65 km", "NFC", "Antifurto"],
     colors: ["Branco", "Verde", "Cinza", "Marrom"],
@@ -89,100 +89,100 @@ const models = [
     colors: ["Preto", "Azul", "Cinza"],
   },
   {
-    name: "C2 Removivel Litio",
+    name: "C2 Removível Lítio",
     tag: "Entrada",
-    category: "Bicicleta eletrica",
+    category: "Bicicleta elétrica",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1_31.jpg?v=1784627413",
-    specs: ["750W", "65 km", "Removivel", "32 km/h"],
+    specs: ["750W", "65 km", "Removível", "32 km/h"],
     colors: ["Preto", "Vermelho", "Azul", "Verde"],
   },
   {
     name: "AE8 Mobilidade Urbana",
     tag: "Aventura",
-    category: "Bicicleta eletrica",
+    category: "Bicicleta elétrica",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/AE8_1.jpg?v=1781167662",
     specs: ["1000W", "80 km", "Disco", "Esportiva"],
     colors: ["Bike style"],
   },
   {
-    name: "T3 Triciclo Eletrico",
-    tag: "Familia",
-    category: "Triciclo eletrico",
+    name: "T3 Triciclo Elétrico",
+    tag: "Família",
+    category: "Triciclo elétrico",
     image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/Frame15.jpg?v=1765848580",
-    specs: ["3 rodas", "1000W", "Estavel", "Urbano"],
+    specs: ["3 rodas", "1000W", "Estável", "Urbano"],
     colors: ["Caqui", "Azul-marinho", "Vermelho"],
   },
 ];
 
 const categories = [
   ["Scooter", "C3, C10, C12 e C15 para cidade", models[0].image],
-  ["Triciclos Eletricos", "T3 com estabilidade e conforto", models[7].image],
-  ["Bicicleta Eletrica", "C2 e AE8 para rotina e aventura", models[5].image],
+  ["Triciclos Elétricos", "T3 com estabilidade e conforto", models[7].image],
+  ["Bicicleta Elétrica", "C2 e AE8 para rotina e aventura", models[5].image],
   ["Tecnologia", "App, GPS, NFC e antifurto", models[4].image],
 ];
 
 const supportItems = [
-  ["Manutencao tecnica", "Avaliacao, diagnostico e orientacao para manter sua Cavalletta pronta para a rotina."],
-  ["Pecas de reposicao", "Consulte componentes compativeis e disponibilidade diretamente com a equipe da loja."],
-  ["Cuidados com a bateria", "Orientacao de recarga, conservacao e uso adequado para preservar desempenho e autonomia."],
-  ["Pos-venda local", "Atendimento humano na Ricardo Jafet antes, durante e depois da sua escolha."],
+  ["Manutenção técnica", "Avaliação, diagnóstico e orientação para manter sua Cavalletta pronta para a rotina."],
+  ["Peças de reposição", "Consulte componentes compatíveis e disponibilidade diretamente com a equipe da loja."],
+  ["Cuidados com a bateria", "Orientação de recarga, conservação e uso adequado para preservar desempenho e autonomia."],
+  ["Pós-venda local", "Atendimento humano na Ricardo Jafet antes, durante e depois da sua escolha."],
 ];
 
 const businessProof = [
-  ["Vendas realizadas", "Modelos entregues com orientacao de uso, conferencia e suporte direto da equipe Leader."],
-  ["Escolha acompanhada", "O cliente compara uso, autonomia, potencia e conforto antes de decidir."],
-  ["Entrega responsavel", "Cada venda e conduzida com explicacao dos recursos, bateria e cuidados essenciais."],
+  ["Vendas realizadas", "Modelos entregues com orientação de uso, conferência e suporte direto da equipe Leader."],
+  ["Escolha acompanhada", "O cliente compara uso, autonomia, potência e conforto antes de decidir."],
+  ["Entrega responsável", "Cada venda é conduzida com explicação dos recursos, bateria e cuidados essenciais."],
 ];
 
 const factoryStockItems = [
-  ["Informacoes da fabrica", "Conheca a tecnologia, a construcao e os diferenciais de cada linha Cavalletta com nossa equipe."],
+  ["Informações da fábrica", "Conheça a tecnologia, a construção e os diferenciais de cada linha Cavalletta com nossa equipe."],
   ["Estoque consultivo", "Cores e modelos podem variar. Confirmamos a disponibilidade atual antes da sua visita."],
-  ["Reposicao e chegada", "Quando um modelo nao estiver disponivel, informamos previsao e alternativas pelo WhatsApp."],
+  ["Reposição e chegada", "Quando um modelo não estiver disponível, informamos previsão e alternativas pelo WhatsApp."],
 ];
 
 const desireSteps = [
-  ["Imagine chegar sem barulho", "Voce sai do transito mental de gasolina, posto e manutencao pesada."],
-  ["Sinta controle no primeiro toque", "App, GPS, NFC, bateria de litio e modelos com tecnologia antifurto."],
-  ["Escolha com menos duvida", "A vitrine compara potencia, autonomia e cores antes da conversa no WhatsApp."],
-  ["Compre com seguranca local", "Loja fisica, mapa, test-drive e atendimento humano na Ricardo Jafet."],
+  ["Imagine chegar sem barulho", "Você sai do trânsito mental de gasolina, posto e manutenção pesada."],
+  ["Sinta controle no primeiro toque", "App, GPS, NFC, bateria de lítio e modelos com tecnologia antifurto."],
+  ["Escolha com menos dúvida", "A vitrine compara potência, autonomia e cores antes da conversa no WhatsApp."],
+  ["Compre com segurança local", "Loja física, mapa, test-drive e atendimento humano na Ricardo Jafet."],
 ];
 
 const trustSignals = [
-  ["Resposta rapida", "Atendimento direto pelo WhatsApp da loja."],
-  ["Produto real", "Modelos Cavalletta com fotos, especificacoes e cores."],
-  ["Sem pressao", "Voce compara online e decide com suporte presencial."],
-  ["Decisao inteligente", "Economia, autonomia e tecnologia lado a lado."],
+  ["Resposta rápida", "Atendimento direto pelo WhatsApp da loja."],
+  ["Produto real", "Modelos Cavalletta com fotos, especificações e cores."],
+  ["Sem pressão", "Você compara online e decide com suporte presencial."],
+  ["Decisão inteligente", "Economia, autonomia e tecnologia lado a lado."],
 ];
 
 const faqs = [
   {
     question: "Onde fica a Cavalletta Leader?",
-    answer: "A Cavalletta Leader fica na Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501, loja 26, em Sao Paulo.",
+    answer: "A Cavalletta Leader fica na Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501, loja 26, em São Paulo.",
   },
   {
     question: "Como falar com a loja pelo WhatsApp?",
-    answer: "O atendimento e feito pelo WhatsApp +55 11 92514-1848 ou pelo link wa.me/5511925141848.",
+    answer: "O atendimento é feito pelo WhatsApp +55 11 92514-1848 ou pelo link wa.me/5511925141848.",
   },
   {
     question: "Posso fazer test-drive?",
-    answer: "Sim. Voce pode chamar no WhatsApp para combinar uma visita e conhecer os modelos disponiveis na loja.",
+    answer: "Sim. Você pode chamar no WhatsApp para combinar uma visita e conhecer os modelos disponíveis na loja.",
   },
   {
     question: "Quais modelos Cavalletta aparecem no site?",
-    answer: "O site apresenta C2, C3, C3 Pro, C10, C12, C15, AE8 e T3, com foco em scooters, motos, triciclos e bicicletas eletricas.",
+    answer: "O site apresenta C2, C3, C3 Pro, C10, C12, C15, AE8 e T3, com foco em scooters, motos, triciclos e bicicletas elétricas.",
   },
   {
-    question: "Tem modelo que nao precisa de CNH?",
-    answer: "Alguns modelos sao apresentados como sem CNH ou voltados para ciclovia. A loja pode confirmar a regra ideal para seu uso e cidade no atendimento.",
+    question: "Tem modelo que não precisa de CNH?",
+    answer: "Alguns modelos são apresentados como sem CNH ou voltados para ciclovia. A loja pode confirmar a regra ideal para seu uso e cidade no atendimento.",
   },
   {
     question: "Como consultar valores e estoque?",
-    answer: "Valores, cores e disponibilidade sao informados diretamente pela equipe no WhatsApp, de acordo com o modelo desejado.",
+    answer: "Valores, cores e disponibilidade são informados diretamente pela equipe no WhatsApp, de acordo com o modelo desejado.",
   },
 ];
 
 const whatsappFor = (subject: string) =>
-  `${whatsappUrl}?text=${encodeURIComponent(`Ola! Vim pelo site da Cavalletta Leader e gostaria de saber mais sobre ${subject}.`)}`;
+  `${whatsappUrl}?text=${encodeURIComponent(`Olá! Vim pelo site da Cavalletta Leader e gostaria de saber mais sobre ${subject}.`)}`;
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -197,13 +197,13 @@ const structuredData = {
       address: {
         "@type": "PostalAddress",
         streetAddress: "Av. Ricardo Jafet, 1501 - loja 26",
-        addressLocality: "Sao Paulo",
+        addressLocality: "São Paulo",
         addressRegion: "SP",
         addressCountry: "BR",
       },
       sameAs: [instagramUrl, whatsappUrl],
       hasMap: mapsUrl,
-      areaServed: "Sao Paulo",
+      areaServed: "São Paulo",
     },
     {
       "@type": "WebSite",
@@ -257,7 +257,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div className="topline">
-        <span>Loja fisica Cavalletta Leader</span>
+        <span>Loja física Cavalletta Leader</span>
         <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +55 11 92514-1848</a>
       </div>
 
@@ -285,7 +285,7 @@ export default function Home() {
       <section className="hero-store" id="top">
         <div className="hero-copy">
           <p className="eyebrow">Cavalletta Leader</p>
-          <h1>Scooters e motos eletricas Cavalletta com atitude.</h1>
+          <h1>Scooters e motos elétricas Cavalletta com atitude.</h1>
           <p className="hero-text">
             Escolha sua Cavalletta com tecnologia, test-drive, mapa da loja e atendimento direto pelo WhatsApp na Ricardo Jafet.
           </p>
@@ -312,11 +312,11 @@ export default function Home() {
       <section className="ticker" aria-label="Destaques Cavalletta">
         <div>
           <span>Sem CNH em modelos selecionados</span>
-          <span>Bateria de litio</span>
+          <span>Bateria de lítio</span>
           <span>App + GPS</span>
           <span>Test-drive na loja</span>
           <span>Atendimento por WhatsApp</span>
-          <span>Autonomia ate 80 km</span>
+          <span>Autonomia até 80 km</span>
         </div>
       </section>
 
@@ -332,8 +332,8 @@ export default function Home() {
       <section className="promo-duo" id="ofertas">
         <article className="promo-card dark">
           <div>
-            <p className="eyebrow">Destaque tecnologico</p>
-            <h2>Conheca o Novo C3 Pro</h2>
+            <p className="eyebrow">Destaque tecnológico</p>
+            <h2>Conheça o Novo C3 Pro</h2>
             <p>Tecnologia, estilo, controle inteligente pelo app, GPS e antifurto.</p>
             <a className="primary" href={whatsappFor("o C3 Pro")} target="_blank" rel="noreferrer">Consultar no WhatsApp</a>
           </div>
@@ -341,10 +341,10 @@ export default function Home() {
         </article>
         <article className="promo-card light">
           <div>
-            <p className="eyebrow">Familia e conforto</p>
-            <h2>Onde a familia vive cada viagem</h2>
-            <p>Cavalletta T3 com estabilidade, presenca e liberdade no trajeto.</p>
-            <a className="secondary" href={whatsappFor("o T3 Triciclo Eletrico")} target="_blank" rel="noreferrer">Consultar T3</a>
+            <p className="eyebrow">Família e conforto</p>
+            <h2>Onde a família vive cada viagem</h2>
+            <p>Cavalletta T3 com estabilidade, presença e liberdade no trajeto.</p>
+            <a className="secondary" href={whatsappFor("o T3 Triciclo Elétrico")} target="_blank" rel="noreferrer">Consultar T3</a>
           </div>
           <img src={models[7].image} alt="Cavalletta T3" />
         </article>
@@ -375,7 +375,7 @@ export default function Home() {
             <p className="eyebrow">Produtos populares</p>
             <h2>Todos os modelos em uma vitrine moderna.</h2>
           </div>
-          <p>Fotos, cores e especificacoes para escolher com seguranca. Valores e disponibilidade sao informados pela equipe no WhatsApp.</p>
+          <p>Fotos, cores e especificações para escolher com segurança. Valores e disponibilidade são informados pela equipe no WhatsApp.</p>
         </div>
         <div className="product-grid">
           {models.map((model) => (
@@ -405,10 +405,10 @@ export default function Home() {
 
       <section className="service-showcase" id="manutencao">
         <div className="service-intro">
-          <p className="eyebrow">Manutencao e reposicao</p>
+          <p className="eyebrow">Manutenção e reposição</p>
           <h2>Sua Cavalletta cuidada por quem entende do produto.</h2>
-          <p>Conte com orientacao tecnica, pecas de reposicao e atendimento pos-venda para manter sua mobilidade eletrica funcionando com confianca.</p>
-          <a className="primary" href={whatsappFor("manutencao tecnica ou pecas de reposicao")} target="_blank" rel="noreferrer">Falar com a assistencia</a>
+          <p>Conte com orientação técnica, peças de reposição e atendimento pós-venda para manter sua mobilidade elétrica funcionando com confiança.</p>
+          <a className="primary" href={whatsappFor("manutenção técnica ou peças de reposição")} target="_blank" rel="noreferrer">Falar com a assistência</a>
         </div>
         <div className="service-grid">
           {supportItems.map(([title, text], index) => (
@@ -423,13 +423,13 @@ export default function Home() {
 
       <section className="business-section" id="fabrica-estoque">
         <div className="business-heading">
-          <p className="eyebrow">Confianca para decidir</p>
-          <h2>Vendas realizadas, fabrica e estoque.</h2>
-          <p>Informacao clara em cada etapa, da escolha do modelo ao suporte depois da entrega.</p>
+          <p className="eyebrow">Confiança para decidir</p>
+          <h2>Vendas realizadas, fábrica e estoque.</h2>
+          <p>Informação clara em cada etapa, da escolha do modelo ao suporte depois da entrega.</p>
         </div>
         <div className="business-columns">
           <div>
-            <span className="column-kicker">Experiencia de venda</span>
+            <span className="column-kicker">Experiência de venda</span>
             {businessProof.map(([title, text]) => (
               <article key={title}>
                 <strong>{title}</strong>
@@ -438,24 +438,24 @@ export default function Home() {
             ))}
           </div>
           <div>
-            <span className="column-kicker">Informacao atualizada</span>
+            <span className="column-kicker">Informação atualizada</span>
             {factoryStockItems.map(([title, text]) => (
               <article key={title}>
                 <strong>{title}</strong>
                 <p>{text}</p>
               </article>
             ))}
-            <a className="secondary dark" href={whatsappFor("informacoes da fabrica e disponibilidade em estoque")} target="_blank" rel="noreferrer">Consultar fabrica e estoque</a>
+            <a className="secondary dark" href={whatsappFor("informações da fábrica e disponibilidade em estoque")} target="_blank" rel="noreferrer">Consultar fábrica e estoque</a>
           </div>
         </div>
       </section>
 
-      <section className="neuro-panel" aria-label="Experiencia de compra Cavalletta Leader">
+      <section className="neuro-panel" aria-label="Experiência de compra Cavalletta Leader">
         <div>
-          <p className="eyebrow">Sistema de decisao</p>
-          <h2>O cliente nao compra so transporte. Ele compra liberdade, status e controle.</h2>
+          <p className="eyebrow">Sistema de decisão</p>
+          <h2>O cliente não compra só transporte. Ele compra liberdade, status e controle.</h2>
           <p>
-            Por isso a pagina guia o olhar por desejo, prova, comparacao e acao. Primeiro cria imaginacao, depois reduz risco e finalmente convida para o WhatsApp.
+            Por isso a página guia o olhar por desejo, prova, comparação e ação. Primeiro cria imaginação, depois reduz risco e finalmente convida para o WhatsApp.
           </p>
           <a className="primary" href={whatsappUrl} target="_blank" rel="noreferrer">Quero minha Cavalletta</a>
         </div>
@@ -475,18 +475,18 @@ export default function Home() {
           <h2>Uma forma de viver com menos custo e mais liberdade.</h2>
         </div>
         <div className="metrics">
-          <article><strong>+20</strong><span>anos de inovacao global</span></article>
-          <article><strong>+100</strong><span>paises atendidos</span></article>
-          <article><strong>0</strong><span>emissao local no seu trajeto</span></article>
+          <article><strong>+20</strong><span>anos de inovação global</span></article>
+          <article><strong>+100</strong><span>países atendidos</span></article>
+          <article><strong>0</strong><span>emissão local no seu trajeto</span></article>
           <article><strong>80 km</strong><span>autonomia em modelos selecionados</span></article>
         </div>
       </section>
 
       <section className="test-drive" id="lojas">
         <div className="test-panel">
-          <p className="eyebrow">Liberdade eletrica, em qualquer lugar</p>
+          <p className="eyebrow">Liberdade elétrica, em qualquer lugar</p>
           <h2>TEST DRIVE</h2>
-          <p>Experimente a emocao de andar de Cavalletta. Fale pelo WhatsApp e combine sua visita na Galeria Extra Ricardo Jafet.</p>
+          <p>Experimente a emoção de andar de Cavalletta. Fale pelo WhatsApp e combine sua visita na Galeria Extra Ricardo Jafet.</p>
           <a className="primary" href={whatsappUrl} target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a>
         </div>
         <div className="address-card">
@@ -511,7 +511,7 @@ export default function Home() {
       <section className="faq-section" id="faq">
         <div className="section-head compact">
           <p className="eyebrow">Perguntas frequentes</p>
-          <h2>Respostas rapidas para quem esta perto de decidir.</h2>
+          <h2>Respostas rápidas para quem está perto de decidir.</h2>
         </div>
         <div className="faq-list">
           {faqs.map((faq) => (
@@ -525,7 +525,7 @@ export default function Home() {
 
       <section className="community">
         <p className="eyebrow">A voz da comunidade Cavalletta</p>
-        <h2>Cliente quer ver produto real, resposta rapida e decisao facil.</h2>
+        <h2>Cliente quer ver produto real, resposta rápida e decisão fácil.</h2>
         <div className="social-row">
           <a href={instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
           <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>

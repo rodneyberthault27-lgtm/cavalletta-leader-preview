@@ -15,29 +15,29 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://cavalletta-leader.rodead.chatgpt.site"),
   title: {
-    default: "Cavalletta Leader | Scooters e Motos Eletricas em Sao Paulo",
+    default: "Cavalletta Leader | Scooters e Motos Elétricas em São Paulo",
     template: "%s | Cavalletta Leader",
   },
   description:
-    "Compre scooters, motos, triciclos e bicicletas eletricas Cavalletta com test-drive, WhatsApp e atendimento na Galeria Extra Ricardo Jafet, loja 26.",
+    "Conheça scooters, motos, triciclos e bicicletas elétricas Cavalletta com test-drive, WhatsApp e atendimento na Galeria Extra Ricardo Jafet, loja 26.",
   keywords: [
     "Cavalletta Leader",
-    "Cavalletta Sao Paulo",
-    "scooter eletrica",
-    "moto eletrica",
-    "bicicleta eletrica",
-    "triciclo eletrico",
+    "Cavalletta São Paulo",
+    "scooter elétrica",
+    "moto elétrica",
+    "bicicleta elétrica",
+    "triciclo elétrico",
     "Cavalletta C12",
     "Cavalletta C3 Pro",
     "Cavalletta T3",
-    "moto eletrica sem CNH",
+    "moto elétrica sem CNH",
     "Galeria Extra Ricardo Jafet",
   ],
   applicationName: "Cavalletta Leader",
   authors: [{ name: "Cavalletta Leader" }],
   creator: "Cavalletta Leader",
   publisher: "Cavalletta Leader",
-  category: "Mobilidade eletrica",
+  category: "Mobilidade elétrica",
   alternates: {
     canonical: "/",
   },
@@ -46,23 +46,23 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "/",
     siteName: "Cavalletta Leader",
-    title: "Cavalletta Leader | Scooters e Motos Eletricas em Sao Paulo",
+    title: "Cavalletta Leader | Scooters e Motos Elétricas em São Paulo",
     description:
-      "Vitrine premium Cavalletta com C3 Pro, C12, C15, T3, bicicletas eletricas, test-drive e atendimento pelo WhatsApp.",
+      "Vitrine premium Cavalletta com C3 Pro, C12, C15, T3, bicicletas elétricas, test-drive e atendimento pelo WhatsApp.",
     images: [
       {
         url: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490",
         width: 1000,
         height: 1000,
-        alt: "Scooter eletrica Cavalletta C3 Pro",
+        alt: "Scooter elétrica Cavalletta C3 Pro",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cavalletta Leader | Mobilidade eletrica com atitude",
+    title: "Cavalletta Leader | Mobilidade elétrica com atitude",
     description:
-      "Scooters, motos, triciclos e bikes eletricas Cavalletta com test-drive e atendimento em Sao Paulo.",
+      "Scooters, motos, triciclos e bikes elétricas Cavalletta com test-drive e atendimento em São Paulo.",
     images: ["https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490"],
   },
   robots: {
