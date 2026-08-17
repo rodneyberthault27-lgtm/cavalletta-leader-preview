@@ -14,111 +14,118 @@ const navTabs = [
 ];
 
 const searchChips = [
-  "T3",
+  "AE8",
+  "AJ1",
+  "E3",
+  "E12",
   "C3",
   "C12",
   "C15",
-  "C3 Pro",
-  "Scooter elétrica",
-  "Bateria de lítio",
-  "Moto elétrica",
-  "Triciclo elétrico",
-  "1000W",
+  "T3",
+  "A5X",
 ];
 
 const heroSlides = [
   {
     name: "C3 Pro",
-    headline: "Controle inteligente pelo app",
-    text: "GPS, antifurto e autonomia para quem quer tecnologia de verdade no deslocamento urbano.",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490",
+    headline: "Aplicativo inteligente",
+    text: "Mobilidade conectada, bateria de íon-lítio e autonomia para a rotina urbana.",
+    image: "/models/c3-pro.webp",
   },
   {
     name: "T3",
-    headline: "Onde a família vive cada viagem",
-    text: "Três rodas, estabilidade e conforto para transformar trajetos em momentos mais seguros.",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/Frame15.jpg?v=1765848580",
+    headline: "Estabilidade em três rodas",
+    text: "Conforto, segurança e praticidade para deslocamentos urbanos com até 50 km de autonomia.",
+    image: "/models/t3.webp",
   },
   {
-    name: "C12",
-    headline: "Leve, moderna e pronta",
-    text: "A favorita para quem quer estilo, autonomia e economia no mesmo pacote.",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C12white1.png?v=1773131725",
+    name: "A5X",
+    headline: "Potência para o trabalho",
+    text: "Triciclo elétrico de carga com motor de 2000 W, alta capacidade e autonomia de até 150 km.",
+    image: "/models/a5x.png",
   },
 ];
 
 const models = [
   {
-    name: "C12 Ciclomotor Elétrico",
-    tag: "Mais vendida",
+    name: "AE8 Bicicleta Elétrica",
+    tag: "Até 80 km",
+    category: "Bicicleta elétrica",
+    image: "/models/ae8.webp",
+    specs: ["1000 W", "Até 80 km", "48V 15Ah", "32 km/h"],
+    colors: ["Branco", "Vermelho", "Caqui", "Azul", "Verde"],
+  },
+  {
+    name: "AJ1 Série Leve",
+    tag: "Novidade",
+    category: "Bicicleta elétrica",
+    image: "/models/aj1.webp",
+    specs: ["Série leve", "Confortável", "Sem CNH", "Consulte detalhes"],
+    colors: ["Grafite", "Cinza", "Creme", "Rosa"],
+  },
+  {
+    name: "E3 Elétrica Urbana",
+    tag: "Vida com qualidade",
     category: "Scooter",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C12white1.png?v=1773131725",
-    specs: ["1000W", "75 km", "60V 20Ah", "32 km/h"],
-    colors: ["Branco", "Azul", "Caqui", "Preto"],
+    image: "/models/e3.webp",
+    specs: ["800 W", "Até 50 km", "48V 24Ah", "32 km/h"],
+    colors: ["Laranja", "Creme", "Verde", "Vermelho"],
   },
   {
-    name: "C3 Scooter Elétrica",
-    tag: "Hot",
+    name: "E12 NFC Antifurto",
+    tag: "NFC",
     category: "Scooter",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3-preto5_3c5e875a-2486-4497-9e76-8e7c4951bf8a.jpg?v=1772529411",
-    specs: ["800W", "75 km", "Ciclovia", "Lítio"],
-    colors: ["Preto", "Azul", "Cinza"],
+    image: "/models/e12.webp",
+    specs: ["1000 W", "Até 65 km", "60V 24Ah", "NFC"],
+    colors: ["Grafite", "Marrom", "Cinza", "Creme"],
   },
   {
-    name: "C15 Scooter Elétrica",
-    tag: "Robusta",
-    category: "Scooter",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1000px-1000px-_2.jpg?v=1778833824",
-    specs: ["1000W", "65 km", "25 graus", "Disco duplo"],
-    colors: ["Preto", "Cinza", "Branco", "Amarela", "Verde", "Azul"],
-  },
-  {
-    name: "C10 NFC Antifurto",
-    tag: "Sem CNH",
-    category: "Moto elétrica",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C10-white1.png?v=1773130104",
-    specs: ["1000W", "65 km", "NFC", "Antifurto"],
-    colors: ["Branco", "Verde", "Cinza", "Marrom"],
-  },
-  {
-    name: "C3 Pro App + GPS",
-    tag: "New",
+    name: "C3 Pro Aplicativo Inteligente",
+    tag: "App inteligente",
     category: "Tecnologia",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490",
-    specs: ["App", "GPS", "75 km", "Antifurto"],
-    colors: ["Preto", "Azul", "Cinza"],
+    image: "/models/c3-pro.webp",
+    specs: ["800 W", "Até 50 km", "48V 24Ah", "App"],
+    colors: ["Preto", "Branco", "Azul-claro"],
   },
   {
-    name: "C2 Removível Lítio",
-    tag: "Entrada",
+    name: "C12 Bicicleta Elétrica",
+    tag: "Até 65 km",
     category: "Bicicleta elétrica",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/1_31.jpg?v=1784627413",
-    specs: ["750W", "65 km", "Removível", "32 km/h"],
-    colors: ["Preto", "Vermelho", "Azul", "Verde"],
+    image: "/models/c12.webp",
+    specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"],
+    colors: ["Preto", "Branco", "Caqui", "Azul-claro"],
   },
   {
-    name: "AE8 Mobilidade Urbana",
-    tag: "Aventura",
+    name: "C15 Bicicleta Elétrica",
+    tag: "Carga até 160 kg",
     category: "Bicicleta elétrica",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/AE8_1.jpg?v=1781167662",
-    specs: ["1000W", "80 km", "Disco", "Esportiva"],
-    colors: ["Bike style"],
+    image: "/models/c15.webp",
+    specs: ["1000 W", "Até 55 km", "60V 20Ah", "32 km/h"],
+    colors: ["Preto", "Branco", "Cinza", "Creme", "Azul"],
   },
   {
     name: "T3 Triciclo Elétrico",
-    tag: "Família",
+    tag: "Estabilidade",
     category: "Triciclo elétrico",
-    image: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/Frame15.jpg?v=1765848580",
-    specs: ["3 rodas", "1000W", "Estável", "Urbano"],
-    colors: ["Caqui", "Azul-marinho", "Vermelho"],
+    image: "/models/t3.webp",
+    specs: ["1000 W", "Até 50 km", "60V 20Ah", "30 km/h"],
+    colors: ["Azul", "Preto", "Branco", "Cinza", "Vermelho"],
+  },
+  {
+    name: "A5X Triciclo de Carga",
+    tag: "Carga profissional",
+    category: "Triciclo elétrico",
+    image: "/models/a5x.png",
+    specs: ["2000 W", "Até 150 km", "72V 96Ah", "Carga 500 kg"],
+    colors: ["Verde", "Branco"],
   },
 ];
 
 const categories = [
-  ["Scooter", "C3, C10, C12 e C15 para cidade", models[0].image],
-  ["Triciclos Elétricos", "T3 com estabilidade e conforto", models[7].image],
-  ["Bicicleta Elétrica", "C2 e AE8 para rotina e aventura", models[5].image],
-  ["Tecnologia", "App, GPS, NFC e antifurto", models[4].image],
+  ["Scooters urbanas", "E3, E12 e C3 Pro para a rotina", models[3].image],
+  ["Triciclos elétricos", "T3 para conforto e A5X para carga", models[8].image],
+  ["Bicicletas elétricas", "AE8, AJ1, C12 e C15", models[0].image],
+  ["Tecnologia", "Aplicativo, NFC, alarme e bateria de íon-lítio", models[4].image],
 ];
 
 const supportItems = [
@@ -142,7 +149,7 @@ const factoryStockItems = [
 
 const desireSteps = [
   ["Imagine chegar sem barulho", "Você sai do trânsito mental de gasolina, posto e manutenção pesada."],
-  ["Sinta controle no primeiro toque", "App, GPS, NFC, bateria de lítio e modelos com tecnologia antifurto."],
+  ["Sinta controle no primeiro toque", "Aplicativo, NFC, bateria de lítio e modelos com tecnologia antifurto."],
   ["Escolha com menos dúvida", "A vitrine compara potência, autonomia e cores antes da conversa no WhatsApp."],
   ["Compre com segurança local", "Loja física, mapa, test-drive e atendimento humano na Ricardo Jafet."],
 ];
@@ -169,7 +176,7 @@ const faqs = [
   },
   {
     question: "Quais modelos Cavalletta aparecem no site?",
-    answer: "O site apresenta C2, C3, C3 Pro, C10, C12, C15, AE8 e T3, com foco em scooters, motos, triciclos e bicicletas elétricas.",
+    answer: "A vitrine atual apresenta AE8, AJ1, E3, E12, C3 Pro, C12, C15, T3 e A5X, conforme o portfólio disponível da loja.",
   },
   {
     question: "Tem modelo que não precisa de CNH?",
@@ -227,7 +234,7 @@ const structuredData = {
         item: {
           "@type": "Product",
           name: model.name,
-          image: model.image,
+          image: model.image.startsWith("http") ? model.image : `${siteUrl}${model.image}`,
           brand: { "@type": "Brand", name: "Cavalletta" },
           category: model.category,
           description: `${model.name} com ${model.specs.join(", ")}. Cores: ${model.colors.join(", ")}.`,
@@ -313,10 +320,10 @@ export default function Home() {
         <div>
           <span>Sem CNH em modelos selecionados</span>
           <span>Bateria de lítio</span>
-          <span>App + GPS</span>
+          <span>Aplicativo inteligente</span>
           <span>Test-drive na loja</span>
           <span>Atendimento por WhatsApp</span>
-          <span>Autonomia até 80 km</span>
+          <span>Autonomia de até 150 km</span>
         </div>
       </section>
 
@@ -334,7 +341,7 @@ export default function Home() {
           <div>
             <p className="eyebrow">Destaque tecnológico</p>
             <h2>Conheça o Novo C3 Pro</h2>
-            <p>Tecnologia, estilo, controle inteligente pelo app, GPS e antifurto.</p>
+            <p>Tecnologia, estilo e controle inteligente pelo aplicativo Cavalletta.</p>
             <a className="primary" href={whatsappFor("o C3 Pro")} target="_blank" rel="noreferrer">Consultar no WhatsApp</a>
           </div>
           <img src={models[4].image} alt="Cavalletta C3 Pro" />
@@ -372,8 +379,8 @@ export default function Home() {
       <section className="section products" id="produtos">
         <div className="section-head">
           <div>
-            <p className="eyebrow">Produtos populares</p>
-            <h2>Todos os modelos em uma vitrine moderna.</h2>
+            <p className="eyebrow">Portfólio disponível</p>
+            <h2>Os modelos disponíveis agora na loja.</h2>
           </div>
           <p>Fotos, cores e especificações para escolher com segurança. Valores e disponibilidade são informados pela equipe no WhatsApp.</p>
         </div>
@@ -381,7 +388,7 @@ export default function Home() {
           {models.map((model) => (
             <article className="product-card" key={model.name}>
               <div className="product-media">
-                <span className="photo-label">Foto do modelo</span>
+                <span className="photo-label">Disponível agora</span>
                 <img src={model.image} alt={model.name} />
               </div>
               <div className="product-body">
@@ -478,7 +485,7 @@ export default function Home() {
           <article><strong>+20</strong><span>anos de inovação global</span></article>
           <article><strong>+100</strong><span>países atendidos</span></article>
           <article><strong>0</strong><span>emissão local no seu trajeto</span></article>
-          <article><strong>80 km</strong><span>autonomia em modelos selecionados</span></article>
+          <article><strong>150 km</strong><span>autonomia máxima no portfólio atual</span></article>
         </div>
       </section>
 

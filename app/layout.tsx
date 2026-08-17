@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     "Cavalletta C12",
     "Cavalletta C3 Pro",
     "Cavalletta T3",
+    "Cavalletta AE8",
+    "Cavalletta AJ1",
+    "Cavalletta E3",
+    "Cavalletta E12",
+    "Cavalletta A5X",
     "moto elétrica sem CNH",
     "Galeria Extra Ricardo Jafet",
   ],
@@ -48,10 +53,10 @@ export const metadata: Metadata = {
     siteName: "Cavalletta Leader",
     title: "Cavalletta Leader | Scooters e Motos Elétricas em São Paulo",
     description:
-      "Vitrine premium Cavalletta com C3 Pro, C12, C15, T3, bicicletas elétricas, test-drive e atendimento pelo WhatsApp.",
+      "Portfólio disponível Cavalletta com AE8, AJ1, E3, E12, C3 Pro, C12, C15, T3 e A5X, test-drive e atendimento pelo WhatsApp.",
     images: [
       {
-        url: "https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490",
+        url: "/models/c3-pro.webp",
         width: 1000,
         height: 1000,
         alt: "Scooter elétrica Cavalletta C3 Pro",
@@ -63,7 +68,7 @@ export const metadata: Metadata = {
     title: "Cavalletta Leader | Mobilidade elétrica com atitude",
     description:
       "Scooters, motos, triciclos e bikes elétricas Cavalletta com test-drive e atendimento em São Paulo.",
-    images: ["https://cdn.shopify.com/s/files/1/0584/7826/4380/files/C3proproduct-1.jpg?v=1783566490"],
+    images: ["/models/c3-pro.webp"],
   },
   robots: {
     index: true,
