@@ -1,17 +1,17 @@
 :root {
-  --bg: #232323;
-  --paper: #2b2b2b;
-  --ink: #f4f4f0;
-  --muted: #bdbdb6;
-  --line: rgba(244, 244, 240, 0.15);
+  --bg: #f4f4f0;
+  --paper: #ffffff;
+  --ink: #232323;
+  --muted: #666b61;
+  --line: #dce0d7;
   --green: #ccff0c;
   --green-2: #ccff0c;
-  --green-dark: #ccff0c;
+  --green-dark: #526700;
   --black: #232323;
-  --soft: #343434;
+  --soft: #eef2e6;
   --chrome: #f4f4f0;
   --danger: #ccff0c;
-  --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+  --shadow: 0 24px 70px rgba(35, 35, 35, 0.13);
 }
 
 * {
@@ -25,9 +25,8 @@ html {
 body {
   margin: 0;
   background:
-    linear-gradient(120deg, rgba(204, 255, 12, 0.08), transparent 28%),
-    radial-gradient(circle at 88% 4%, rgba(204, 255, 12, 0.10), transparent 24%),
-    linear-gradient(155deg, transparent 0 72%, rgba(0, 0, 0, 0.16) 72% 100%),
+    linear-gradient(120deg, rgba(204, 255, 12, 0.10), transparent 26%),
+    radial-gradient(circle at 88% 4%, rgba(204, 255, 12, 0.13), transparent 23%),
     var(--bg);
   color: var(--ink);
   font-family: var(--font-inter), Arial, sans-serif;
@@ -1357,6 +1356,280 @@ footer a {
 footer {
   border-top-color: var(--line);
   background: #1b1b1b;
+}
+
+/* Light storefront: lime leads the first impression, white carries the journey. */
+.topline {
+  border-bottom-color: #232323;
+  background: var(--green);
+  color: #232323;
+}
+
+.topline a {
+  color: #232323;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom-color: var(--line);
+}
+
+.site-header .brand img {
+  filter: none;
+}
+
+.brand span,
+.main-tabs a,
+.ghost-action {
+  color: #30342f;
+}
+
+.ghost-action,
+.secondary,
+.social-row a {
+  border-color: var(--line);
+  background: #ffffff;
+  color: #232323;
+}
+
+.secondary:hover,
+.ghost-action:hover,
+.social-row a:hover {
+  border-color: #8aaa00;
+  background: var(--green);
+  color: #232323;
+}
+
+.search-cloud {
+  background: #f1f3ed;
+  border-bottom-color: var(--line);
+}
+
+.search-cloud a {
+  border-color: var(--line);
+  background: #ffffff;
+  color: #30342f;
+}
+
+.hero-store {
+  background:
+    linear-gradient(120deg, rgba(204, 255, 12, 0.18), transparent 34%),
+    linear-gradient(180deg, #ffffff, #f4f4f0);
+}
+
+.hero-store::before {
+  background:
+    repeating-linear-gradient(90deg, rgba(82, 103, 0, 0.12) 0 2px, transparent 2px 34px),
+    linear-gradient(135deg, rgba(204, 255, 12, 0.24), transparent);
+}
+
+.hero-card {
+  border-color: rgba(82, 103, 0, 0.18);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 242, 0.92)),
+    #ffffff;
+  color: #232323;
+}
+
+.hero-card span,
+.eyebrow,
+.category-grid a,
+.product-meta strong,
+.column-kicker {
+  color: var(--green-dark);
+}
+
+.ticker {
+  background: #232323;
+}
+
+.decision-strip {
+  background: #dce0d7;
+  color: #232323;
+}
+
+.decision-strip article {
+  background:
+    linear-gradient(135deg, rgba(204, 255, 12, 0.16), transparent 52%),
+    #ffffff;
+}
+
+.decision-strip strong {
+  color: var(--green-dark);
+}
+
+.decision-strip span {
+  color: var(--muted);
+}
+
+.promo-card.dark,
+.promo-card.light {
+  background:
+    linear-gradient(135deg, rgba(204, 255, 12, 0.16), transparent 46%),
+    #ffffff;
+  color: #232323;
+}
+
+.promo-card.dark p,
+.promo-card.light p {
+  color: var(--muted);
+}
+
+.category-grid article,
+.product-card {
+  border-color: var(--line);
+  background: #ffffff;
+}
+
+.products {
+  background: #f4f4f0;
+}
+
+.product-body li {
+  border-color: #dfe6ce;
+  background: var(--soft);
+  color: #4d6200;
+}
+
+.service-showcase {
+  background:
+    linear-gradient(135deg, rgba(204, 255, 12, 0.13), transparent 36%),
+    #ffffff;
+  color: #232323;
+}
+
+.service-intro .eyebrow,
+.service-grid article > span {
+  color: var(--green-dark);
+}
+
+.service-intro > p:not(.eyebrow),
+.service-grid p {
+  color: var(--muted);
+}
+
+.service-grid article {
+  border-color: var(--line);
+  background: #f4f4f0;
+}
+
+.business-section {
+  background: #f1f3ed;
+}
+
+.business-columns {
+  border-color: var(--line);
+  background: #ffffff;
+}
+
+.business-columns > div + div {
+  border-left-color: var(--line);
+  background:
+    linear-gradient(145deg, rgba(204, 255, 12, 0.13), transparent 44%),
+    #fbfcf8;
+}
+
+.business-columns article,
+.business-columns > div + div {
+  border-color: var(--line);
+}
+
+.neuro-panel {
+  background:
+    radial-gradient(circle at 15% 8%, rgba(204, 255, 12, 0.20), transparent 34%),
+    linear-gradient(135deg, #ffffff, #f1f3ed);
+}
+
+.desire-grid article {
+  border-color: var(--line);
+  background:
+    linear-gradient(135deg, rgba(204, 255, 12, 0.10), transparent),
+    #ffffff;
+}
+
+.lifestyle {
+  background:
+    linear-gradient(135deg, rgba(204, 255, 12, 0.17), transparent 48%),
+    #f1f3ed;
+  color: #232323;
+}
+
+.lifestyle .eyebrow {
+  color: var(--green-dark);
+}
+
+.lifestyle p {
+  color: var(--muted);
+}
+
+.metrics article {
+  border-color: var(--line);
+  background: #ffffff;
+  box-shadow: 0 16px 42px rgba(35, 35, 35, 0.07);
+}
+
+.metrics span {
+  color: var(--muted);
+}
+
+.test-panel {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 244, 240, 0.92)),
+    radial-gradient(circle at 80% 10%, rgba(204, 255, 12, 0.25), transparent 36%);
+  color: #232323;
+}
+
+.address-card {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 54%),
+    var(--green);
+  color: #232323;
+}
+
+.address-card span,
+.address-card p {
+  color: #30342f;
+}
+
+.address-card .secondary {
+  border-color: #232323;
+  background: #232323;
+  color: #ffffff;
+}
+
+.faq-section {
+  background:
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.72)),
+    var(--bg);
+}
+
+.faq-list details {
+  border-color: var(--line);
+  background: #ffffff;
+}
+
+.faq-list summary {
+  color: #232323;
+}
+
+.community {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), #ffffff),
+    radial-gradient(circle at 50% 0, rgba(204, 255, 12, 0.22), transparent 40%);
+}
+
+footer {
+  border-top-color: rgba(244, 244, 240, 0.15);
+  background: #1b1b1b;
+  color: #bdbdb6;
+}
+
+footer img {
+  filter: brightness(0) invert(1);
+}
+
+footer a {
+  color: var(--green);
 }
 
 @media (prefers-reduced-motion: reduce) {
