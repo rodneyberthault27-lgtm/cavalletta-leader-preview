@@ -33,9 +33,9 @@ main { padding-bottom: 70px; }
 .secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 22px; border: 1px solid #879198; border-radius: 4px; background: transparent; color: var(--ink); font-weight: 900; transition: border-color 180ms ease, background 180ms ease; }
 .secondary:hover { border-color: var(--lime-dark); background: var(--paper); }
 
-.hero-store { position: relative; display: grid; grid-template-columns: minmax(0, .85fr) minmax(460px, 1.15fr); align-items: center; gap: clamp(30px, 5vw, 86px); min-height: calc(100svh - 112px); padding: clamp(54px, 7vw, 104px) clamp(18px, 5vw, 82px) clamp(64px, 8vw, 118px); overflow: hidden; background: linear-gradient(115deg, rgba(204,255,12,.22), transparent 34%), var(--paper); }
-.hero-store::after { content: ""; position: absolute; right: -8vw; bottom: -18vw; width: 46vw; aspect-ratio: 1; border: 1px solid rgba(82,103,0,.16); border-radius: 50%; box-shadow: 0 0 0 7vw rgba(204,255,12,.05), 0 0 0 14vw rgba(204,255,12,.035); pointer-events: none; }
-.hero-copy, .hero-visual { position: relative; z-index: 1; }
+.hero-store { position: relative; display: grid; grid-template-columns: minmax(0, 760px) 1fr; align-items: center; min-height: calc(100svh - 112px); padding: clamp(54px, 7vw, 104px) clamp(18px, 5vw, 82px) clamp(64px, 8vw, 118px); overflow: hidden; background-image: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.92) 29%, rgba(255,255,255,.28) 58%, rgba(255,255,255,.02) 100%), url('/campaign/c3-pro-urban-hero.png'); background-position: center; background-size: cover; }
+.hero-store::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 8px; background: var(--lime); }
+.hero-copy { position: relative; z-index: 2; }
 .section-label { margin: 0 0 14px; color: var(--lime-dark); font-size: .72rem; font-weight: 1000; letter-spacing: .12em; text-transform: uppercase; }
 h1, h2, h3 { margin: 0; font-family: var(--font-display), sans-serif; letter-spacing: 0; }
 h1 { max-width: 780px; font-size: clamp(3.8rem, 7.2vw, 7.6rem); line-height: .86; }
@@ -47,13 +47,10 @@ h3 { font-size: 1.25rem; }
 .hero-proof { display: flex; align-items: center; gap: 14px; margin-top: 34px; }
 .hero-proof strong { padding: 8px 12px; background: var(--graphite); color: var(--lime); font-family: var(--font-display), sans-serif; }
 .hero-proof span { color: var(--muted); font-size: .88rem; }
-.hero-visual { min-height: 560px; display: grid; place-items: center; }
-.hero-visual::before { content: ""; position: absolute; inset: 8% 7% 5%; border: 1px solid rgba(82,103,0,.2); background: linear-gradient(145deg, #f5f6f1, #fff 62%); transform: skew(-3deg); }
-.hero-visual img { position: relative; z-index: 1; width: min(680px, 96%); height: 500px; object-fit: contain; filter: drop-shadow(0 36px 25px rgba(0,0,0,.2)) saturate(1.05) contrast(1.03); }
-.visual-tag { position: absolute; z-index: 2; top: 12%; left: 2%; padding: 10px 13px; background: var(--lime); color: var(--graphite); font-size: .76rem; font-weight: 1000; text-transform: uppercase; }
-.visual-note { position: absolute; z-index: 2; right: 0; bottom: 8%; max-width: 260px; padding: 18px; border-left: 4px solid var(--lime); background: var(--graphite); color: white; box-shadow: var(--shadow); }
-.visual-note strong, .visual-note span { display: block; }
-.visual-note span { margin-top: 6px; color: #c6cbc2; font-size: .8rem; line-height: 1.4; }
+.hero-scene-note { position: absolute; z-index: 2; right: clamp(18px, 5vw, 82px); bottom: clamp(34px, 6vw, 80px); max-width: 290px; padding: 18px 20px; border-left: 4px solid var(--lime); background: rgba(35,35,35,.9); color: white; backdrop-filter: blur(10px); }
+.hero-scene-note span, .hero-scene-note strong { display: block; }
+.hero-scene-note span { margin-bottom: 7px; color: var(--lime); font-size: .7rem; font-weight: 1000; text-transform: uppercase; }
+.hero-scene-note strong { font-family: var(--font-display), sans-serif; line-height: 1.2; }
 
 .spec-strip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #3b3b3b; border-bottom: 1px solid #3b3b3b; background: var(--graphite); color: white; }
 .spec-strip article { min-height: 150px; padding: 30px clamp(18px, 3vw, 42px); border-right: 1px solid #454545; }
@@ -214,9 +211,8 @@ footer > div { display: flex; justify-content: flex-end; gap: 20px; }
   h1 { font-size: clamp(3.25rem, 17vw, 5rem); }
   h2 { font-size: clamp(2.1rem, 11vw, 3.4rem); }
   .hero-store { padding-top: 44px; }
-  .hero-visual { min-height: 410px; }
-  .hero-visual img { height: 350px; }
-  .visual-note { max-width: 220px; }
+  .hero-store { min-height: 760px; padding-bottom: 280px; background-image: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.91) 42%, rgba(255,255,255,.08) 72%), url('/campaign/c3-pro-urban-hero.png'); background-position: 63% center; }
+  .hero-scene-note { right: 18px; bottom: 24px; }
   .hero-proof { align-items: flex-start; flex-direction: column; }
   .spec-strip { grid-template-columns: 1fr; }
   .spec-strip article { min-height: 112px; border-right: 0; border-bottom: 1px solid #454545; }

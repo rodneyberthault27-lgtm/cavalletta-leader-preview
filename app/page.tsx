@@ -10,15 +10,11 @@ const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20Extra
 const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
 const models = [
-  { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8.webp", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "32 km/h"], colors: ["Branco", "Vermelho", "Caqui", "Azul", "Verde"] },
-  { name: "AJ1", fullName: "AJ1 Série Leve", category: "Bicicleta elétrica", image: "/models/aj1.webp", range: null, specs: ["Série leve", "Confortável", "Sem CNH", "Uso urbano"], colors: ["Grafite", "Cinza", "Creme", "Rosa"] },
-  { name: "E3", fullName: "E3 Elétrica Urbana", category: "Scooter", image: "/models/e3.webp", range: 50, specs: ["800 W", "Até 50 km", "48V 24Ah", "32 km/h"], colors: ["Laranja", "Creme", "Verde", "Vermelho"] },
-  { name: "E12", fullName: "E12 NFC Antifurto", category: "Scooter", image: "/models/e12.webp", range: 65, specs: ["1000 W", "Até 65 km", "60V 24Ah", "NFC"], colors: ["Grafite", "Marrom", "Cinza", "Creme"] },
-  { name: "C3 Pro", fullName: "C3 Pro Aplicativo Inteligente", category: "Tecnologia", image: "/models/c3-pro.webp", range: 50, specs: ["800 W", "Até 50 km", "48V 24Ah", "App"], colors: ["Preto", "Branco", "Azul-claro"] },
-  { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/c12.webp", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Preto", "Branco", "Caqui", "Azul-claro"] },
-  { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/c15.webp", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Preto", "Branco", "Cinza", "Creme", "Azul"] },
-  { name: "T3", fullName: "T3 Triciclo Elétrico", category: "Triciclo elétrico", image: "/models/t3.webp", range: 50, specs: ["1000 W", "Até 50 km", "60V 20Ah", "30 km/h"], colors: ["Azul", "Preto", "Branco", "Cinza", "Vermelho"] },
-  { name: "A5X", fullName: "A5X Triciclo de Carga", category: "Triciclo elétrico", image: "/models/a5x.png", range: 150, specs: ["2000 W", "Até 150 km", "72V 96Ah", "Carga 500 kg"], colors: ["Verde", "Branco"] },
+  { name: "C3 Pro", fullName: "C3 Pro Aplicativo Inteligente", category: "Mobilidade conectada", image: "/models/c3-pro-official.jpg", range: 70, specs: ["800 W", "Até 70 km", "48V 24Ah", "Carga 140 kg"], colors: ["Cores sob consulta"] },
+  { name: "T3", fullName: "T3 Triciclo Elétrico", category: "Triciclo elétrico", image: "/models/t3-official.jpg", range: 50, specs: ["1000 W", "Até 50 km", "60V 20Ah", "Carga 150 kg"], colors: ["Cores sob consulta"] },
+  { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8-official.jpg", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"], colors: ["Cores sob consulta"] },
+  { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c12-official.png", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Cores sob consulta"] },
+  { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-official.jpg", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"] },
 ];
 
 const faqs = [
@@ -36,7 +32,7 @@ const blogArticles = [
     date: "19 jun 2026",
     title: "A Cavalletta chega à Ricardo Jafet com experiência e test ride",
     excerpt: "A abertura da unidade no Ipiranga aproximou do público paulistano modelos como C3 Pro, C15, T3 e AE8, com atendimento presencial e experimentação na loja.",
-    image: "/models/c3-pro.webp",
+    image: "/models/c3-pro-official.jpg",
     source: "Encontra Ipiranga",
     url: "https://www.encontraipiranga.com/a-segunda-loja-franqueada-da-cavalletta-chega-ao-bairro-ipiranga-em-sao-paulo/",
   },
@@ -45,7 +41,7 @@ const blogArticles = [
     date: "30 jul 2026",
     title: "Marca estrutura rede, pós-venda e futura fábrica brasileira",
     excerpt: "A expansão prevê novas franquias e uma operação local apoiada por centro de armazenagem, assistência pós-venda, equipe comercial e avanço da futura fábrica no país.",
-    image: "/models/ae8.webp",
+    image: "/models/ae8-official.jpg",
     source: "Showmetech",
     url: "https://www.showmetech.com.br/cavalletta-inaugura-primeira-loja-franqueada-no-estado-de-sao-paulo/",
   },
@@ -54,7 +50,7 @@ const blogArticles = [
     date: "Atualizado em 2026",
     title: "C3 Pro leva controle, localização e proteção para o aplicativo",
     excerpt: "A evolução conectada da linha C3 reúne funções de travamento remoto, localização do veículo e recursos antifurto para uma rotina urbana mais controlada.",
-    image: "/models/c3-pro.webp",
+    image: "/models/c3-pro-official.jpg",
     source: "Showmetech",
     url: "https://www.showmetech.com.br/cavalletta-inaugura-primeira-loja-franqueada-no-estado-de-sao-paulo/",
   },
@@ -63,7 +59,7 @@ const blogArticles = [
     date: "24 out 2025",
     title: "C3, C12 ou C15: o uso diário deve orientar a escolha",
     excerpt: "O guia oficial compara autonomia, potência, capacidade e perfil de uso. A recomendação central é cruzar distância, terreno e necessidade de carga antes do test ride.",
-    image: "/models/c12.webp",
+    image: "/models/c12-official.png",
     source: "Cavalletta Oficial",
     url: "https://cavalletta.store/blogs/guias/guia-de-compra-bicicleta-eletrica",
   },
@@ -72,7 +68,7 @@ const blogArticles = [
     date: "Revisado em 17 ago 2026",
     title: "Boas práticas ajudam a preservar a bateria no dia a dia",
     excerpt: "A orientação oficial é recarregar em local protegido de calor, sol, chuva e umidade, evitar descarga total recorrente e não prolongar a carga além do recomendado.",
-    image: "/models/e12.webp",
+    image: "/models/c3-pro-official.jpg",
     source: "FAQ Cavalletta",
     url: "https://cavalletta.store/pages/faq",
   },
@@ -81,7 +77,7 @@ const blogArticles = [
     date: "Resolução vigente",
     title: "Bicicleta elétrica, autopropelido ou ciclomotor: entenda a diferença",
     excerpt: "A Resolução CONTRAN 996/2023 define critérios técnicos e obrigações diferentes. A classificação depende das características de cada veículo e deve ser confirmada antes do uso em via pública.",
-    image: "/models/c15.webp",
+    image: "/models/c15-official.jpg",
     source: "Ministério dos Transportes",
     url: "https://www.gov.br/infraestrutura/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9962023.pdf",
   },
@@ -116,18 +112,18 @@ export default function Home() {
         <a className="header-cta" href={whatsappFor("uma Cavalletta")} target="_blank" rel="noreferrer">Consultar</a>
       </header>
 
-      <section className="hero-store">
+      <section className="hero-store" aria-label="Cavalletta C3 Pro em movimento pela cidade">
         <div className="hero-copy">
           <p className="section-label">Mobilidade elétrica Cavalletta</p>
           <h1>Autonomia real.<br /><span>Atitude elétrica.</span></h1>
           <p className="hero-text">Modelos para cidade, trabalho e liberdade. Conheça, compare e agende seu test ride com atendimento direto da loja.</p>
           <div className="hero-actions"><a className="primary" href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar test ride</a><a className="secondary" href="#economia">Ver autonomia</a></div>
-          <div className="hero-proof"><strong>9 modelos</strong><span>Fotos e especificações do estoque atual</span></div>
+          <div className="hero-proof"><strong>5 modelos</strong><span>Fotos oficiais e especificações do catálogo atual</span></div>
         </div>
-        <div className="hero-visual"><span className="visual-tag">C3 Pro • App inteligente</span><img src="/models/c3-pro.webp" alt="Cavalletta C3 Pro elétrica" /><div className="visual-note"><strong>Mobilidade conectada</strong><span>Bateria de íon-lítio e controle inteligente</span></div></div>
+        <div className="hero-scene-note"><span>C3 Pro</span><strong>Cidade em movimento.<br />Energia em silêncio.</strong></div>
       </section>
 
-      <section className="spec-strip" aria-label="Destaques do portfólio"><article><strong>Até 150 km</strong><span>de autonomia no portfólio</span></article><article><strong>Até 2000 W</strong><span>para diferentes usos</span></article><article><strong>9 modelos</strong><span>disponíveis para consulta</span></article><article><strong>Loja física</strong><span>test ride e suporte local</span></article></section>
+      <section className="spec-strip" aria-label="Destaques do portfólio"><article><strong>Até 80 km</strong><span>de autonomia no catálogo atual</span></article><article><strong>Até 1000 W</strong><span>para diferentes rotinas</span></article><article><strong>5 modelos</strong><span>confirmados no estoque da loja</span></article><article><strong>Loja física</strong><span>test ride e suporte local</span></article></section>
 
       <section className="decision-tools" id="economia">
         <article className="tool-panel calculator-panel"><p className="section-label">Calculadora de rotina</p><h2>Quanto você pode rodar no elétrico?</h2><p>Informe sua distância diária e veja a mobilidade que cabe no seu mês.</p><label htmlFor="daily-distance">Quilômetros por dia</label><div className="input-row"><input id="daily-distance" type="number" min="1" max="300" value={dailyDistance} onChange={(event) => setDailyDistance(Number(event.target.value))} /><span>km/dia</span></div><div className="tool-result"><strong>{monthlyDistance.toLocaleString("pt-BR")} km/mês</strong><span>de deslocamento que pode entrar na sua rotina elétrica</span></div></article>
@@ -141,7 +137,7 @@ export default function Home() {
         <div className="model-grid">{models.map((model) => <article className="model-card" key={model.name}><div className="model-image"><span>{model.category}</span><img src={model.image} alt={model.fullName} /></div><div className="model-content"><div className="model-title"><h3>{model.name}</h3><span>{model.range ? `até ${model.range} km` : "série leve"}</span></div><p>{model.fullName}</p><ul>{model.specs.map((spec) => <li key={spec}>{spec}</li>)}</ul><div className="color-list" aria-label={`Cores de ${model.name}`}>{model.colors.slice(0, 5).map((color) => <span key={color}>{color}</span>)}</div><a className="card-cta" href={whatsappFor(model.fullName)} target="_blank" rel="noreferrer">Consultar {model.name}</a></div></article>)}</div>
       </section>
 
-      <section className="technology-section" id="tecnologia"><div className="technology-copy"><p className="section-label">Tecnologia que reduz dúvidas</p><h2>Controle, proteção e informação na sua mão.</h2><p>Aplicativo inteligente, NFC antifurto e recursos pensados para tornar a mobilidade elétrica mais simples e segura em modelos selecionados.</p><a className="primary" href={whatsappFor("os modelos com aplicativo e NFC")} target="_blank" rel="noreferrer">Conhecer tecnologias</a></div><div className="technology-feature"><img src="/models/e12.webp" alt="Cavalletta E12 com tecnologia NFC" /><div><span>NFC + segurança</span><strong>E12</strong><p>Praticidade para ligar e proteger sua Cavalletta.</p></div></div></section>
+      <section className="technology-section" id="tecnologia"><div className="technology-copy"><p className="section-label">Tecnologia que reduz dúvidas</p><h2>Controle, proteção e informação na sua mão.</h2><p>O C3 Pro reúne aplicativo inteligente e recursos conectados pensados para tornar a mobilidade elétrica mais simples na rotina urbana.</p><a className="primary" href={whatsappFor("a tecnologia do C3 Pro")} target="_blank" rel="noreferrer">Conhecer o C3 Pro</a></div><div className="technology-feature"><img src="/models/c3-pro-official.jpg" alt="Cavalletta C3 Pro com aplicativo inteligente" /><div><span>App inteligente</span><strong>C3 Pro</strong><p>Mobilidade conectada com controle direto pelo celular.</p></div></div></section>
 
       <section className="blog-section" id="blog">
         <div className="section-heading">
