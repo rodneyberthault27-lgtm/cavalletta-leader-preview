@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 const whatsappUrl = "https://wa.me/5511925141848";
@@ -17,22 +18,14 @@ const models = [
   { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-official.jpg", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"] },
 ];
 
-const faqs = [
-  ["Precisa de CNH ou emplacamento?", "A exigência depende da classificação e das características do modelo. Nossa equipe confirma a orientação adequada para a Cavalletta escolhida e para o seu tipo de uso."],
-  ["Quanto dura a bateria?", "A autonomia varia conforme modelo, peso, velocidade, terreno e modo de condução. Na vitrine você encontra a referência de cada modelo disponível."],
-  ["Posso carregar em tomada comum?", "A recarga é pensada para fazer parte da rotina. A equipe explica o carregador, o tempo de recarga e os cuidados corretos da bateria no atendimento."],
-  ["Vocês fazem manutenção e vendem peças?", "Sim. A Cavalletta Leader oferece orientação técnica, consulta de peças de reposição e atendimento pós-venda."],
-  ["Como saber o estoque e as cores disponíveis?", "A disponibilidade muda conforme as vendas e chegadas da fábrica. Consulte o modelo desejado pelo WhatsApp antes da visita."],
-  ["Onde fica a loja?", "Estamos na Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501, loja 26, em São Paulo."],
-];
-
 const blogArticles = [
   {
     category: "Cavalletta no Ipiranga",
     date: "19 jun 2026",
     title: "A Cavalletta chega à Ricardo Jafet com experiência e test ride",
     excerpt: "A abertura da unidade no Ipiranga aproximou do público paulistano modelos como C3 Pro, C15, T3 e AE8, com atendimento presencial e experimentação na loja.",
-    image: "/models/c3-pro-official.jpg",
+    image: "/blog/cidade-ipiranga.webp",
+    alt: "Cena urbana clara no Ipiranga, em São Paulo",
     source: "Encontra Ipiranga",
     url: "https://www.encontraipiranga.com/a-segunda-loja-franqueada-da-cavalletta-chega-ao-bairro-ipiranga-em-sao-paulo/",
   },
@@ -41,7 +34,8 @@ const blogArticles = [
     date: "30 jul 2026",
     title: "Marca estrutura rede, pós-venda e futura fábrica brasileira",
     excerpt: "A expansão prevê novas franquias e uma operação local apoiada por centro de armazenagem, assistência pós-venda, equipe comercial e avanço da futura fábrica no país.",
-    image: "/models/ae8-official.jpg",
+    image: "/blog/expansao-logistica.webp",
+    alt: "Centro de logística moderno e iluminado",
     source: "Showmetech",
     url: "https://www.showmetech.com.br/cavalletta-inaugura-primeira-loja-franqueada-no-estado-de-sao-paulo/",
   },
@@ -50,7 +44,8 @@ const blogArticles = [
     date: "Atualizado em 2026",
     title: "C3 Pro leva controle, localização e proteção para o aplicativo",
     excerpt: "A evolução conectada da linha C3 reúne funções de travamento remoto, localização do veículo e recursos antifurto para uma rotina urbana mais controlada.",
-    image: "/models/c3-pro-official.jpg",
+    image: "/blog/tecnologia-app.webp",
+    alt: "Aplicativo de localização e segurança em um smartphone",
     source: "Showmetech",
     url: "https://www.showmetech.com.br/cavalletta-inaugura-primeira-loja-franqueada-no-estado-de-sao-paulo/",
   },
@@ -59,7 +54,8 @@ const blogArticles = [
     date: "24 out 2025",
     title: "C3, C12 ou C15: o uso diário deve orientar a escolha",
     excerpt: "O guia oficial compara autonomia, potência, capacidade e perfil de uso. A recomendação central é cruzar distância, terreno e necessidade de carga antes do test ride.",
-    image: "/models/c12-official.png",
+    image: "/blog/guia-escolha.webp",
+    alt: "Pessoas planejando uma rota urbana sobre um mapa",
     source: "Cavalletta Oficial",
     url: "https://cavalletta.store/blogs/guias/guia-de-compra-bicicleta-eletrica",
   },
@@ -68,16 +64,18 @@ const blogArticles = [
     date: "Revisado em 17 ago 2026",
     title: "Boas práticas ajudam a preservar a bateria no dia a dia",
     excerpt: "A orientação oficial é recarregar em local protegido de calor, sol, chuva e umidade, evitar descarga total recorrente e não prolongar a carga além do recomendado.",
-    image: "/models/c3-pro-official.jpg",
-    source: "FAQ Cavalletta",
-    url: "https://cavalletta.store/pages/faq",
+    image: "/blog/bateria-recarga.webp",
+    alt: "Técnico inspecionando uma bateria em bancada limpa",
+    source: "FAQ Cavalletta Leader",
+    url: "/faq",
   },
   {
     category: "Regras de circulação",
     date: "Resolução vigente",
     title: "Bicicleta elétrica, autopropelido ou ciclomotor: entenda a diferença",
     excerpt: "A Resolução CONTRAN 996/2023 define critérios técnicos e obrigações diferentes. A classificação depende das características de cada veículo e deve ser confirmada antes do uso em via pública.",
-    image: "/models/c15-official.jpg",
+    image: "/blog/regras-circulacao.webp",
+    alt: "Travessia urbana segura com sinalização e capacete",
     source: "Ministério dos Transportes",
     url: "https://www.gov.br/infraestrutura/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9962023.pdf",
   },
@@ -90,7 +88,6 @@ const structuredData = {
   "@graph": [
     { "@type": "LocalBusiness", "@id": `${siteUrl}/#store`, name: "Cavalletta Leader", url: siteUrl, telephone: "+55 11 92514-1848", address: { "@type": "PostalAddress", streetAddress: "Av. Ricardo Jafet, 1501 - loja 26", addressLocality: "São Paulo", addressRegion: "SP", addressCountry: "BR" }, sameAs: [instagramUrl, whatsappUrl], hasMap: mapsUrl },
     { "@type": "ItemList", "@id": `${siteUrl}/#modelos`, name: "Modelos Cavalletta disponíveis", itemListElement: models.map((model, index) => ({ "@type": "ListItem", position: index + 1, item: { "@type": "Product", name: model.fullName, image: `${siteUrl}${model.image}`, brand: { "@type": "Brand", name: "Cavalletta" }, category: model.category } })) },
-    { "@type": "FAQPage", "@id": `${siteUrl}/#faq`, mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
   ],
 };
 
@@ -108,7 +105,7 @@ export default function Home() {
       <div className="topline"><span>Loja física na Ricardo Jafet</span><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +55 11 92514-1848</a></div>
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Cavalletta Leader - início"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a>
-        <nav className="main-tabs" aria-label="Navegação principal"><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#blog">Blog</a><a href="#manutencao">Suporte</a></nav>
+        <nav className="main-tabs" aria-label="Navegação principal"><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#blog">Blog</a><a href="#manutencao">Suporte</a><Link href="/faq">FAQ</Link></nav>
         <a className="header-cta" href={whatsappFor("uma Cavalletta")} target="_blank" rel="noreferrer">Consultar</a>
       </header>
 
@@ -145,17 +142,17 @@ export default function Home() {
           <p>Pesquisa editorial revisada em 17 de agosto de 2026. Notícias da marca, tecnologia, cuidados e regras explicados com fontes identificadas.</p>
         </div>
         <article className="blog-featured">
-          <div className="blog-featured-image"><span>Notícia em destaque</span><img src={blogArticles[0].image} alt="Cavalletta C3 Pro, destaque da loja no Ipiranga" /></div>
+          <div className="blog-featured-image"><span>Notícia em destaque</span><img src={blogArticles[0].image} alt={blogArticles[0].alt} /></div>
           <div className="blog-featured-copy"><div className="article-meta"><span>{blogArticles[0].category}</span><time>{blogArticles[0].date}</time></div><h3>{blogArticles[0].title}</h3><p>{blogArticles[0].excerpt}</p><a href={blogArticles[0].url} target="_blank" rel="noreferrer">Ler matéria na fonte · {blogArticles[0].source}</a></div>
         </article>
         <div className="blog-grid">
           {blogArticles.slice(1).map((article) => (
             <article className="blog-card" key={article.title}>
-              <div className="blog-card-image"><img src={article.image} alt="" /></div>
+              <div className="blog-card-image"><img src={article.image} alt={article.alt} /></div>
               <div className="article-meta"><span>{article.category}</span><time>{article.date}</time></div>
               <h3>{article.title}</h3>
               <p>{article.excerpt}</p>
-              <a href={article.url} target="_blank" rel="noreferrer">Fonte: {article.source}</a>
+              {article.url.startsWith("http") ? <a href={article.url} target="_blank" rel="noreferrer">Fonte: {article.source}</a> : <Link href={article.url}>Ler no site: {article.source}</Link>}
             </article>
           ))}
         </div>
@@ -168,9 +165,9 @@ export default function Home() {
 
       <section className="visit-section" id="loja"><div className="visit-copy"><p className="section-label">Agende sua experiência</p><h2>Faça um test ride.</h2><p>Veja o acabamento, compare o conforto e descubra qual Cavalletta combina com sua rotina.</p><address>{storeAddress}</address><div className="hero-actions"><a className="primary" href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a><a className="secondary" href={mapsUrl} target="_blank" rel="noreferrer">Abrir no mapa</a></div></div><div className="map-card"><iframe title="Mapa da Cavalletta Leader na Galeria Extra Ricardo Jafet" src={mapsEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div></section>
 
-      <section className="faq-section" id="faq"><div className="section-heading"><div><p className="section-label">Perguntas frequentes</p><h2>Decida sem dúvida.</h2></div><p>Regras, bateria, recarga, estoque e suporte em respostas objetivas.</p></div><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="faq-bridge" aria-labelledby="faq-bridge-title"><div><p className="section-label">Central de dúvidas</p><h2 id="faq-bridge-title">Respostas antes do test ride.</h2><p>Consulte bateria, recarga, documentos, manutenção, estoque e atendimento em uma página completa da Cavalletta Leader.</p></div><Link className="primary" href="/faq">Abrir FAQ completo</Link></section>
 
-      <footer><a className="footer-brand" href="#inicio"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a><nav><a href="#modelos">Modelos</a><a href="#tecnologia">Tecnologia</a><a href="#blog">Blog</a><a href="#manutencao">Suporte</a><a href="#faq">FAQ</a></nav><p>{storeAddress}</p><div><a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a><a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a></div></footer>
+      <footer><a className="footer-brand" href="#inicio"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a><nav><a href="#modelos">Modelos</a><a href="#tecnologia">Tecnologia</a><a href="#blog">Blog</a><a href="#manutencao">Suporte</a><Link href="/faq">FAQ</Link></nav><p>{storeAddress}</p><div><a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a><a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a></div></footer>
       <aside className="sticky-conversion" aria-label="Ações rápidas"><span>Pronto para conhecer sua Cavalletta?</span><a href={whatsappFor("consultar um modelo")} target="_blank" rel="noreferrer">Consultar modelo</a><a href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar test ride</a><a href={mapsUrl} target="_blank" rel="noreferrer">Ver localização</a></aside>
     </main>
   );

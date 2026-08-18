@@ -86,7 +86,7 @@ h3 { font-size: 1.25rem; }
 .recharge-steps span { min-height: 130px; padding: 26px 20px; background: #2b2b2b; font-weight: 900; }
 .recharge-steps b { display: block; margin-bottom: 24px; color: var(--lime); font-family: var(--font-display), sans-serif; }
 
-.models-section, .technology-section, .blog-section, .support-section, .proof-section, .visit-section, .faq-section { padding: clamp(72px, 9vw, 126px) clamp(18px, 5vw, 82px); }
+.models-section, .technology-section, .blog-section, .support-section, .proof-section, .visit-section, .faq-section, .faq-bridge { padding: clamp(72px, 9vw, 126px) clamp(18px, 5vw, 82px); }
 .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .5fr); gap: 40px; align-items: end; margin-bottom: 38px; }
 .section-heading > p { margin: 0; }
 .model-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -119,9 +119,10 @@ h3 { font-size: 1.25rem; }
 
 .blog-section { background: var(--paper); }
 .blog-featured { display: grid; grid-template-columns: 1.1fr .9fr; min-height: 440px; margin-bottom: 18px; border: 1px solid var(--line); border-top: 4px solid var(--lime); background: var(--canvas); }
-.blog-featured-image { position: relative; display: grid; place-items: center; overflow: hidden; background: linear-gradient(145deg, #e8ebe2, #fff 68%); }
+.blog-featured-image { position: relative; min-height: 440px; overflow: hidden; background: var(--graphite); }
 .blog-featured-image > span { position: absolute; z-index: 2; top: 18px; left: 18px; padding: 8px 11px; background: var(--lime); color: var(--graphite); font-size: .7rem; font-weight: 1000; text-transform: uppercase; }
-.blog-featured-image img { width: 90%; height: 400px; object-fit: contain; filter: drop-shadow(0 26px 18px rgba(0,0,0,.18)); }
+.blog-featured-image img { width: 100%; height: 100%; min-height: 440px; object-fit: cover; transition: transform 500ms ease; }
+.blog-featured:hover .blog-featured-image img { transform: scale(1.025); }
 .blog-featured-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 5vw, 62px); background: var(--graphite); color: white; }
 .article-meta { display: flex; justify-content: space-between; gap: 14px; color: var(--lime-dark); font-size: .69rem; font-weight: 1000; text-transform: uppercase; }
 .blog-featured-copy .article-meta { color: var(--lime); }
@@ -131,8 +132,9 @@ h3 { font-size: 1.25rem; }
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .blog-card { display: flex; flex-direction: column; min-height: 470px; padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); transition: transform 180ms ease, box-shadow 180ms ease; }
 .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-.blog-card-image { display: grid; place-items: center; height: 190px; margin: -20px -20px 20px; background: linear-gradient(145deg, #edf0e8, #fff); }
-.blog-card-image img { width: 80%; height: 170px; object-fit: contain; filter: drop-shadow(0 14px 12px rgba(0,0,0,.14)); }
+.blog-card-image { height: 210px; margin: -20px -20px 20px; overflow: hidden; background: var(--graphite); }
+.blog-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+.blog-card:hover .blog-card-image img { transform: scale(1.035); }
 .blog-card h3 { margin-top: 16px; font-size: 1.35rem; line-height: 1.15; }
 .blog-card > p { color: var(--muted); line-height: 1.58; }
 .blog-card > a { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); color: var(--lime-dark); font-size: .78rem; font-weight: 1000; }
@@ -167,6 +169,28 @@ h3 { font-size: 1.25rem; }
 .faq-list summary { cursor: pointer; padding: 20px 22px; font-family: var(--font-display), sans-serif; font-weight: 900; }
 .faq-list summary::marker { color: var(--lime-dark); }
 .faq-list p { margin: 0; padding: 0 22px 22px; color: var(--muted); line-height: 1.65; }
+.faq-bridge { display: flex; justify-content: space-between; gap: 40px; align-items: center; background: var(--graphite); color: white; }
+.faq-bridge > div { max-width: 850px; }
+.faq-bridge h2 { font-size: clamp(2.3rem, 4.4vw, 4.7rem); }
+.faq-bridge p:not(.section-label) { margin: 18px 0 0; color: #c5cac1; line-height: 1.65; }
+.faq-bridge .primary { flex: 0 0 auto; }
+
+.main-tabs a.active { color: var(--lime); }
+.faq-page-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .6fr); gap: clamp(40px, 8vw, 130px); align-items: end; padding: clamp(74px, 10vw, 150px) clamp(18px, 5vw, 82px); background: var(--graphite); color: white; }
+.faq-page-hero .section-label { color: var(--lime); }
+.faq-page-hero h1 { font-size: clamp(3.7rem, 7vw, 7.4rem); }
+.faq-page-hero h1 span { color: var(--lime); }
+.faq-page-hero > p { margin: 0; color: #c8ccc4; font-size: clamp(1rem, 1.5vw, 1.22rem); line-height: 1.75; }
+.faq-page-content { display: grid; grid-template-columns: minmax(260px, .55fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 110px); padding: clamp(72px, 9vw, 126px) clamp(18px, 5vw, 82px); background: var(--canvas); }
+.faq-page-heading { position: sticky; top: 130px; align-self: start; }
+.faq-page-heading h2 { font-size: clamp(2.5rem, 4.3vw, 4.6rem); }
+.faq-page-heading > p:not(.section-label) { color: var(--muted); line-height: 1.65; }
+.faq-page-content .faq-list { max-width: none; }
+.faq-support { display: flex; justify-content: space-between; gap: 40px; align-items: end; padding: clamp(64px, 8vw, 108px) clamp(18px, 5vw, 82px); background: var(--lime); }
+.faq-support .section-label { color: var(--graphite); }
+.faq-support > div:first-child { max-width: 760px; }
+.faq-support p:not(.section-label) { color: #42483f; line-height: 1.65; }
+.faq-support .secondary { border-color: var(--graphite); }
 
 footer { display: grid; grid-template-columns: auto 1fr; gap: 26px 50px; align-items: center; padding: 58px clamp(18px, 5vw, 82px) 96px; background: var(--graphite); color: #c6cbc2; }
 .footer-brand img { width: 150px; filter: brightness(0) invert(1); }
@@ -196,6 +220,9 @@ footer > div { display: flex; justify-content: flex-end; gap: 20px; }
   .spec-strip { grid-template-columns: repeat(2, 1fr); }
   .spec-strip article:nth-child(2) { border-right: 0; }
   .section-heading { grid-template-columns: 1fr; }
+  .faq-bridge, .faq-support { align-items: flex-start; flex-direction: column; }
+  .faq-page-hero, .faq-page-content { grid-template-columns: 1fr; }
+  .faq-page-heading { position: static; }
   .sticky-conversion span { display: none; }
 }
 
