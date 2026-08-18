@@ -164,8 +164,8 @@ h3 { font-size: 1.25rem; }
 
 .technology-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(36px, 7vw, 100px); align-items: center; background: var(--paper); }
 .technology-copy > p:not(.section-label) { margin: 22px 0 28px; }
-.technology-feature { position: relative; min-height: 520px; display: grid; place-items: center; overflow: hidden; background: linear-gradient(135deg, rgba(204,255,12,.25), transparent 46%), var(--canvas); }
-.technology-feature > img { width: 78%; height: 430px; object-fit: contain; filter: drop-shadow(0 28px 20px rgba(0,0,0,.2)); animation: modelReveal 520ms ease both; }
+.technology-feature { position: relative; min-height: 520px; display: grid; place-items: center; overflow: hidden; background: var(--paper); }
+.technology-feature > img { width: 86%; height: 450px; object-fit: contain; filter: none; animation: modelReveal 520ms ease both; }
 .technology-model-tabs { position: absolute; z-index: 3; top: 18px; left: 18px; display: flex; flex-wrap: wrap; gap: 5px; max-width: calc(100% - 36px); }
 .technology-model-tabs button { min-height: 34px; padding: 0 11px; border: 1px solid #cbd0c5; border-radius: 3px; background: rgba(255,255,255,.9); color: var(--graphite); cursor: pointer; font-size: .7rem; font-weight: 950; transition: background 180ms ease, border-color 180ms ease, transform 180ms ease; }
 .technology-model-tabs button:hover { border-color: var(--lime-dark); transform: translateY(-1px); }
