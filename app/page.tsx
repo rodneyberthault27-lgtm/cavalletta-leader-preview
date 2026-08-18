@@ -30,6 +30,63 @@ const faqs = [
   ["Onde fica a loja?", "Estamos na Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501, loja 26, em São Paulo."],
 ];
 
+const blogArticles = [
+  {
+    category: "Cavalletta no Ipiranga",
+    date: "19 jun 2026",
+    title: "A Cavalletta chega à Ricardo Jafet com experiência e test ride",
+    excerpt: "A abertura da unidade no Ipiranga aproximou do público paulistano modelos como C3 Pro, C15, T3 e AE8, com atendimento presencial e experimentação na loja.",
+    image: "/models/c3-pro.webp",
+    source: "Encontra Ipiranga",
+    url: "https://www.encontraipiranga.com/a-segunda-loja-franqueada-da-cavalletta-chega-ao-bairro-ipiranga-em-sao-paulo/",
+  },
+  {
+    category: "Expansão no Brasil",
+    date: "30 jul 2026",
+    title: "Marca estrutura rede, pós-venda e futura fábrica brasileira",
+    excerpt: "A expansão prevê novas franquias e uma operação local apoiada por centro de armazenagem, assistência pós-venda, equipe comercial e avanço da futura fábrica no país.",
+    image: "/models/ae8.webp",
+    source: "Showmetech",
+    url: "https://www.showmetech.com.br/cavalletta-inaugura-primeira-loja-franqueada-no-estado-de-sao-paulo/",
+  },
+  {
+    category: "Tecnologia",
+    date: "Atualizado em 2026",
+    title: "C3 Pro leva controle, localização e proteção para o aplicativo",
+    excerpt: "A evolução conectada da linha C3 reúne funções de travamento remoto, localização do veículo e recursos antifurto para uma rotina urbana mais controlada.",
+    image: "/models/c3-pro.webp",
+    source: "Showmetech",
+    url: "https://www.showmetech.com.br/cavalletta-inaugura-primeira-loja-franqueada-no-estado-de-sao-paulo/",
+  },
+  {
+    category: "Guia de escolha",
+    date: "24 out 2025",
+    title: "C3, C12 ou C15: o uso diário deve orientar a escolha",
+    excerpt: "O guia oficial compara autonomia, potência, capacidade e perfil de uso. A recomendação central é cruzar distância, terreno e necessidade de carga antes do test ride.",
+    image: "/models/c12.webp",
+    source: "Cavalletta Oficial",
+    url: "https://cavalletta.store/blogs/guias/guia-de-compra-bicicleta-eletrica",
+  },
+  {
+    category: "Bateria e recarga",
+    date: "Revisado em 17 ago 2026",
+    title: "Boas práticas ajudam a preservar a bateria no dia a dia",
+    excerpt: "A orientação oficial é recarregar em local protegido de calor, sol, chuva e umidade, evitar descarga total recorrente e não prolongar a carga além do recomendado.",
+    image: "/models/e12.webp",
+    source: "FAQ Cavalletta",
+    url: "https://cavalletta.store/pages/faq",
+  },
+  {
+    category: "Regras de circulação",
+    date: "Resolução vigente",
+    title: "Bicicleta elétrica, autopropelido ou ciclomotor: entenda a diferença",
+    excerpt: "A Resolução CONTRAN 996/2023 define critérios técnicos e obrigações diferentes. A classificação depende das características de cada veículo e deve ser confirmada antes do uso em via pública.",
+    image: "/models/c15.webp",
+    source: "Ministério dos Transportes",
+    url: "https://www.gov.br/infraestrutura/pt-br/assuntos/transito/conteudo-contran/resolucoes/Resolucao9962023.pdf",
+  },
+];
+
 const whatsappFor = (subject: string) => `${whatsappUrl}?text=${encodeURIComponent(`Olá! Vim pelo site da Cavalletta Leader e gostaria de saber mais sobre ${subject}.`)}`;
 
 const structuredData = {
@@ -55,7 +112,7 @@ export default function Home() {
       <div className="topline"><span>Loja física na Ricardo Jafet</span><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +55 11 92514-1848</a></div>
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Cavalletta Leader - início"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a>
-        <nav className="main-tabs" aria-label="Navegação principal"><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#recarga">Recarga</a><a href="#manutencao">Suporte</a></nav>
+        <nav className="main-tabs" aria-label="Navegação principal"><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#blog">Blog</a><a href="#manutencao">Suporte</a></nav>
         <a className="header-cta" href={whatsappFor("uma Cavalletta")} target="_blank" rel="noreferrer">Consultar</a>
       </header>
 
@@ -86,6 +143,29 @@ export default function Home() {
 
       <section className="technology-section" id="tecnologia"><div className="technology-copy"><p className="section-label">Tecnologia que reduz dúvidas</p><h2>Controle, proteção e informação na sua mão.</h2><p>Aplicativo inteligente, NFC antifurto e recursos pensados para tornar a mobilidade elétrica mais simples e segura em modelos selecionados.</p><a className="primary" href={whatsappFor("os modelos com aplicativo e NFC")} target="_blank" rel="noreferrer">Conhecer tecnologias</a></div><div className="technology-feature"><img src="/models/e12.webp" alt="Cavalletta E12 com tecnologia NFC" /><div><span>NFC + segurança</span><strong>E12</strong><p>Praticidade para ligar e proteger sua Cavalletta.</p></div></div></section>
 
+      <section className="blog-section" id="blog">
+        <div className="section-heading">
+          <div><p className="section-label">Blog Cavalletta Leader</p><h2>Mobilidade elétrica com contexto.</h2></div>
+          <p>Pesquisa editorial revisada em 17 de agosto de 2026. Notícias da marca, tecnologia, cuidados e regras explicados com fontes identificadas.</p>
+        </div>
+        <article className="blog-featured">
+          <div className="blog-featured-image"><span>Notícia em destaque</span><img src={blogArticles[0].image} alt="Cavalletta C3 Pro, destaque da loja no Ipiranga" /></div>
+          <div className="blog-featured-copy"><div className="article-meta"><span>{blogArticles[0].category}</span><time>{blogArticles[0].date}</time></div><h3>{blogArticles[0].title}</h3><p>{blogArticles[0].excerpt}</p><a href={blogArticles[0].url} target="_blank" rel="noreferrer">Ler matéria na fonte · {blogArticles[0].source}</a></div>
+        </article>
+        <div className="blog-grid">
+          {blogArticles.slice(1).map((article) => (
+            <article className="blog-card" key={article.title}>
+              <div className="blog-card-image"><img src={article.image} alt="" /></div>
+              <div className="article-meta"><span>{article.category}</span><time>{article.date}</time></div>
+              <h3>{article.title}</h3>
+              <p>{article.excerpt}</p>
+              <a href={article.url} target="_blank" rel="noreferrer">Fonte: {article.source}</a>
+            </article>
+          ))}
+        </div>
+        <p className="research-note"><strong>Nota editorial:</strong> dados de autonomia e desempenho variam conforme peso, terreno, temperatura e modo de condução. A classificação legal depende das especificações do veículo; confirme o enquadramento do modelo e as regras locais antes de circular.</p>
+      </section>
+
       <section className="support-section" id="manutencao"><div className="section-heading"><div><p className="section-label">Suporte local</p><h2>Da escolha ao pós-venda.</h2></div><p>Atendimento humano para comprar com mais clareza e continuar rodando com confiança.</p></div><div className="support-grid"><article><span>01</span><h3>Manutenção técnica</h3><p>Avaliação, diagnóstico e orientação para manter sua Cavalletta pronta.</p></article><article><span>02</span><h3>Peças de reposição</h3><p>Consulta de componentes compatíveis e disponibilidade com a equipe.</p></article><article><span>03</span><h3>Fábrica e estoque</h3><p>Informações sobre tecnologia, novas chegadas, modelos e cores.</p></article><article><span>04</span><h3>Vendas realizadas</h3><p>Entrega com orientação de uso, conferência e suporte direto da Leader.</p></article></div><a className="secondary" href={whatsappFor("manutenção, peças ou estoque")} target="_blank" rel="noreferrer">Falar com o suporte</a></section>
 
       <section className="proof-section"><article><p className="section-label">Sustentabilidade prática</p><h2>Zero emissão local no trajeto.</h2><p>Mobilidade silenciosa e elétrica para reduzir a dependência de combustível no dia a dia.</p><strong>0</strong><span>emissão local durante o uso</span></article><article><p className="section-label">Confiança perto de você</p><h2>Produto real. Loja real.</h2><p>Compare os modelos online e venha conhecer de perto na Ricardo Jafet.</p><strong>Loja 26</strong><span>Galeria Extra Ricardo Jafet</span></article></section>
@@ -94,7 +174,7 @@ export default function Home() {
 
       <section className="faq-section" id="faq"><div className="section-heading"><div><p className="section-label">Perguntas frequentes</p><h2>Decida sem dúvida.</h2></div><p>Regras, bateria, recarga, estoque e suporte em respostas objetivas.</p></div><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <footer><a className="footer-brand" href="#inicio"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a><nav><a href="#modelos">Modelos</a><a href="#tecnologia">Tecnologia</a><a href="#recarga">Recarga</a><a href="#manutencao">Suporte</a><a href="#faq">FAQ</a></nav><p>{storeAddress}</p><div><a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a><a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a></div></footer>
+      <footer><a className="footer-brand" href="#inicio"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a><nav><a href="#modelos">Modelos</a><a href="#tecnologia">Tecnologia</a><a href="#blog">Blog</a><a href="#manutencao">Suporte</a><a href="#faq">FAQ</a></nav><p>{storeAddress}</p><div><a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a><a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a></div></footer>
       <aside className="sticky-conversion" aria-label="Ações rápidas"><span>Pronto para conhecer sua Cavalletta?</span><a href={whatsappFor("consultar um modelo")} target="_blank" rel="noreferrer">Consultar modelo</a><a href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar test ride</a><a href={mapsUrl} target="_blank" rel="noreferrer">Ver localização</a></aside>
     </main>
   );
