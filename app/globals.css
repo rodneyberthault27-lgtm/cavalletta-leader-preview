@@ -21,13 +21,13 @@ main { padding-bottom: 70px; }
 
 .topline { display: flex; justify-content: space-between; gap: 20px; padding: 8px clamp(18px, 5vw, 82px); background: var(--lime); color: var(--graphite); font-size: .8rem; font-weight: 900; }
 .topline a { text-decoration: underline; text-underline-offset: 3px; }
-.site-header { position: sticky; top: 0; z-index: 40; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 30px; min-height: 80px; padding: 12px clamp(18px, 5vw, 82px); border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, .94); backdrop-filter: blur(18px); }
+.site-header { position: sticky; top: 0; z-index: 40; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 30px; min-height: 80px; padding: 12px clamp(18px, 5vw, 82px); border-bottom: 1px solid #3c3c3c; background: rgba(35, 35, 35, .97); backdrop-filter: blur(18px); }
 .brand, .footer-brand { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display), sans-serif; font-weight: 900; }
-.brand img { width: 138px; }
-.brand span { padding-left: 8px; border-left: 1px solid var(--line); }
+.brand img { width: 138px; filter: brightness(0) saturate(100%) invert(88%) sepia(93%) saturate(1592%) hue-rotate(24deg) brightness(106%) contrast(108%); }
+.brand span { padding-left: 8px; border-left: 1px solid #555; color: #f4f4f0; }
 .main-tabs { display: flex; justify-content: center; gap: clamp(12px, 2.2vw, 34px); }
-.main-tabs a { color: #4f554c; font-size: .88rem; font-weight: 800; }
-.main-tabs a:hover { color: var(--lime-dark); }
+.main-tabs a { color: #e1e3dc; font-size: .88rem; font-weight: 800; }
+.main-tabs a:hover { color: var(--lime); }
 .header-cta, .primary, .card-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 22px; border: 1px solid var(--lime); border-radius: 4px; background: var(--lime); color: var(--graphite); font-weight: 1000; transition: transform 180ms ease, background 180ms ease; }
 .header-cta:hover, .primary:hover, .card-cta:hover { transform: translateY(-2px); background: #b9e900; }
 .secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 22px; border: 1px solid #879198; border-radius: 4px; background: transparent; color: var(--ink); font-weight: 900; transition: border-color 180ms ease, background 180ms ease; }
