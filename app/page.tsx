@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const whatsappUrl = "https://wa.me/5511925141848";
 const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
@@ -92,14 +92,17 @@ const structuredData = {
 };
 
 export default function Home() {
-  const [dailyDistance, setDailyDistance] = useState(24);
+  const [dailyDistance, setDailyDistance] = useState(20);
   const [selectedModel, setSelectedModel] = useState("AE8");
   const [showcaseIndex, setShowcaseIndex] = useState(0);
   const activeModel = models.find((model) => model.name === selectedModel) ?? models[0];
   const showcaseModel = models[showcaseIndex];
   const activeRange = activeModel.range ?? 50;
-  const monthlyDistance = Math.max(0, dailyDistance) * 30;
-  const routineDays = useMemo(() => Math.max(1, Math.floor(activeRange / Math.max(1, dailyDistance))), [activeRange, dailyDistance]);
+  const fitsRoutine = dailyDistance <= activeRange;
+  const dailyUsagePercentage = Math.min(100, Math.round((dailyDistance / activeRange) * 100));
+  const remainingRange = Math.max(0, activeRange - dailyDistance);
+  const coverageDays = activeRange / Math.max(1, dailyDistance);
+  const compatibleModels = models.filter((model) => model.range >= dailyDistance);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -131,8 +134,20 @@ export default function Home() {
       <section className="spec-strip" aria-label="Destaques do portfólio"><article><strong>Até 80 km</strong><span>de autonomia no catálogo atual</span></article><article><strong>Até 1000 W</strong><span>para diferentes rotinas</span></article><article><strong>5 modelos</strong><span>confirmados no estoque da loja</span></article><article><strong>Loja física</strong><span>test ride e suporte local</span></article></section>
 
       <section className="decision-tools" id="economia">
-        <article className="tool-panel calculator-panel"><p className="section-label">Calculadora de rotina</p><h2>Quanto você pode rodar no elétrico?</h2><p>Informe sua distância diária e veja a mobilidade que cabe no seu mês.</p><label htmlFor="daily-distance">Quilômetros por dia</label><div className="input-row"><input id="daily-distance" type="number" min="1" max="300" value={dailyDistance} onChange={(event) => setDailyDistance(Number(event.target.value))} /><span>km/dia</span></div><div className="tool-result"><strong>{monthlyDistance.toLocaleString("pt-BR")} km/mês</strong><span>de deslocamento que pode entrar na sua rotina elétrica</span></div></article>
-        <article className="tool-panel reach-panel"><p className="section-label">Visualizador de alcance</p><h2>Até onde você chega?</h2><label htmlFor="range-model">Escolha um modelo</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{models.filter((model) => model.range).map((model) => <option key={model.name} value={model.name}>{model.name}</option>)}</select><div className="range-meter" aria-label={`Autonomia de até ${activeRange} quilômetros`}><span style={{ width: `${Math.max(16, (activeRange / 150) * 100)}%` }} /></div><div className="range-number"><strong>até {activeRange} km</strong><span>por carga</span></div><p className="range-context">Para uma rotina de {dailyDistance || 0} km/dia, uma carga representa aproximadamente <strong>{routineDays} {routineDays === 1 ? "dia" : "dias"}</strong> de deslocamento.</p></article>
+        <article className="tool-panel routine-input-panel">
+          <p className="section-label">Compare com sua rotina</p><h2>Quantos quilômetros você percorre por dia?</h2><p>Considere o trajeto completo de ida e volta. Depois, escolha um modelo para comparar.</p>
+          <label htmlFor="daily-distance">Distância total diária</label><input className="distance-slider" id="daily-distance" type="range" min="5" max="100" step="5" value={dailyDistance} onChange={(event) => setDailyDistance(Number(event.target.value))} />
+          <div className="distance-value"><strong>{dailyDistance}</strong><span>km por dia</span></div>
+          <label htmlFor="range-model">Modelo para comparação</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{models.map((model) => <option key={model.name} value={model.name}>{model.name} · até {model.range} km</option>)}</select>
+        </article>
+        <article className={`tool-panel routine-result-panel ${fitsRoutine ? "is-compatible" : "needs-planning"}`}>
+          <p className="section-label">Resultado para {activeModel.name}</p><h2>{fitsRoutine ? "Sua rotina cabe em uma carga." : "Sua rotina pede uma recarga intermediária."}</h2>
+          <div className="compatibility-summary"><strong>{activeRange} km</strong><span>autonomia informada</span><b>{fitsRoutine ? `${remainingRange} km de margem` : `${dailyDistance - activeRange} km além da autonomia`}</b></div>
+          <div className="usage-comparison"><div><span>Uso diário estimado</span><strong>{dailyUsagePercentage}% da carga</strong></div><div className="range-meter" role="progressbar" aria-label={`${dailyUsagePercentage}% da autonomia informada usada por dia`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={dailyUsagePercentage}><span style={{ width: `${dailyUsagePercentage}%` }} /></div></div>
+          <p className="range-context">{fitsRoutine ? <>Uma carga cobre aproximadamente <strong>{coverageDays.toLocaleString("pt-BR", { maximumFractionDigits: 1 })} {coverageDays === 1 ? "dia" : "dias"}</strong> dessa rotina.</> : <>Compare outro modelo ou planeje uma recarga durante o trajeto.</>}</p>
+          <div className="compatible-models"><span>Modelos que atendem essa distância</span><div>{compatibleModels.length ? compatibleModels.map((model) => <button type="button" className={model.name === selectedModel ? "active" : ""} onClick={() => setSelectedModel(model.name)} key={model.name}>{model.name}</button>) : <p>Nenhum modelo do catálogo atual cobre essa distância em uma única carga.</p>}</div></div>
+          <small className="range-disclaimer">Estimativa baseada na autonomia informada em catálogo. O alcance real varia conforme peso, terreno, velocidade, temperatura e modo de condução.</small>
+        </article>
       </section>
 
       <section className="recharge-band" id="recarga"><div><p className="section-label">Recarga simples</p><h2>Carregue em casa. Saia pronto para a cidade.</h2><p>A equipe explica a recarga, os cuidados com a bateria e o melhor modelo para a distância da sua rotina.</p></div><div className="recharge-steps" aria-label="Etapas da recarga"><span><b>01</b> Conecte</span><span><b>02</b> Recarregue</span><span><b>03</b> Siga seu caminho</span></div></section>
