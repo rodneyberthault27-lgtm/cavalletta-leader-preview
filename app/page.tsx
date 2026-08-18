@@ -116,7 +116,7 @@ export default function Home() {
       <div className="topline"><span>Loja física na Ricardo Jafet</span><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +55 11 92514-1848</a></div>
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Cavalletta Leader - início"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a>
-        <nav className="main-tabs" aria-label="Navegação principal"><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#blog">Blog</a><a href="#manutencao">Suporte</a><Link href="/faq">FAQ</Link></nav>
+        <nav className="main-tabs" aria-label="Navegação principal"><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#manutencao">Suporte</a><a href="#blog">Blog</a><Link href="/faq">FAQ</Link></nav>
         <a className="header-cta" href={whatsappFor("uma Cavalletta")} target="_blank" rel="noreferrer">Consultar</a>
       </header>
 
@@ -211,7 +211,7 @@ export default function Home() {
 
       <section className="faq-bridge" aria-labelledby="faq-bridge-title"><div><p className="section-label">Central de dúvidas</p><h2 id="faq-bridge-title">Respostas antes do test ride.</h2><p>Consulte bateria, recarga, documentos, manutenção, estoque e atendimento em uma página completa da Cavalletta Leader.</p></div><Link className="primary" href="/faq">Abrir FAQ completo</Link></section>
 
-      <footer><a className="footer-brand" href="#inicio"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a><nav><a href="#modelos">Modelos</a><a href="#tecnologia">Tecnologia</a><a href="#blog">Blog</a><a href="#manutencao">Suporte</a><Link href="/faq">FAQ</Link></nav><p>{storeAddress}</p><div><a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a><a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a></div></footer>
+      <footer><a className="footer-brand" href="#inicio"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a><nav><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#manutencao">Suporte</a><a href="#blog">Blog</a><Link href="/faq">FAQ</Link></nav><p>{storeAddress}</p><div><a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a><a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a></div></footer>
       <aside className="sticky-conversion" aria-label="Ações rápidas"><span>Pronto para conhecer sua Cavalletta?</span><a href={whatsappFor("consultar um modelo")} target="_blank" rel="noreferrer">Consultar modelo</a><a href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar test ride</a><a href={mapsUrl} target="_blank" rel="noreferrer">Ver localização</a></aside>
     </main>
   );

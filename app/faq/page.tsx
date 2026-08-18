@@ -49,7 +49,7 @@ export default function FaqPage() {
       <div className="topline"><span>Loja física na Ricardo Jafet</span><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp +55 11 92514-1848</a></div>
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Cavalletta Leader - página inicial"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></Link>
-        <nav className="main-tabs" aria-label="Navegação principal"><Link href="/#modelos">Modelos</Link><Link href="/#economia">Autonomia</Link><Link href="/#tecnologia">Tecnologia</Link><Link href="/#blog">Blog</Link><Link href="/#manutencao">Suporte</Link><Link className="active" href="/faq" aria-current="page">FAQ</Link></nav>
+        <nav className="main-tabs" aria-label="Navegação principal"><Link href="/#modelos">Modelos</Link><Link href="/#economia">Autonomia</Link><Link href="/#tecnologia">Tecnologia</Link><Link href="/#manutencao">Suporte</Link><Link href="/#blog">Blog</Link><Link className="active" href="/faq" aria-current="page">FAQ</Link></nav>
         <a className="header-cta" href={`${whatsappUrl}?text=${encodeURIComponent("Olá! Vim pelo FAQ da Cavalletta Leader e preciso de ajuda.")}`} target="_blank" rel="noreferrer">Consultar</a>
       </header>
 
@@ -68,7 +68,7 @@ export default function FaqPage() {
         <div className="hero-actions"><a className="primary" href={`${whatsappUrl}?text=${encodeURIComponent("Olá! Vim pelo FAQ da Cavalletta Leader e gostaria de tirar uma dúvida.")}`} target="_blank" rel="noreferrer">Perguntar no WhatsApp</a><Link className="secondary" href="/#modelos">Ver modelos</Link></div>
       </section>
 
-      <footer><Link className="footer-brand" href="/"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></Link><nav><Link href="/#modelos">Modelos</Link><Link href="/#tecnologia">Tecnologia</Link><Link href="/#blog">Blog</Link><Link href="/#manutencao">Suporte</Link><Link href="/faq">FAQ</Link></nav><p>{storeAddress}</p><div><a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a><a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a></div></footer>
+      <footer><Link className="footer-brand" href="/"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></Link><nav><Link href="/#modelos">Modelos</Link><Link href="/#economia">Autonomia</Link><Link href="/#tecnologia">Tecnologia</Link><Link href="/#manutencao">Suporte</Link><Link href="/#blog">Blog</Link><Link href="/faq">FAQ</Link></nav><p>{storeAddress}</p><div><a href={instagramUrl} target="_blank" rel="noreferrer">@cavalletta.leader</a><a href={whatsappUrl} target="_blank" rel="noreferrer">+55 11 92514-1848</a></div></footer>
     </main>
   );
 }
