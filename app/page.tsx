@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const whatsappUrl = "https://wa.me/5511925141848";
 const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
@@ -11,11 +11,11 @@ const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20Extra
 const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
 const models = [
-  { name: "C3 Pro", fullName: "C3 Pro Aplicativo Inteligente", category: "Mobilidade conectada", image: "/models/c3-pro-official.jpg", range: 70, specs: ["800 W", "Até 70 km", "48V 24Ah", "Carga 140 kg"], colors: ["Cores sob consulta"] },
-  { name: "T3", fullName: "T3 Triciclo Elétrico", category: "Triciclo elétrico", image: "/models/t3-official.jpg", range: 50, specs: ["1000 W", "Até 50 km", "60V 20Ah", "Carga 150 kg"], colors: ["Cores sob consulta"] },
-  { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8-official.jpg", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"], colors: ["Cores sob consulta"] },
-  { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c12-official.png", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Cores sob consulta"] },
-  { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-official.jpg", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"] },
+  { name: "C3 Pro", fullName: "C3 Pro Aplicativo Inteligente", category: "Mobilidade conectada", image: "/models/c3-pro-official.jpg", range: 70, specs: ["800 W", "Até 70 km", "48V 24Ah", "Carga 140 kg"], colors: ["Cores sob consulta"], feature: "App inteligente", featureText: "Mobilidade conectada com controle direto pelo celular." },
+  { name: "T3", fullName: "T3 Triciclo Elétrico", category: "Triciclo elétrico", image: "/models/t3-official.jpg", range: 50, specs: ["1000 W", "Até 50 km", "60V 20Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Três rodas", featureText: "Configuração de triciclo para uma rotina elétrica mais estável." },
+  { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8-official.jpg", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Maior alcance", featureText: "Até 80 km de autonomia informada para trajetos mais longos." },
+  { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c12-official.png", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Cores sob consulta"], feature: "Rotina urbana", featureText: "Formato prático e autonomia para os deslocamentos da cidade." },
+  { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-official.jpg", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"], feature: "Uso versátil", featureText: "Potência e capacidade para diferentes necessidades do dia a dia." },
 ];
 
 const blogArticles = [
@@ -94,10 +94,18 @@ const structuredData = {
 export default function Home() {
   const [dailyDistance, setDailyDistance] = useState(24);
   const [selectedModel, setSelectedModel] = useState("AE8");
+  const [showcaseIndex, setShowcaseIndex] = useState(0);
   const activeModel = models.find((model) => model.name === selectedModel) ?? models[0];
+  const showcaseModel = models[showcaseIndex];
   const activeRange = activeModel.range ?? 50;
   const monthlyDistance = Math.max(0, dailyDistance) * 30;
   const routineDays = useMemo(() => Math.max(1, Math.floor(activeRange / Math.max(1, dailyDistance))), [activeRange, dailyDistance]);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setTimeout(() => setShowcaseIndex((index) => (index + 1) % models.length), 4800);
+    return () => window.clearTimeout(timer);
+  }, [showcaseIndex]);
 
   return (
     <main id="inicio">
@@ -134,7 +142,14 @@ export default function Home() {
         <div className="model-grid">{models.map((model) => <article className="model-card" key={model.name}><div className="model-image"><span>{model.category}</span><img src={model.image} alt={model.fullName} /></div><div className="model-content"><div className="model-title"><h3>{model.name}</h3><span>{model.range ? `até ${model.range} km` : "série leve"}</span></div><p>{model.fullName}</p><ul>{model.specs.map((spec) => <li key={spec}>{spec}</li>)}</ul><div className="color-list" aria-label={`Cores de ${model.name}`}>{model.colors.slice(0, 5).map((color) => <span key={color}>{color}</span>)}</div><a className="card-cta" href={whatsappFor(model.fullName)} target="_blank" rel="noreferrer">Consultar {model.name}</a></div></article>)}</div>
       </section>
 
-      <section className="technology-section" id="tecnologia"><div className="technology-copy"><p className="section-label">Tecnologia que reduz dúvidas</p><h2>Controle, proteção e informação na sua mão.</h2><p>O C3 Pro reúne aplicativo inteligente e recursos conectados pensados para tornar a mobilidade elétrica mais simples na rotina urbana.</p><a className="primary" href={whatsappFor("a tecnologia do C3 Pro")} target="_blank" rel="noreferrer">Conhecer o C3 Pro</a></div><div className="technology-feature"><img src="/models/c3-pro-official.jpg" alt="Cavalletta C3 Pro com aplicativo inteligente" /><div><span>App inteligente</span><strong>C3 Pro</strong><p>Mobilidade conectada com controle direto pelo celular.</p></div></div></section>
+      <section className="technology-section" id="tecnologia">
+        <div className="technology-copy"><p className="section-label">Tecnologia para cada rotina</p><h2>Uma linha completa em movimento.</h2><p>Conheça os modelos disponíveis, compare alcance e formato e encontre a Cavalletta que combina com o seu dia a dia.</p><a className="primary" href={whatsappFor(showcaseModel.fullName)} target="_blank" rel="noreferrer">Consultar {showcaseModel.name}</a></div>
+        <div className="technology-feature" aria-live="polite">
+          <div className="technology-model-tabs" aria-label="Escolha um modelo para visualizar">{models.map((model, index) => <button type="button" className={index === showcaseIndex ? "active" : ""} onClick={() => setShowcaseIndex(index)} aria-pressed={index === showcaseIndex} key={model.name}>{model.name}</button>)}</div>
+          <img key={showcaseModel.name} src={showcaseModel.image} alt={showcaseModel.fullName} />
+          <div className="technology-model-copy"><span>{showcaseModel.feature}</span><strong>{showcaseModel.name}</strong><p>{showcaseModel.featureText}</p><small>Até {showcaseModel.range} km de autonomia informada</small></div>
+        </div>
+      </section>
 
       <section className="blog-section" id="blog">
         <div className="section-heading">
