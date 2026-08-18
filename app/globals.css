@@ -143,13 +143,14 @@ h3 { font-size: 1.25rem; }
 .models-section, .technology-section, .blog-section, .support-section, .proof-section, .visit-section, .faq-section, .faq-bridge { padding: clamp(72px, 9vw, 126px) clamp(18px, 5vw, 82px); }
 .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .5fr); gap: 40px; align-items: end; margin-bottom: 38px; }
 .section-heading > p { margin: 0; }
-.model-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.model-card { overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); box-shadow: 0 16px 46px rgba(35,35,35,.07); transition: transform 200ms ease, box-shadow 200ms ease; }
-.model-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
-.model-image { position: relative; display: grid; place-items: center; min-height: 300px; background: linear-gradient(145deg, #ecefe7, #fff 62%); }
+.models-section { background: var(--paper); }
+.model-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 18px; }
+.model-card { overflow: hidden; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: var(--paper); box-shadow: none; transition: transform 200ms ease; }
+.model-card:hover { transform: translateY(-5px); }
+.model-image { position: relative; display: grid; place-items: center; min-height: 340px; background: var(--paper); }
 .model-image > span { position: absolute; top: 14px; left: 14px; z-index: 1; padding: 7px 9px; background: var(--graphite); color: white; font-size: .66rem; font-weight: 900; text-transform: uppercase; }
-.model-image img { width: 90%; height: 260px; object-fit: contain; filter: drop-shadow(0 20px 16px rgba(0,0,0,.18)) saturate(1.04) contrast(1.04); transition: transform 200ms ease; }
-.model-card:hover img { transform: scale(1.04); }
+.model-image img { width: 96%; height: 320px; object-fit: contain; filter: none; transition: transform 260ms ease; }
+.model-card:hover img { transform: scale(1.025); }
 .model-content { padding: 22px; }
 .model-title { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
 .model-title h3 { font-size: 1.65rem; }
