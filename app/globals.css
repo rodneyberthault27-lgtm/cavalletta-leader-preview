@@ -82,9 +82,38 @@ h3 { font-size: 1.25rem; }
 
 .recharge-band { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: clamp(58px, 7vw, 92px) clamp(18px, 5vw, 82px); background: var(--graphite); color: white; }
 .recharge-band p { max-width: 720px; }
-.recharge-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #4a4a4a; }
-.recharge-steps span { min-height: 130px; padding: 26px 20px; background: #2b2b2b; font-weight: 900; }
-.recharge-steps b { display: block; margin-bottom: 24px; color: var(--lime); font-family: var(--font-display), sans-serif; }
+.recharge-steps { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; background: #4a4a4a; }
+.recharge-steps::before { content: ""; position: absolute; z-index: 3; top: 0; right: 0; left: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--lime) 48%, transparent); background-repeat: no-repeat; background-size: 34% 100%; animation: rechargeFlow 4.8s linear infinite; filter: drop-shadow(0 0 7px rgba(204,255,12,.8)); pointer-events: none; }
+.recharge-steps span { position: relative; min-height: 130px; padding: 26px 20px; overflow: hidden; background: #2b2b2b; font-weight: 900; animation: rechargeCardPulse 4.8s ease-in-out infinite; }
+.recharge-steps span:nth-child(2) { animation-delay: 1.35s; }
+.recharge-steps span:nth-child(3) { animation-delay: 2.7s; }
+.recharge-steps span::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: 3px; background: var(--lime); box-shadow: 0 0 12px rgba(204,255,12,.8); transform: scaleX(0); transform-origin: left; animation: rechargeStep 4.8s ease-in-out infinite; }
+.recharge-steps span:nth-child(2)::after { animation-delay: 1.35s; }
+.recharge-steps span:nth-child(3)::after { animation-delay: 2.7s; }
+.recharge-steps b { display: block; margin-bottom: 24px; color: var(--lime); font-family: var(--font-display), sans-serif; animation: rechargeNumber 4.8s ease-in-out infinite; }
+.recharge-steps span:nth-child(2) b { animation-delay: 1.35s; }
+.recharge-steps span:nth-child(3) b { animation-delay: 2.7s; }
+
+@keyframes rechargeFlow {
+  from { background-position: -52% 0; }
+  to { background-position: 152% 0; }
+}
+
+@keyframes rechargeCardPulse {
+  0%, 12%, 42%, 100% { background-color: #2b2b2b; }
+  20%, 31% { background-color: #343a2a; }
+}
+
+@keyframes rechargeStep {
+  0%, 12%, 42%, 100% { transform: scaleX(0); opacity: 0; }
+  20% { transform: scaleX(.25); opacity: 1; }
+  31% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes rechargeNumber {
+  0%, 12%, 42%, 100% { text-shadow: none; transform: translateY(0); }
+  20%, 31% { text-shadow: 0 0 14px rgba(204,255,12,.8); transform: translateY(-2px); }
+}
 
 .models-section, .technology-section, .blog-section, .support-section, .proof-section, .visit-section, .faq-section, .faq-bridge { padding: clamp(72px, 9vw, 126px) clamp(18px, 5vw, 82px); }
 .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .5fr); gap: 40px; align-items: end; margin-bottom: 38px; }
@@ -246,6 +275,7 @@ footer > div { display: flex; justify-content: flex-end; gap: 20px; }
   .tool-panel { min-height: auto; }
   .recharge-band { gap: 30px; }
   .recharge-steps { grid-template-columns: 1fr; }
+  .recharge-steps::before { top: 0; right: auto; bottom: 0; left: 0; width: 3px; height: auto; background: linear-gradient(180deg, transparent, var(--lime) 48%, transparent); background-size: 100% 34%; animation-name: rechargeFlowVertical; }
   .recharge-steps span { min-height: 86px; }
   .recharge-steps b { margin-bottom: 10px; }
   .model-grid, .blog-grid, .support-grid { grid-template-columns: 1fr; }
@@ -263,5 +293,10 @@ footer > div { display: flex; justify-content: flex-end; gap: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+@keyframes rechargeFlowVertical {
+  from { background-position: 0 -52%; }
+  to { background-position: 0 152%; }
 }
