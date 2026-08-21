@@ -11,12 +11,12 @@ const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20do%20
 const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20do%20Supermercado%20Extra%20Av.%20Dr.%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
 const models = [
-  { name: "C3 Pro", fullName: "C3 Pro Aplicativo Inteligente", category: "Mobilidade conectada", image: "/models/c3-pro-studio.webp", range: 70, specs: ["800 W", "Até 70 km", "48V 24Ah", "Carga 140 kg"], colors: ["Cores sob consulta"], feature: "App inteligente", featureText: "Mobilidade conectada com controle direto pelo celular." },
-  { name: "T3", fullName: "T3 Triciclo Elétrico", category: "Triciclo elétrico", image: "/models/t3-studio.webp", range: 50, specs: ["1000 W", "Até 50 km", "60V 20Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Três rodas", featureText: "Configuração de triciclo para uma rotina elétrica mais estável." },
-  { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8-studio.webp", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Maior alcance", featureText: "Até 80 km de autonomia informada para trajetos mais longos." },
-  { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c12-studio.webp", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Cores sob consulta"], feature: "Rotina urbana", featureText: "Formato prático e autonomia para os deslocamentos da cidade." },
-  { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-studio.webp", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"], feature: "Uso versátil", featureText: "Potência e capacidade para diferentes necessidades do dia a dia." },
-  { name: "E16", fullName: "E16 Scooter Elétrica", category: "Novo modelo", image: "/models/e16-studio.webp", range: null, specs: ["Ficha em atualização", "Baú traseiro", "Painel digital", "Chegando à loja"], colors: ["Preto", "Cinza", "Branco"], feature: "Novo lançamento", featureText: "Visual urbano, amplo espaço para os pés e baú traseiro integrado." },
+  { name: "C3 Pro", fullName: "C3 Pro Aplicativo Inteligente", category: "Mobilidade conectada", image: "/models/c3-pro-studio.webp", roadImage: "/interactive/c3-pro-journey.webp", range: 70, specs: ["800 W", "Até 70 km", "48V 24Ah", "Carga 140 kg"], colors: ["Cores sob consulta"], feature: "App inteligente", featureText: "Mobilidade conectada com controle direto pelo celular." },
+  { name: "T3", fullName: "T3 Triciclo Elétrico", category: "Triciclo elétrico", image: "/models/t3-studio.webp", roadImage: "/interactive/t3-journey.webp", range: 50, specs: ["1000 W", "Até 50 km", "60V 20Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Três rodas", featureText: "Configuração de triciclo para uma rotina elétrica mais estável." },
+  { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8-studio.webp", roadImage: "/interactive/ae8-journey.webp", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Maior alcance", featureText: "Até 80 km de autonomia informada para trajetos mais longos." },
+  { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c12-studio.webp", roadImage: "/interactive/c12-journey.webp", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Cores sob consulta"], feature: "Rotina urbana", featureText: "Formato prático e autonomia para os deslocamentos da cidade." },
+  { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-studio.webp", roadImage: "/interactive/c15-journey.webp", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"], feature: "Uso versátil", featureText: "Potência e capacidade para diferentes necessidades do dia a dia." },
+  { name: "E16", fullName: "E16 Scooter Elétrica", category: "Novo modelo", image: "/models/e16-studio.webp", roadImage: "/interactive/urban-route.webp", range: null, specs: ["Ficha em atualização", "Baú traseiro", "Painel digital", "Chegando à loja"], colors: ["Preto", "Cinza", "Branco"], feature: "Novo lançamento", featureText: "Visual urbano, amplo espaço para os pés e baú traseiro integrado." },
 ];
 
 const modelVideos = [
@@ -155,10 +155,9 @@ export default function Home() {
         </article>
         <article className={`tool-panel routine-result-panel ${fitsRoutine ? "is-compatible" : "needs-planning"}`}>
           <p className="section-label">Resultado para {activeModel.name}</p><h2>{fitsRoutine ? "Sua rotina cabe em uma carga." : "Sua rotina pede uma recarga intermediária."}</h2>
-          <div className="journey-scene" aria-label={`${activeModel.name} em uma rota urbana de ${dailyDistance} quilômetros por dia`}>
+          <div className="journey-scene" style={{ backgroundImage: `url(${activeModel.roadImage})` }} aria-label={`${activeModel.name} em uma rota urbana de ${dailyDistance} quilômetros por dia`}>
             <div className="journey-hud"><div><span>Sua missão diária</span><strong>{dailyDistance} km</strong></div><div><span>Autonomia {activeModel.name}</span><strong>{activeRange} km</strong></div></div>
             <div className="rider-badge"><span>{riderProfile === "homem" ? "H" : "M"}</span><strong>{riderProfile === "homem" ? "Condutor" : "Condutora"}</strong></div>
-            <div className="journey-bike" style={{ left: `${Math.min(68, 10 + dailyUsagePercentage * 0.55)}%` }}><img key={activeModel.name} src={activeModel.image} alt={`Cavalletta ${activeModel.name}`} /><span>{activeModel.name}</span></div>
             <div className="journey-finish"><i /> <span>{fitsRoutine ? "Destino alcançado" : "Planeje uma recarga"}</span></div>
             <div className="journey-progress"><span style={{ width: `${dailyUsagePercentage}%` }} /></div>
           </div>
