@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 const whatsappUrl = "https://wa.me/5511925141848";
 const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
 const siteUrl = "https://cavalletta-leader.rodead.chatgpt.site";
-const storeAddress = "Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501 - loja 26, São Paulo";
-const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026";
-const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20Extra%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
+const storeAddress = "Galeria do Supermercado Extra, Av. Dr. Ricardo Jafet, 1501 - loja 26, São Paulo - SP, Zona Sul";
+const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20do%20Supermercado%20Extra%20Av.%20Dr.%20Ricardo%20Jafet%201501%20loja%2026";
+const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20do%20Supermercado%20Extra%20Av.%20Dr.%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
 const models = [
   { name: "C3 Pro", fullName: "C3 Pro Aplicativo Inteligente", category: "Mobilidade conectada", image: "/models/c3-pro-studio.webp", range: 70, specs: ["800 W", "Até 70 km", "48V 24Ah", "Carga 140 kg"], colors: ["Cores sob consulta"], feature: "App inteligente", featureText: "Mobilidade conectada com controle direto pelo celular." },
@@ -16,6 +16,13 @@ const models = [
   { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8-studio.webp", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Maior alcance", featureText: "Até 80 km de autonomia informada para trajetos mais longos." },
   { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c12-studio.webp", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Cores sob consulta"], feature: "Rotina urbana", featureText: "Formato prático e autonomia para os deslocamentos da cidade." },
   { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-studio.webp", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"], feature: "Uso versátil", featureText: "Potência e capacidade para diferentes necessidades do dia a dia." },
+];
+
+const modelVideos = [
+  { name: "C3 Pro", src: "/videos/c3-pro.mp4", poster: "/models/c3-pro-studio.webp", description: "Tecnologia conectada e detalhes pensados para a rotina urbana." },
+  { name: "C12", src: "/videos/c12.mp4", poster: "/models/c12-studio.webp", description: "Design clássico, painel digital e acabamento visto de perto." },
+  { name: "C15", src: "/videos/c15.mp4", poster: "/models/c15-studio.webp", description: "Presença moderna, iluminação marcante e construção robusta." },
+  { name: "AE8", src: "/videos/ae8.mp4", poster: "/models/ae8-studio.webp", description: "Formato versátil e visual urbano para trajetos mais longos." },
 ];
 
 const blogArticles = [
@@ -86,7 +93,7 @@ const whatsappFor = (subject: string) => `${whatsappUrl}?text=${encodeURICompone
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "LocalBusiness", "@id": `${siteUrl}/#store`, name: "Cavalletta Leader", url: siteUrl, telephone: "+55 11 92514-1848", address: { "@type": "PostalAddress", streetAddress: "Av. Ricardo Jafet, 1501 - loja 26", addressLocality: "São Paulo", addressRegion: "SP", addressCountry: "BR" }, sameAs: [instagramUrl, whatsappUrl], hasMap: mapsUrl },
+    { "@type": "LocalBusiness", "@id": `${siteUrl}/#store`, name: "Cavalletta Leader", url: siteUrl, telephone: "+55 11 92514-1848", address: { "@type": "PostalAddress", streetAddress: "Av. Dr. Ricardo Jafet, 1501 - loja 26", addressLocality: "São Paulo", addressRegion: "SP", addressCountry: "BR" }, sameAs: [instagramUrl, whatsappUrl], hasMap: mapsUrl },
     { "@type": "ItemList", "@id": `${siteUrl}/#modelos`, name: "Modelos Cavalletta disponíveis", itemListElement: models.map((model, index) => ({ "@type": "ListItem", position: index + 1, item: { "@type": "Product", name: model.fullName, image: `${siteUrl}${model.image}`, brand: { "@type": "Brand", name: "Cavalletta" }, category: model.category } })) },
   ],
 };
@@ -95,8 +102,10 @@ export default function Home() {
   const [dailyDistance, setDailyDistance] = useState(20);
   const [selectedModel, setSelectedModel] = useState("AE8");
   const [showcaseIndex, setShowcaseIndex] = useState(0);
+  const [videoIndex, setVideoIndex] = useState(0);
   const activeModel = models.find((model) => model.name === selectedModel) ?? models[0];
   const showcaseModel = models[showcaseIndex];
+  const activeVideo = modelVideos[videoIndex];
   const activeRange = activeModel.range ?? 50;
   const fitsRoutine = dailyDistance <= activeRange;
   const dailyUsagePercentage = Math.min(100, Math.round((dailyDistance / activeRange) * 100));
@@ -166,6 +175,26 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="video-showcase" aria-labelledby="video-showcase-title">
+        <div className="video-showcase-copy">
+          <p className="section-label">Modelos em vídeo</p>
+          <h2 id="video-showcase-title">Veja os detalhes em movimento.</h2>
+          <p>Vídeos reais enviados pela equipe mostram acabamento, iluminação, painel e presença de cada modelo antes do seu test ride.</p>
+          <div className="video-model-tabs" aria-label="Escolha o vídeo de um modelo">
+            {modelVideos.map((video, index) => <button type="button" className={index === videoIndex ? "active" : ""} onClick={() => setVideoIndex(index)} aria-pressed={index === videoIndex} key={video.name}>{video.name}</button>)}
+          </div>
+          <div className="video-model-note"><strong>{activeVideo.name}</strong><span>{activeVideo.description}</span></div>
+          <a className="primary" href={whatsappFor(`o modelo ${activeVideo.name}`)} target="_blank" rel="noreferrer">Consultar {activeVideo.name}</a>
+        </div>
+        <div className="video-player-wrap">
+          <span className="video-badge">Vídeo real do modelo</span>
+          <video key={activeVideo.src} autoPlay muted loop playsInline controls preload="metadata" poster={activeVideo.poster} aria-label={`Vídeo do modelo Cavalletta ${activeVideo.name}`}>
+            <source src={activeVideo.src} type="video/mp4" />
+          </video>
+          <div className="video-player-caption"><span>{String(videoIndex + 1).padStart(2, "0")} / {String(modelVideos.length).padStart(2, "0")}</span><strong>{activeVideo.name}</strong></div>
+        </div>
+      </section>
+
       <section className="blog-section" id="blog">
         <div className="section-heading">
           <div><p className="section-label">Blog Cavalletta Leader</p><h2>Mobilidade elétrica com contexto.</h2></div>
@@ -205,9 +234,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="proof-section"><article><p className="section-label">Sustentabilidade prática</p><h2>Zero emissão local no trajeto.</h2><p>Mobilidade silenciosa e elétrica para reduzir a dependência de combustível no dia a dia.</p><strong>0</strong><span>emissão local durante o uso</span></article><article><p className="section-label">Confiança perto de você</p><h2>Produto real. Loja real.</h2><p>Compare os modelos online e venha conhecer de perto na Ricardo Jafet.</p><strong>Loja 26</strong><span>Galeria Extra Ricardo Jafet</span></article></section>
+      <section className="proof-section"><article><p className="section-label">Sustentabilidade prática</p><h2>Zero emissão local no trajeto.</h2><p>Mobilidade silenciosa e elétrica para reduzir a dependência de combustível no dia a dia.</p><strong>0</strong><span>emissão local durante o uso</span></article><article><p className="section-label">Confiança perto de você</p><h2>Produto real. Loja real.</h2><p>Compare os modelos online e venha conhecer de perto na Ricardo Jafet.</p><strong>Loja 26</strong><span>Galeria do Supermercado Extra</span></article></section>
 
-      <section className="visit-section" id="loja"><div className="visit-copy"><p className="section-label">Agende sua experiência</p><h2>Faça um test ride.</h2><p>Veja o acabamento, compare o conforto e descubra qual Cavalletta combina com sua rotina.</p><address>{storeAddress}</address><div className="hero-actions"><a className="primary" href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a><a className="secondary" href={mapsUrl} target="_blank" rel="noreferrer">Abrir no mapa</a></div></div><div className="map-card"><iframe title="Mapa da Cavalletta Leader na Galeria Extra Ricardo Jafet" src={mapsEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div></section>
+      <section className="visit-section" id="loja"><div className="visit-copy"><p className="section-label">Agende sua experiência</p><h2>Faça um test ride.</h2><p>Veja o acabamento, compare o conforto e descubra qual Cavalletta combina com sua rotina.</p><address>{storeAddress}</address><div className="hero-actions"><a className="primary" href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a><a className="secondary" href={mapsUrl} target="_blank" rel="noreferrer">Abrir no mapa</a></div></div><div className="map-card"><iframe title="Mapa da Cavalletta Leader na Galeria do Supermercado Extra" src={mapsEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div></section>
 
       <section className="faq-bridge" aria-labelledby="faq-bridge-title"><div><p className="section-label">Central de dúvidas</p><h2 id="faq-bridge-title">Respostas antes do test ride.</h2><p>Consulte bateria, recarga, documentos, manutenção, estoque e atendimento em uma página completa da Cavalletta Leader.</p></div><Link className="primary" href="/faq">Abrir FAQ completo</Link></section>
 

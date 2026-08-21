@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Cavalletta Leader",
   },
   description:
-    "Conheça scooters, motos, triciclos e bicicletas elétricas Cavalletta com test-drive, WhatsApp e atendimento na Galeria Extra Ricardo Jafet, loja 26.",
+    "Conheça scooters, motos, triciclos e bicicletas elétricas Cavalletta com test ride, WhatsApp e atendimento na Galeria do Supermercado Extra, Av. Dr. Ricardo Jafet, loja 26.",
   keywords: [
     "Cavalletta Leader",
     "Cavalletta São Paulo",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "Cavalletta T3",
     "Cavalletta AE8",
     "moto elétrica sem CNH",
-    "Galeria Extra Ricardo Jafet",
+    "Galeria do Supermercado Extra Ricardo Jafet",
   ],
   applicationName: "Cavalletta Leader",
   authors: [{ name: "Cavalletta Leader" }],

@@ -4,19 +4,19 @@ import Link from "next/link";
 const siteUrl = "https://cavalletta-leader.rodead.chatgpt.site";
 const whatsappUrl = "https://wa.me/5511925141848";
 const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
-const storeAddress = "Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501 - loja 26, São Paulo";
+const storeAddress = "Galeria do Supermercado Extra, Av. Dr. Ricardo Jafet, 1501 - loja 26, São Paulo - SP, Zona Sul";
 
 const faqs = [
-  ["Precisa de CNH ou emplacamento?", "A exigência depende da classificação e das características técnicas do modelo. Bicicletas elétricas, equipamentos autopropelidos e ciclomotores seguem regras diferentes. A equipe confirma as especificações da Cavalletta escolhida para que você verifique o enquadramento aplicável ao seu uso."],
+  ["Precisa de CNH ou emplacamento?", "Não. Todos os nossos produtos atuais são classificados como equipamentos de mobilidade individual autopropelidos e, por isso, não exigem CNH nem emplacamento."],
   ["Qual é a autonomia das Cavalletta?", "A referência varia conforme o modelo. No catálogo atual, há opções com autonomia informada de até 50 km, 55 km, 65 km, 70 km e 80 km. Peso, velocidade, terreno, calibragem, temperatura e modo de condução podem alterar o alcance real."],
   ["Posso carregar em tomada comum?", "A recarga foi pensada para entrar na rotina. No atendimento, explicamos o carregador compatível, o procedimento correto, o tempo estimado e os cuidados recomendados para cada bateria."],
   ["Como cuidar melhor da bateria?", "Faça a recarga em local seco, ventilado e protegido de calor, sol e chuva. Use o carregador correto, evite deixar a bateria descarregada por longos períodos e siga as orientações entregues com o modelo."],
   ["Vocês fazem manutenção técnica?", "Sim. A Cavalletta Leader oferece avaliação, diagnóstico e orientação de pós-venda. Fale com a equipe antes de levar o veículo para confirmar o atendimento e a disponibilidade."],
   ["Vocês trabalham com peças de reposição?", "Sim. Consultamos componentes compatíveis e disponibilidade conforme o modelo. Envie pelo WhatsApp o nome do modelo e, quando possível, uma foto da peça para agilizar a análise."],
   ["Como saber o estoque e as cores disponíveis?", "O estoque muda conforme as vendas e as chegadas da fábrica. Consulte pelo WhatsApp antes da visita para receber a posição mais recente de modelos e cores."],
-  ["Posso fazer um test ride?", "Sim. O agendamento ajuda a equipe a preparar o modelo disponível e reservar um horário para apresentar conforto, controles, recarga e recursos do veículo."],
+  ["Posso fazer um test ride?", "Sim. Você pode fazer o test ride mediante agendamento ou conforme a disponibilidade diretamente na loja. O agendamento ajuda nossa equipe a preparar o modelo desejado para receber você."],
   ["Os preços aparecem no site?", "Não. Modelos, disponibilidade e condições são atendidos diretamente pelo WhatsApp para que a informação esteja atualizada no momento da consulta."],
-  ["Onde fica a loja?", "Estamos na Galeria Extra Ricardo Jafet, Av. Ricardo Jafet, 1501, loja 26, em São Paulo."],
+  ["Onde fica a loja?", "Estamos na Galeria do Supermercado Extra, na Av. Dr. Ricardo Jafet, 1501, loja 26, em São Paulo, Zona Sul."],
 ];
 
 export const metadata: Metadata = {
