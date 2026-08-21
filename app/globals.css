@@ -86,7 +86,30 @@ h3 { font-size: 1.25rem; }
 .distance-value strong { color: var(--lime-dark); font-family: var(--font-display), sans-serif; font-size: clamp(3rem, 4.8vw, 4.8rem); line-height: .9; }
 .distance-value span { color: var(--muted); font-weight: 850; }
 .routine-input-panel select { width: 100%; padding: 15px; border: 1px solid var(--line); border-radius: 0; outline: none; background: var(--canvas); color: var(--graphite); font-weight: 900; }
+.rider-profile { margin: 18px 0 0; padding: 0; border: 0; }
+.rider-profile legend { margin-bottom: 8px; color: #4e544a; font-size: .74rem; font-weight: 900; text-transform: uppercase; }
+.rider-profile > div { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+.rider-profile button { min-height: 42px; border: 1px solid var(--line); border-radius: 3px; background: var(--paper); color: var(--graphite); cursor: pointer; font-weight: 900; transition: background 180ms ease, border-color 180ms ease; }
+.rider-profile button:hover, .rider-profile button.active { border-color: var(--lime-dark); background: var(--lime); }
 .routine-result-panel.needs-planning { border-top-color: #ffb000; }
+.journey-scene { position: relative; height: 260px; margin-top: 18px; overflow: hidden; border: 1px solid #cfd4c9; border-radius: 4px; background: url('/interactive/urban-route.webp') center 56% / cover no-repeat; isolation: isolate; }
+.journey-scene::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.72), transparent 38%, rgba(35,35,35,.12)); pointer-events: none; }
+.journey-hud { position: absolute; z-index: 4; top: 12px; left: 12px; display: flex; gap: 1px; box-shadow: 0 8px 24px rgba(35,35,35,.16); }
+.journey-hud > div { min-width: 112px; padding: 9px 11px; background: rgba(35,35,35,.92); color: white; backdrop-filter: blur(8px); }
+.journey-hud span, .journey-hud strong { display: block; }
+.journey-hud span { color: #d9ddd4; font-size: .58rem; font-weight: 850; text-transform: uppercase; }
+.journey-hud strong { margin-top: 3px; color: var(--lime); font-family: var(--font-display), sans-serif; font-size: 1.25rem; }
+.rider-badge { position: absolute; z-index: 4; top: 12px; right: 12px; display: flex; align-items: center; gap: 7px; padding: 6px 9px 6px 6px; background: rgba(255,255,255,.9); box-shadow: 0 8px 24px rgba(35,35,35,.12); color: var(--graphite); font-size: .68rem; backdrop-filter: blur(8px); }
+.rider-badge span { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 50%; background: var(--lime); font-family: var(--font-display), sans-serif; font-weight: 1000; }
+.journey-bike { position: absolute; z-index: 3; bottom: 25px; width: clamp(130px, 27%, 205px); transform: translateX(-50%); transition: left 480ms cubic-bezier(.2,.8,.2,1); }
+.journey-bike img { width: 100%; max-height: 185px; object-fit: contain; mix-blend-mode: multiply; filter: drop-shadow(0 12px 10px rgba(20,20,20,.35)); }
+.journey-bike span { position: absolute; right: 0; bottom: 1px; padding: 5px 8px; background: var(--lime); color: var(--graphite); font-size: .68rem; font-weight: 1000; }
+.journey-finish { position: absolute; z-index: 4; right: 12px; bottom: 27px; display: flex; align-items: center; gap: 7px; padding: 7px 9px; background: rgba(35,35,35,.9); color: white; font-size: .62rem; font-weight: 900; text-transform: uppercase; }
+.journey-finish i { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px rgba(204,255,12,.22); }
+.needs-planning .journey-finish i { background: #ffb000; box-shadow: 0 0 0 4px rgba(255,176,0,.22); }
+.journey-progress { position: absolute; z-index: 5; right: 0; bottom: 0; left: 0; height: 7px; background: rgba(255,255,255,.7); }
+.journey-progress span { display: block; height: 100%; background: var(--lime); transition: width 300ms ease; }
+.needs-planning .journey-progress span { background: #ffb000; }
 .compatibility-summary { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; align-items: baseline; margin-top: 20px; padding: 18px; background: var(--graphite); color: white; }
 .compatibility-summary strong { color: var(--lime); font-family: var(--font-display), sans-serif; font-size: clamp(2.8rem, 4.4vw, 4.6rem); line-height: .9; }
 .compatibility-summary span { color: #c7ccc3; }
@@ -359,6 +382,13 @@ footer > div { display: flex; justify-content: flex-end; gap: 16px; font-size: .
   .spec-strip { grid-template-columns: 1fr; }
   .spec-strip article { min-height: 112px; border-right: 0; border-bottom: 1px solid #454545; }
   .tool-panel { min-height: auto; }
+  .journey-scene { height: 230px; }
+  .journey-hud > div { min-width: 98px; padding: 8px 9px; }
+  .journey-hud span { font-size: .52rem; }
+  .journey-hud strong { font-size: 1.05rem; }
+  .rider-badge strong { display: none; }
+  .journey-bike { width: 155px; }
+  .journey-finish { max-width: 132px; text-align: right; }
   .recharge-band { gap: 30px; }
   .recharge-steps { grid-template-columns: 1fr; }
   .recharge-steps::before { top: 0; right: auto; bottom: 0; left: 0; width: 3px; height: auto; background: linear-gradient(180deg, transparent, var(--lime) 48%, transparent); background-size: 100% 34%; animation-name: rechargeFlowVertical; }

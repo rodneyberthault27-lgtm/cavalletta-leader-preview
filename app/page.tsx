@@ -102,6 +102,7 @@ const structuredData = {
 export default function Home() {
   const [dailyDistance, setDailyDistance] = useState(20);
   const [selectedModel, setSelectedModel] = useState("AE8");
+  const [riderProfile, setRiderProfile] = useState<"homem" | "mulher">("homem");
   const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [videoIndex, setVideoIndex] = useState(0);
   const activeModel = models.find((model) => model.name === selectedModel) ?? models[0];
@@ -150,10 +151,17 @@ export default function Home() {
           <label htmlFor="daily-distance">Distância total diária</label><input className="distance-slider" id="daily-distance" type="range" min="5" max="100" step="5" value={dailyDistance} onChange={(event) => setDailyDistance(Number(event.target.value))} />
           <div className="distance-value"><strong>{dailyDistance}</strong><span>km por dia</span></div>
           <label htmlFor="range-model">Modelo para comparação</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{modelsWithConfirmedRange.map((model) => <option key={model.name} value={model.name}>{model.name} · até {model.range} km</option>)}</select>
+          <fieldset className="rider-profile"><legend>Quem vai pilotar?</legend><div><button type="button" className={riderProfile === "homem" ? "active" : ""} onClick={() => setRiderProfile("homem")} aria-pressed={riderProfile === "homem"}>Homem</button><button type="button" className={riderProfile === "mulher" ? "active" : ""} onClick={() => setRiderProfile("mulher")} aria-pressed={riderProfile === "mulher"}>Mulher</button></div></fieldset>
         </article>
         <article className={`tool-panel routine-result-panel ${fitsRoutine ? "is-compatible" : "needs-planning"}`}>
           <p className="section-label">Resultado para {activeModel.name}</p><h2>{fitsRoutine ? "Sua rotina cabe em uma carga." : "Sua rotina pede uma recarga intermediária."}</h2>
-          <div className="compatibility-summary"><strong>{activeRange} km</strong><span>autonomia informada</span><b>{fitsRoutine ? `${remainingRange} km de margem` : `${dailyDistance - activeRange} km além da autonomia`}</b></div>
+          <div className="journey-scene" aria-label={`${activeModel.name} em uma rota urbana de ${dailyDistance} quilômetros por dia`}>
+            <div className="journey-hud"><div><span>Sua missão diária</span><strong>{dailyDistance} km</strong></div><div><span>Autonomia {activeModel.name}</span><strong>{activeRange} km</strong></div></div>
+            <div className="rider-badge"><span>{riderProfile === "homem" ? "H" : "M"}</span><strong>{riderProfile === "homem" ? "Condutor" : "Condutora"}</strong></div>
+            <div className="journey-bike" style={{ left: `${Math.min(68, 10 + dailyUsagePercentage * 0.55)}%` }}><img key={activeModel.name} src={activeModel.image} alt={`Cavalletta ${activeModel.name}`} /><span>{activeModel.name}</span></div>
+            <div className="journey-finish"><i /> <span>{fitsRoutine ? "Destino alcançado" : "Planeje uma recarga"}</span></div>
+            <div className="journey-progress"><span style={{ width: `${dailyUsagePercentage}%` }} /></div>
+          </div>
           <div className="usage-comparison"><div><span>Uso diário estimado</span><strong>{dailyUsagePercentage}% da carga</strong></div><div className="range-meter" role="progressbar" aria-label={`${dailyUsagePercentage}% da autonomia informada usada por dia`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={dailyUsagePercentage}><span style={{ width: `${dailyUsagePercentage}%` }} /></div></div>
           <p className="range-context">{fitsRoutine ? <>Uma carga cobre aproximadamente <strong>{coverageDays.toLocaleString("pt-BR", { maximumFractionDigits: 1 })} {coverageDays === 1 ? "dia" : "dias"}</strong> dessa rotina.</> : <>Compare outro modelo ou planeje uma recarga durante o trajeto.</>}</p>
           <div className="compatible-models"><span>Modelos que atendem essa distância</span><div>{compatibleModels.length ? compatibleModels.map((model) => <button type="button" className={model.name === selectedModel ? "active" : ""} onClick={() => setSelectedModel(model.name)} key={model.name}>{model.name}</button>) : <p>Nenhum modelo do catálogo atual cobre essa distância em uma única carga.</p>}</div></div>
