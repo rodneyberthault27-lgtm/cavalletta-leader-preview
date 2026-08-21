@@ -365,7 +365,7 @@ footer > div { display: flex; justify-content: flex-end; gap: 16px; font-size: .
 
 @media (max-width: 620px) {
   html { scroll-padding-top: 72px; }
-  main { padding-bottom: 62px; }
+  main { padding-bottom: 0; }
   section[id] { scroll-margin-top: 72px; }
   .topline { align-items: center; gap: 8px; padding: 6px 14px; font-size: .64rem; white-space: nowrap; }
   .topline span { overflow: hidden; text-overflow: ellipsis; }
@@ -493,15 +493,13 @@ footer > div { display: flex; justify-content: flex-end; gap: 16px; font-size: .
   .faq-list summary { padding: 16px; font-size: .9rem; }
   .faq-list p { padding: 0 16px 17px; font-size: .86rem; line-height: 1.55; }
   .faq-support { gap: 22px; padding: 38px 20px; }
-  footer { grid-template-columns: 1fr; gap: 18px; padding: 26px 20px 78px; }
+  footer { grid-template-columns: 1fr; gap: 18px; padding: 26px 20px 30px; }
   footer p { grid-column: auto; }
   footer nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 14px; }
   footer nav, footer > div { justify-content: flex-start; }
   footer nav a { font-size: .78rem; }
   footer > div { flex-direction: column; }
-  .sticky-conversion { min-height: 58px; padding: 6px max(7px, env(safe-area-inset-right)) calc(6px + env(safe-area-inset-bottom)) max(7px, env(safe-area-inset-left)); gap: 6px; }
-  .sticky-conversion a { flex: 1; min-height: 44px; padding: 12px 6px; text-align: center; font-size: .72rem; }
-  .sticky-conversion a:nth-of-type(3) { display: none; }
+  .sticky-conversion { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
