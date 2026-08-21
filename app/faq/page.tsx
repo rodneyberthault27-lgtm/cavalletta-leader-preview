@@ -50,6 +50,7 @@ export default function FaqPage() {
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Cavalletta Leader - página inicial"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></Link>
         <nav className="main-tabs" aria-label="Navegação principal"><Link href="/#modelos">Modelos</Link><Link href="/#economia">Autonomia</Link><Link href="/#tecnologia">Tecnologia</Link><Link href="/#manutencao">Suporte</Link><Link href="/#blog">Blog</Link><Link className="active" href="/faq" aria-current="page">FAQ</Link></nav>
+        <details className="mobile-menu"><summary aria-label="Abrir menu de navegação">☰</summary><nav aria-label="Navegação para celular"><Link href="/#modelos">Modelos</Link><Link href="/#economia">Autonomia</Link><Link href="/#tecnologia">Tecnologia</Link><Link href="/#manutencao">Suporte</Link><Link href="/#blog">Blog</Link><Link className="active" href="/faq" aria-current="page">FAQ</Link></nav></details>
         <a className="header-cta" href={`${whatsappUrl}?text=${encodeURIComponent("Olá! Vim pelo FAQ da Cavalletta Leader e preciso de ajuda.")}`} target="_blank" rel="noreferrer">Consultar</a>
       </header>
 

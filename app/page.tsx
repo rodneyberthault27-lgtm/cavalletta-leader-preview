@@ -129,6 +129,7 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Cavalletta Leader - início"><img src="https://cavalletta.store/cdn/shop/files/logo-RGB-04.png?v=1733727732&width=500" alt="Cavalletta" /><span>leader</span></a>
         <nav className="main-tabs" aria-label="Navegação principal"><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#manutencao">Suporte</a><a href="#blog">Blog</a><Link href="/faq">FAQ</Link></nav>
+        <details className="mobile-menu"><summary aria-label="Abrir menu de navegação">☰</summary><nav aria-label="Navegação para celular"><a href="#modelos">Modelos</a><a href="#economia">Autonomia</a><a href="#tecnologia">Tecnologia</a><a href="#manutencao">Suporte</a><a href="#blog">Blog</a><Link href="/faq">FAQ</Link></nav></details>
         <a className="header-cta" href={whatsappFor("uma Cavalletta")} target="_blank" rel="noreferrer">Consultar</a>
       </header>
 
