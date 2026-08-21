@@ -16,6 +16,7 @@ const models = [
   { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8-studio.webp", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Maior alcance", featureText: "Até 80 km de autonomia informada para trajetos mais longos." },
   { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c12-studio.webp", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Cores sob consulta"], feature: "Rotina urbana", featureText: "Formato prático e autonomia para os deslocamentos da cidade." },
   { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-studio.webp", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"], feature: "Uso versátil", featureText: "Potência e capacidade para diferentes necessidades do dia a dia." },
+  { name: "E16", fullName: "E16 Scooter Elétrica", category: "Novo modelo", image: "/models/e16-studio.webp", range: null, specs: ["Ficha em atualização", "Baú traseiro", "Painel digital", "Chegando à loja"], colors: ["Preto", "Cinza", "Branco"], feature: "Novo lançamento", featureText: "Visual urbano, amplo espaço para os pés e baú traseiro integrado." },
 ];
 
 const modelVideos = [
@@ -106,12 +107,13 @@ export default function Home() {
   const activeModel = models.find((model) => model.name === selectedModel) ?? models[0];
   const showcaseModel = models[showcaseIndex];
   const activeVideo = modelVideos[videoIndex];
-  const activeRange = activeModel.range ?? 50;
+  const activeRange = activeModel.range ?? 0;
   const fitsRoutine = dailyDistance <= activeRange;
   const dailyUsagePercentage = Math.min(100, Math.round((dailyDistance / activeRange) * 100));
   const remainingRange = Math.max(0, activeRange - dailyDistance);
   const coverageDays = activeRange / Math.max(1, dailyDistance);
-  const compatibleModels = models.filter((model) => model.range >= dailyDistance);
+  const modelsWithConfirmedRange = models.filter((model) => model.range !== null);
+  const compatibleModels = modelsWithConfirmedRange.filter((model) => model.range !== null && model.range >= dailyDistance);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -135,19 +137,19 @@ export default function Home() {
           <h1>Autonomia real.<br /><span>Atitude elétrica.</span></h1>
           <p className="hero-text">Modelos para cidade, trabalho e liberdade. Conheça, compare e agende seu test ride com atendimento direto da loja.</p>
           <div className="hero-actions"><a className="primary" href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar test ride</a><a className="secondary" href="#economia">Ver autonomia</a></div>
-          <div className="hero-proof"><strong>5 modelos</strong><span>Fotos oficiais e especificações do catálogo atual</span></div>
+          <div className="hero-proof"><strong>6 modelos</strong><span>Fotos oficiais e especificações do catálogo atual</span></div>
         </div>
         <div className="hero-scene-note"><span>C3 Pro</span><strong>Cidade em movimento.<br />Energia em silêncio.</strong></div>
       </section>
 
-      <section className="spec-strip" aria-label="Destaques do portfólio"><article><strong>Até 80 km</strong><span>de autonomia no catálogo atual</span></article><article><strong>Até 1000 W</strong><span>para diferentes rotinas</span></article><article><strong>5 modelos</strong><span>confirmados no estoque da loja</span></article><article><strong>Loja física</strong><span>test ride e suporte local</span></article></section>
+      <section className="spec-strip" aria-label="Destaques do portfólio"><article><strong>Até 80 km</strong><span>de autonomia no catálogo atual</span></article><article><strong>Até 1000 W</strong><span>para diferentes rotinas</span></article><article><strong>6 modelos</strong><span>disponíveis ou chegando à loja</span></article><article><strong>Loja física</strong><span>test ride e suporte local</span></article></section>
 
       <section className="decision-tools" id="economia">
         <article className="tool-panel routine-input-panel">
           <p className="section-label">Compare com sua rotina</p><h2>Quantos quilômetros você percorre por dia?</h2><p>Considere o trajeto completo de ida e volta. Depois, escolha um modelo para comparar.</p>
           <label htmlFor="daily-distance">Distância total diária</label><input className="distance-slider" id="daily-distance" type="range" min="5" max="100" step="5" value={dailyDistance} onChange={(event) => setDailyDistance(Number(event.target.value))} />
           <div className="distance-value"><strong>{dailyDistance}</strong><span>km por dia</span></div>
-          <label htmlFor="range-model">Modelo para comparação</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{models.map((model) => <option key={model.name} value={model.name}>{model.name} · até {model.range} km</option>)}</select>
+          <label htmlFor="range-model">Modelo para comparação</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{modelsWithConfirmedRange.map((model) => <option key={model.name} value={model.name}>{model.name} · até {model.range} km</option>)}</select>
         </article>
         <article className={`tool-panel routine-result-panel ${fitsRoutine ? "is-compatible" : "needs-planning"}`}>
           <p className="section-label">Resultado para {activeModel.name}</p><h2>{fitsRoutine ? "Sua rotina cabe em uma carga." : "Sua rotina pede uma recarga intermediária."}</h2>
@@ -163,7 +165,12 @@ export default function Home() {
 
       <section className="models-section" id="modelos">
         <div className="section-heading"><div><p className="section-label">Modelos disponíveis</p><h2>Escolha pelo seu jeito de usar.</h2></div><p>Sem preços expostos. Consulte disponibilidade, cores e condições diretamente com a equipe pelo WhatsApp.</p></div>
-        <div className="model-grid">{models.map((model) => <article className="model-card" key={model.name}><div className="model-image"><span>{model.category}</span><img src={model.image} alt={model.fullName} /></div><div className="model-content"><div className="model-title"><h3>{model.name}</h3><span>{model.range ? `até ${model.range} km` : "série leve"}</span></div><p>{model.fullName}</p><ul>{model.specs.map((spec) => <li key={spec}>{spec}</li>)}</ul><div className="color-list" aria-label={`Cores de ${model.name}`}>{model.colors.slice(0, 5).map((color) => <span key={color}>{color}</span>)}</div><a className="card-cta" href={whatsappFor(model.fullName)} target="_blank" rel="noreferrer">Consultar {model.name}</a></div></article>)}</div>
+        <div className="model-grid">{models.map((model) => <article className="model-card" key={model.name}><div className="model-image"><span>{model.category}</span><img src={model.image} alt={model.fullName} /></div><div className="model-content"><div className="model-title"><h3>{model.name}</h3><span>{model.range ? `até ${model.range} km` : "lançamento"}</span></div><p>{model.fullName}</p><ul>{model.specs.map((spec) => <li key={spec}>{spec}</li>)}</ul><div className="color-list" aria-label={`Cores de ${model.name}`}>{model.colors.slice(0, 5).map((color) => <span key={color}>{color}</span>)}</div><a className="card-cta" href={whatsappFor(model.fullName)} target="_blank" rel="noreferrer">Consultar {model.name}</a></div></article>)}</div>
+      </section>
+
+      <section className="e16-arrival" aria-labelledby="e16-title">
+        <div className="e16-arrival-copy"><p className="section-label">Novidade na loja</p><h2 id="e16-title">Conheça a nova E16.</h2><p>Uma scooter elétrica de presença urbana, com painel digital, iluminação marcante, amplo espaço para os pés e baú traseiro. As especificações finais de autonomia, bateria e potência serão publicadas após a confirmação da ficha do modelo.</p><a className="primary" href={whatsappFor("a chegada da E16")} target="_blank" rel="noreferrer">Quero saber da E16</a></div>
+        <div className="e16-arrival-gallery"><figure><img src="/models/e16/e16-side.webp" alt="Cavalletta E16 cinza vista de perfil no estúdio" loading="lazy" /><figcaption>Perfil urbano</figcaption></figure><figure><img src="/models/e16/e16-headlight.webp" alt="Detalhe do farol dianteiro da Cavalletta E16" loading="lazy" /><figcaption>Iluminação dianteira</figcaption></figure></div>
       </section>
 
       <section className="technology-section" id="tecnologia">
@@ -171,7 +178,7 @@ export default function Home() {
         <div className="technology-feature" aria-live="polite">
           <div className="technology-model-tabs" aria-label="Escolha um modelo para visualizar">{models.map((model, index) => <button type="button" className={index === showcaseIndex ? "active" : ""} onClick={() => setShowcaseIndex(index)} aria-pressed={index === showcaseIndex} key={model.name}>{model.name}</button>)}</div>
           <img key={showcaseModel.name} src={showcaseModel.image} alt={showcaseModel.fullName} />
-          <div className="technology-model-copy"><span>{showcaseModel.feature}</span><strong>{showcaseModel.name}</strong><p>{showcaseModel.featureText}</p><small>Até {showcaseModel.range} km de autonomia informada</small></div>
+          <div className="technology-model-copy"><span>{showcaseModel.feature}</span><strong>{showcaseModel.name}</strong><p>{showcaseModel.featureText}</p><small>{showcaseModel.range ? `Até ${showcaseModel.range} km de autonomia informada` : "Especificações finais em atualização"}</small></div>
         </div>
       </section>
 

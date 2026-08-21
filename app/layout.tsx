@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     "triciclo elétrico",
     "Cavalletta C12",
     "Cavalletta C3 Pro",
+    "Cavalletta E16",
     "Cavalletta T3",
     "Cavalletta AE8",
     "moto elétrica sem CNH",
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "Cavalletta Leader",
     title: "Cavalletta Leader | Scooters e Motos Elétricas em São Paulo",
     description:
-      "Portfólio Cavalletta Leader com C3 Pro, T3, AE8, C12 e C15, fotos oficiais, test-drive e atendimento pelo WhatsApp.",
+      "Portfólio Cavalletta Leader com C3 Pro, T3, AE8, C12, C15 e a nova E16, fotos oficiais, test ride e atendimento pelo WhatsApp.",
     images: [
       {
         url: "/campaign/c3-pro-urban-hero.png",

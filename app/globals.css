@@ -140,7 +140,7 @@ h3 { font-size: 1.25rem; }
   20%, 31% { text-shadow: 0 0 14px rgba(204,255,12,.8); transform: translateY(-2px); }
 }
 
-.models-section, .technology-section, .video-showcase, .blog-section, .support-section, .proof-section, .visit-section, .faq-section, .faq-bridge { padding: clamp(72px, 9vw, 126px) clamp(18px, 5vw, 82px); }
+.models-section, .e16-arrival, .technology-section, .video-showcase, .blog-section, .support-section, .proof-section, .visit-section, .faq-section { padding: clamp(72px, 9vw, 126px) clamp(18px, 5vw, 82px); }
 .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .5fr); gap: 40px; align-items: end; margin-bottom: 38px; }
 .section-heading > p { margin: 0; }
 .models-section { background: var(--paper); }
@@ -161,6 +161,14 @@ h3 { font-size: 1.25rem; }
 .color-list { display: flex; flex-wrap: wrap; gap: 5px; min-height: 58px; padding: 16px 0; }
 .color-list span { padding: 5px 7px; border: 1px solid var(--line); color: var(--muted); font-size: .65rem; font-weight: 800; }
 .card-cta { width: 100%; }
+
+.e16-arrival { display: grid; grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr); gap: clamp(34px, 6vw, 90px); align-items: center; background: var(--canvas); }
+.e16-arrival-copy > p:not(.section-label) { margin: 22px 0 30px; color: var(--muted); line-height: 1.7; }
+.e16-arrival-gallery { display: grid; grid-template-columns: 1.15fr .85fr; gap: 8px; min-height: 510px; }
+.e16-arrival-gallery figure { position: relative; margin: 0; overflow: hidden; background: var(--graphite); }
+.e16-arrival-gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+.e16-arrival-gallery figure:hover img { transform: scale(1.025); }
+.e16-arrival-gallery figcaption { position: absolute; right: 0; bottom: 0; left: 0; padding: 46px 16px 14px; background: linear-gradient(transparent, rgba(20,20,20,.88)); color: white; font-size: .7rem; font-weight: 950; text-transform: uppercase; }
 
 .technology-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(36px, 7vw, 100px); align-items: center; background: var(--paper); }
 .technology-copy > p:not(.section-label) { margin: 22px 0 28px; }
@@ -267,9 +275,9 @@ h3 { font-size: 1.25rem; }
 .faq-list summary { cursor: pointer; padding: 20px 22px; font-family: var(--font-display), sans-serif; font-weight: 900; }
 .faq-list summary::marker { color: var(--lime-dark); }
 .faq-list p { margin: 0; padding: 0 22px 22px; color: var(--muted); line-height: 1.65; }
-.faq-bridge { display: flex; justify-content: space-between; gap: 40px; align-items: center; background: var(--graphite); color: white; }
+.faq-bridge { display: flex; justify-content: space-between; gap: 32px; align-items: center; padding: clamp(38px, 4vw, 58px) clamp(18px, 5vw, 82px); background: var(--graphite); color: white; }
 .faq-bridge > div { max-width: 850px; }
-.faq-bridge h2 { font-size: clamp(2.3rem, 4.4vw, 4.7rem); }
+.faq-bridge h2 { font-size: clamp(2rem, 3.2vw, 3.35rem); }
 .faq-bridge p:not(.section-label) { margin: 18px 0 0; color: #c5cac1; line-height: 1.65; }
 .faq-bridge .primary { flex: 0 0 auto; }
 
@@ -290,20 +298,20 @@ h3 { font-size: 1.25rem; }
 .faq-support p:not(.section-label) { color: #42483f; line-height: 1.65; }
 .faq-support .secondary { border-color: var(--graphite); }
 
-footer { display: grid; grid-template-columns: auto 1fr; gap: 26px 50px; align-items: center; padding: 58px clamp(18px, 5vw, 82px) 96px; background: var(--graphite); color: #c6cbc2; }
+footer { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px 38px; align-items: center; padding: 30px clamp(18px, 5vw, 82px) 82px; border-top: 1px solid #3b3b3b; background: var(--graphite); color: #c6cbc2; }
 .footer-brand img { width: 150px; filter: brightness(0) invert(1); }
 .footer-brand span { color: var(--lime); }
-footer nav { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 22px; }
+footer nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; }
 footer nav a, footer > div a { color: var(--lime); font-weight: 900; }
-footer p { margin: 0; }
-footer > div { display: flex; justify-content: flex-end; gap: 20px; }
+footer p { grid-column: 1 / 3; margin: 0; font-size: .82rem; }
+footer > div { display: flex; justify-content: flex-end; gap: 16px; font-size: .82rem; }
 .sticky-conversion { position: fixed; z-index: 50; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 62px; padding: 8px 18px; border-top: 1px solid #a2c800; background: var(--lime); box-shadow: 0 -10px 30px rgba(35,35,35,.15); }
 .sticky-conversion span { margin-right: 18px; font-weight: 1000; }
 .sticky-conversion a { padding: 10px 14px; border: 1px solid rgba(35,35,35,.35); background: rgba(255,255,255,.35); font-size: .8rem; font-weight: 900; }
 .sticky-conversion a:first-of-type { background: var(--graphite); color: white; }
 
 @media (max-width: 1100px) {
-  .hero-store, .technology-section, .visit-section { grid-template-columns: 1fr; }
+  .hero-store, .e16-arrival, .technology-section, .visit-section { grid-template-columns: 1fr; }
   .hero-store { min-height: auto; }
   .model-grid { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
@@ -320,6 +328,7 @@ footer > div { display: flex; justify-content: flex-end; gap: 20px; }
   .spec-strip { grid-template-columns: repeat(2, 1fr); }
   .spec-strip article:nth-child(2) { border-right: 0; }
   .section-heading { grid-template-columns: 1fr; }
+  .e16-arrival-gallery { min-height: 430px; }
   .maintenance-showcase { grid-template-columns: 1fr; }
   .maintenance-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 340px repeat(3, 220px); min-height: auto; }
   .maintenance-gallery figure:first-child { grid-column: span 2; grid-row: auto; }
@@ -364,7 +373,8 @@ footer > div { display: flex; justify-content: flex-end; gap: 20px; }
   .video-player-wrap { width: min(100%, 390px); }
   .proof-section article { min-height: 330px; }
   .map-card, .map-card iframe { min-height: 390px; }
-  footer { grid-template-columns: 1fr; padding-bottom: 86px; }
+  footer { grid-template-columns: 1fr; padding-top: 26px; padding-bottom: 72px; }
+  footer p { grid-column: auto; }
   footer nav, footer > div { justify-content: flex-start; }
   footer > div { flex-direction: column; }
   .sticky-conversion { min-height: 56px; padding: 6px; gap: 4px; }
