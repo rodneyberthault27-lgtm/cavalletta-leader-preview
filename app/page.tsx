@@ -98,11 +98,12 @@ export default function Home() {
   const showcaseModel = models[showcaseIndex];
   const activeVideo = modelVideos[videoIndex];
   const expandedVideo = expandedVideoIndex === null ? null : modelVideos[expandedVideoIndex];
+  const hasConfirmedRange = activeModel.range !== null;
   const activeRange = activeModel.range ?? 0;
-  const fitsRoutine = dailyDistance <= activeRange;
-  const dailyUsagePercentage = Math.min(100, Math.round((dailyDistance / activeRange) * 100));
+  const fitsRoutine = hasConfirmedRange && dailyDistance <= activeRange;
+  const dailyUsagePercentage = hasConfirmedRange ? Math.min(100, Math.round((dailyDistance / activeRange) * 100)) : 0;
   const remainingRange = Math.max(0, activeRange - dailyDistance);
-  const coverageDays = activeRange / Math.max(1, dailyDistance);
+  const coverageDays = hasConfirmedRange ? activeRange / Math.max(1, dailyDistance) : 0;
   const modelsWithConfirmedRange = models.filter((model) => model.range !== null);
   const compatibleModels = modelsWithConfirmedRange.filter((model) => model.range !== null && model.range >= dailyDistance);
 
@@ -160,21 +161,21 @@ export default function Home() {
               <div className="distance-value"><strong>{dailyDistance}</strong><span>km por dia</span></div>
             </div>
             <div className="routine-control">
-              <label htmlFor="range-model">Modelo para comparação</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{modelsWithConfirmedRange.map((model) => <option key={model.name} value={model.name}>{model.name} · até {model.range} km</option>)}</select>
+              <label htmlFor="range-model">Modelo para comparação</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{models.map((model) => <option key={model.name} value={model.name}>{model.range ? `${model.name} · até ${model.range} km` : `${model.name} · autonomia em confirmação`}</option>)}</select>
             </div>
             <div className="routine-control">
               <fieldset className="rider-profile"><legend>Quem vai pilotar?</legend><div><button type="button" className={riderProfile === "homem" ? "active" : ""} onClick={() => setRiderProfile("homem")} aria-pressed={riderProfile === "homem"}>Homem</button><button type="button" className={riderProfile === "mulher" ? "active" : ""} onClick={() => setRiderProfile("mulher")} aria-pressed={riderProfile === "mulher"}>Mulher</button></div></fieldset>
             </div>
           </div>
           <div className="routine-result-panel routine-result-merged">
-              <div className="routine-result-heading"><p className="section-label">Seu resultado · {activeModel.name}</p><h2>{fitsRoutine ? `${activeModel.name} atende essa rotina.` : "Esse trajeto precisa de uma recarga."}</h2></div>
+              <div className="routine-result-heading"><p className="section-label">Seu resultado · {activeModel.name}</p><h2>{!hasConfirmedRange ? `Autonomia da ${activeModel.name} em confirmação.` : fitsRoutine ? `${activeModel.name} atende essa rotina.` : "Esse trajeto precisa de uma recarga."}</h2></div>
               <div className="simple-journey" aria-label={`${riderProfile === "homem" ? "Homem" : "Mulher"} percorrendo uma linha de ${dailyDistance} quilômetros por dia`}>
                 <div className="simple-journey-header"><span>Seu percurso</span><strong>{dailyDistance} km por dia</strong></div>
                 <div className="simple-route"><span className="simple-route-used" style={{ width: `${dailyUsagePercentage}%` }} /><i className="route-start" /><i className="route-finish" /><div className="rider-on-route" style={{ left: `${Math.min(72, 4 + dailyUsagePercentage * 0.68)}%` }}><img src={riderProfile === "homem" ? "/interactive/rider-man.webp" : "/interactive/rider-woman.webp"} alt={riderProfile === "homem" ? "Ilustração de homem em bicicleta elétrica" : "Ilustração de mulher em bicicleta elétrica"} /></div></div>
-                <div className="simple-route-labels"><span>Partida</span><strong>{fitsRoutine ? "Destino alcançado" : "Recarga necessária"}</strong></div>
+                <div className="simple-route-labels"><span>Partida</span><strong>{!hasConfirmedRange ? "Consulte a equipe" : fitsRoutine ? "Destino alcançado" : "Recarga necessária"}</strong></div>
               </div>
-              <Link className="selected-model-result" href={`/modelos/${activeModel.slug}`} aria-label={`Conhecer todos os detalhes da ${activeModel.name}`}><img src={activeModel.image} alt={activeModel.fullName} /><div className="selected-model-name"><span>Modelo escolhido</span><strong>{activeModel.name}</strong><small>{activeModel.category} · ver detalhes</small></div><div className="result-facts"><span><b>{activeRange} km</b> autonomia</span><span><b>{dailyUsagePercentage}%</b> da carga por dia</span><span><b>{fitsRoutine ? coverageDays.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) : "—"}</b> {fitsRoutine ? (coverageDays === 1 ? "dia por carga" : "dias por carga") : "planeje a recarga"}</span></div></Link>
-              <p className="range-context">{fitsRoutine ? <>Você ainda terá aproximadamente <strong>{remainingRange} km de margem</strong> depois desse percurso diário.</> : <>Compare outro modelo ou planeje uma recarga durante o trajeto.</>}</p>
+              <Link className="selected-model-result" href={`/modelos/${activeModel.slug}`} aria-label={`Conhecer todos os detalhes da ${activeModel.name}`}><img src={activeModel.image} alt={activeModel.fullName} /><div className="selected-model-name"><span>Modelo escolhido</span><strong>{activeModel.name}</strong><small>{activeModel.category} · ver detalhes</small></div><div className="result-facts"><span><b>{hasConfirmedRange ? `${activeRange} km` : "A confirmar"}</b> autonomia</span><span><b>{hasConfirmedRange ? `${dailyUsagePercentage}%` : "—"}</b> da carga por dia</span><span><b>{fitsRoutine ? coverageDays.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) : "—"}</b> {!hasConfirmedRange ? "consulte a ficha" : fitsRoutine ? (coverageDays === 1 ? "dia por carga" : "dias por carga") : "planeje a recarga"}</span></div></Link>
+              <p className="range-context">{!hasConfirmedRange ? <>A <strong>{activeModel.name} já faz parte da linha</strong>, mas a autonomia final ainda precisa ser confirmada. Consulte a equipe para receber a ficha atualizada.</> : fitsRoutine ? <>Você ainda terá aproximadamente <strong>{remainingRange} km de margem</strong> depois desse percurso diário.</> : <>Compare outro modelo ou planeje uma recarga durante o trajeto.</>}</p>
               <div className="compatible-models"><span>Modelos que atendem essa distância</span><div>{compatibleModels.length ? compatibleModels.map((model) => <button type="button" className={model.name === selectedModel ? "active" : ""} onClick={() => setSelectedModel(model.name)} key={model.name}>{model.name}</button>) : <p>Nenhum modelo do catálogo atual cobre essa distância em uma única carga.</p>}</div></div>
           </div>
           <aside className="autonomy-note"><strong>Importante sobre a autonomia</strong><p>A autonomia depende do peso total dos condutores, do modo de condução, do tipo de terreno, das inclinações e das condições gerais do percurso. Essas variações são normais e não caracterizam falha ou defeito do produto.</p></aside>
