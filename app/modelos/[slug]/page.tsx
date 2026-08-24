@@ -66,7 +66,7 @@ export default async function ModelPage({ params }: ModelPageProps) {
 
       <section className="model-detail-gallery">
         <div className="model-detail-section-copy"><p className="section-label">Veja de perto</p><h2>Mais ângulos. Mais segurança para escolher.</h2><p>As imagens mostram formato, acabamento e proporções do modelo. No test ride, a equipe ajuda a confirmar conforto e adaptação à sua rotina.</p></div>
-        <div className={`model-gallery-grid gallery-count-${model.gallery.length}`}>{model.gallery.map((image, index) => <figure key={image}><img src={image} alt={`${model.fullName}, vista ${index + 1}`} loading={index === 0 ? "eager" : "lazy"} /><figcaption>{index === 0 ? "Visão principal" : index === 1 ? "Outro ângulo" : "Detalhe do modelo"}</figcaption></figure>)}</div>
+        <div className={`model-gallery-grid gallery-count-${model.gallery.length}`}>{model.gallery.map((image, index) => <figure key={image}><img src={image} alt={`${model.fullName} — ${model.galleryLabels[index]}`} loading={index === 0 ? "eager" : "lazy"} /><figcaption>{model.galleryLabels[index]}</figcaption></figure>)}</div>
       </section>
 
       {model.video && <section className="model-detail-video"><div><p className="section-label">Modelo em movimento</p><h2>Observe os detalhes reais.</h2><p>Veja acabamento, iluminação e presença antes de agendar sua visita.</p></div><video controls playsInline preload="metadata" poster={model.image}><source src={model.video} type="video/mp4" /></video></section>}

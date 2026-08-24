@@ -6,6 +6,7 @@ export type CavallettaModel = {
   image: string;
   hoverImage: string;
   gallery: string[];
+  galleryLabels: string[];
   video?: string;
   range: number | null;
   specs: string[];
@@ -28,7 +29,8 @@ export const models: CavallettaModel[] = [
     category: "Mobilidade conectada",
     image: "/models/c3-pro-studio.webp",
     hoverImage: "/models/c3-pro-official.jpg",
-    gallery: ["/models/c3-pro-studio.webp", "/models/c3-pro-official.jpg"],
+    gallery: ["/models/gallery/c3-pro-front.webp", "/models/gallery/c3-pro-side.webp", "/models/gallery/c3-pro-rear.webp"],
+    galleryLabels: ["Vista frontal", "Perfil lateral", "Vista traseira"],
     video: "/videos/c3-pro.mp4",
     range: 70,
     specs: ["800 W", "Até 70 km", "48V 24Ah", "Carga 140 kg"],
@@ -43,7 +45,8 @@ export const models: CavallettaModel[] = [
     category: "Triciclo elétrico",
     image: "/models/t3-studio.webp",
     hoverImage: "/models/t3-official.jpg",
-    gallery: ["/models/t3-studio.webp", "/models/t3-official.jpg"],
+    gallery: ["/models/gallery/t3-front.webp", "/models/gallery/t3-side.webp", "/models/gallery/t3-rear.webp"],
+    galleryLabels: ["Vista frontal", "Perfil lateral", "Vista traseira"],
     range: 50,
     specs: ["1000 W", "Até 50 km", "60V 20Ah", "Carga 150 kg"],
     colors: ["Cores sob consulta"],
@@ -57,7 +60,8 @@ export const models: CavallettaModel[] = [
     category: "Bicicleta elétrica",
     image: "/models/ae8-studio.webp",
     hoverImage: "/models/ae8-official.jpg",
-    gallery: ["/models/ae8-studio.webp", "/models/ae8-official.jpg"],
+    gallery: ["/models/gallery/ae8-profile.webp", "/models/gallery/ae8-three-quarter.webp", "/models/gallery/ae8-top.webp"],
+    galleryLabels: ["Perfil lateral", "Ângulo dianteiro", "Vista superior"],
     video: "/videos/ae8.mp4",
     range: 80,
     specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"],
@@ -72,7 +76,8 @@ export const models: CavallettaModel[] = [
     category: "Scooter urbana",
     image: "/models/c12-studio.webp",
     hoverImage: "/models/c12-official.png",
-    gallery: ["/models/c12-studio.webp", "/models/c12-official.png"],
+    gallery: ["/models/gallery/c12-front.webp", "/models/gallery/c12-side.webp", "/models/gallery/c12-rear.webp"],
+    galleryLabels: ["Vista frontal", "Perfil lateral", "Vista traseira"],
     video: "/videos/c12.mp4",
     range: 65,
     specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"],
@@ -87,7 +92,8 @@ export const models: CavallettaModel[] = [
     category: "Scooter urbana",
     image: "/models/c15-studio.webp",
     hoverImage: "/models/c15-official.jpg",
-    gallery: ["/models/c15-studio.webp", "/models/c15-official.jpg"],
+    gallery: ["/models/gallery/c15-front.webp", "/models/gallery/c15-side.webp", "/models/gallery/c15-rear.webp"],
+    galleryLabels: ["Ângulo dianteiro", "Perfil lateral", "Ângulo traseiro"],
     video: "/videos/c15.mp4",
     range: 55,
     specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"],
@@ -103,6 +109,7 @@ export const models: CavallettaModel[] = [
     image: "/models/e16-studio.webp",
     hoverImage: "/models/e16/e16-side.webp",
     gallery: ["/models/e16-studio.webp", "/models/e16/e16-side.webp", "/models/e16/e16-headlight.webp"],
+    galleryLabels: ["Visão principal", "Perfil lateral", "Detalhe do farol"],
     range: null,
     specs: ["Ficha em atualização", "Baú traseiro", "Painel digital", "Chegando à loja"],
     colors: ["Preto", "Cinza", "Branco"],
