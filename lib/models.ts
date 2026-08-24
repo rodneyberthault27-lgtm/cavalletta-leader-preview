@@ -46,7 +46,7 @@ export const models: CavallettaModel[] = [
     image: "/models/t3-studio.webp",
     hoverImage: "/models/gallery/t3-rear.webp",
     gallery: ["/models/gallery/t3-01.jpg", "/models/gallery/t3-02.jpg", "/models/gallery/t3-03.jpg", "/models/gallery/t3-04.jpg", "/models/gallery/t3-05.jpg", "/models/gallery/t3-06.jpg"],
-    galleryLabels: ["Vista principal", "Ângulo lateral", "Vista frontal", "Perfil completo", "Vista traseira", "Detalhe do triciclo"],
+    galleryLabels: ["Traseira em perspectiva", "Vista frontal", "Vista lateral", "Vista traseira", "Dianteira em perspectiva", "Dianteira pelo lado oposto"],
     range: 50,
     specs: ["1000 W", "Até 50 km", "60V 20Ah", "Carga 150 kg"],
     colors: ["Cores sob consulta"],
