@@ -305,12 +305,14 @@ h3 { font-size: 1.25rem; }
 .maintenance-gallery figure:hover img { transform: scale(1.035); filter: contrast(1.04); }
 .maintenance-gallery figcaption { position: absolute; right: 0; bottom: 0; left: 0; padding: 30px 14px 12px; background: linear-gradient(transparent, rgba(18,18,18,.86)); color: white; font-size: .72rem; font-weight: 900; text-transform: uppercase; }
 
-.proof-section { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; background: var(--paper); }
-.proof-section article { min-height: 320px; padding: clamp(26px, 3vw, 40px); border: 1px solid var(--line); border-top: 4px solid var(--lime); }
-.proof-section article > p:not(.section-label) { max-width: 620px; }
-.proof-section strong, .proof-section span { display: block; }
-.proof-section strong { margin-top: 30px; color: var(--lime-dark); font-family: var(--font-display), sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); line-height: .9; }
-.proof-section span { margin-top: 12px; color: var(--muted); }
+.proof-section { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 18px clamp(18px, 5vw, 82px); background: var(--paper); }
+.proof-section article { min-height: 0; padding: 16px 22px; border: 1px solid var(--line); border-top: 4px solid var(--lime); }
+.proof-section article .section-label { margin-bottom: 5px; }
+.proof-section article h2 { font-size: clamp(1.35rem, 2vw, 1.8rem); line-height: 1.05; }
+.proof-section article > p:not(.section-label) { max-width: 620px; margin: 8px 0 0; font-size: .82rem; line-height: 1.35; }
+.proof-section strong, .proof-section span { display: inline-block; }
+.proof-section strong { margin: 13px 10px 0 0; color: var(--lime-dark); font-family: var(--font-display), sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: .9; }
+.proof-section span { margin-top: 0; color: var(--muted); font-size: .78rem; }
 
 .visit-section { display: grid; grid-template-columns: minmax(0, .75fr) minmax(420px, 1.25fr); gap: 18px; align-items: stretch; }
 .visit-copy { padding: clamp(30px, 5vw, 58px); background: var(--lime); }
@@ -600,10 +602,10 @@ footer > div { display: flex; justify-content: flex-end; gap: 16px; font-size: .
   .maintenance-copy > p:not(.section-label) { margin: 12px 0; font-size: .86rem; line-height: 1.5; }
   .maintenance-gallery { display: flex; grid-template: none; gap: 7px; min-height: 0; margin-right: -20px; overflow-x: auto; padding-right: 20px; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .maintenance-gallery figure, .maintenance-gallery figure:first-child, .maintenance-gallery figure:last-child { flex: 0 0 min(72vw, 280px); height: 220px; grid-column: auto; grid-row: auto; scroll-snap-align: start; }
-  .proof-section { gap: 10px; }
-  .proof-section article { min-height: 0; padding: 24px 20px; }
-  .proof-section article h2 { font-size: 1.85rem; }
-  .proof-section strong { margin-top: 18px; font-size: 2.6rem; }
+  .proof-section { gap: 10px; padding: 16px 20px; }
+  .proof-section article { min-height: 0; padding: 15px 16px; }
+  .proof-section article h2 { font-size: 1.55rem; }
+  .proof-section strong { margin-top: 11px; font-size: 2rem; }
   .visit-section { gap: 0; padding: 0; }
   .visit-copy { padding: 36px 20px; }
   .visit-copy address { margin-top: 18px; padding-top: 16px; font-size: .86rem; }
