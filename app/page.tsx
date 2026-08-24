@@ -2,22 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { models, siteUrl, whatsappFor, whatsappUrl } from "../lib/models";
 
-const whatsappUrl = "https://wa.me/5511925141848";
 const instagramUrl = "https://www.instagram.com/cavalletta.leader/";
-const siteUrl = "https://cavalletta-leader.rodead.chatgpt.site";
 const storeAddress = "Galeria do Supermercado Extra, Av. Dr. Ricardo Jafet, 1501 - loja 26, São Paulo - SP, Zona Sul";
 const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Galeria%20do%20Supermercado%20Extra%20Av.%20Dr.%20Ricardo%20Jafet%201501%20loja%2026";
 const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20do%20Supermercado%20Extra%20Av.%20Dr.%20Ricardo%20Jafet%201501%20loja%2026&t=&z=16&ie=UTF8&iwloc=&output=embed";
-
-const models = [
-  { name: "C3 Pro", fullName: "C3 Pro Aplicativo Inteligente", category: "Mobilidade conectada", image: "/models/c3-pro-studio.webp", range: 70, specs: ["800 W", "Até 70 km", "48V 24Ah", "Carga 140 kg"], colors: ["Cores sob consulta"], feature: "App inteligente", featureText: "Mobilidade conectada com controle direto pelo celular." },
-  { name: "T3", fullName: "T3 Triciclo Elétrico", category: "Triciclo elétrico", image: "/models/t3-studio.webp", range: 50, specs: ["1000 W", "Até 50 km", "60V 20Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Três rodas", featureText: "Configuração de triciclo para uma rotina elétrica mais estável." },
-  { name: "AE8", fullName: "AE8 Bicicleta Elétrica", category: "Bicicleta elétrica", image: "/models/ae8-studio.webp", range: 80, specs: ["1000 W", "Até 80 km", "48V 15Ah", "Carga 150 kg"], colors: ["Cores sob consulta"], feature: "Maior alcance", featureText: "Até 80 km de autonomia informada para trajetos mais longos." },
-  { name: "C12", fullName: "C12 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c12-studio.webp", range: 65, specs: ["1000 W", "Até 65 km", "60V 20Ah", "32 km/h"], colors: ["Cores sob consulta"], feature: "Rotina urbana", featureText: "Formato prático e autonomia para os deslocamentos da cidade." },
-  { name: "C15", fullName: "C15 Bicicleta Elétrica", category: "Scooter urbana", image: "/models/c15-studio.webp", range: 55, specs: ["1000 W", "Até 55 km", "60V 20Ah", "Carga 160 kg"], colors: ["Cores sob consulta"], feature: "Uso versátil", featureText: "Potência e capacidade para diferentes necessidades do dia a dia." },
-  { name: "E16", fullName: "E16 Scooter Elétrica", category: "Novo modelo", image: "/models/e16-studio.webp", range: null, specs: ["Ficha em atualização", "Baú traseiro", "Painel digital", "Chegando à loja"], colors: ["Preto", "Cinza", "Branco"], feature: "Novo lançamento", featureText: "Visual urbano, amplo espaço para os pés e baú traseiro integrado." },
-];
 
 const modelVideos = [
   { name: "C3 Pro", src: "/videos/c3-pro.mp4", poster: "/models/c3-pro-studio.webp", description: "Tecnologia conectada e detalhes pensados para a rotina urbana." },
@@ -89,8 +79,6 @@ const blogArticles = [
   },
 ];
 
-const whatsappFor = (subject: string) => `${whatsappUrl}?text=${encodeURIComponent(`Olá! Vim pelo site da Cavalletta Leader e gostaria de saber mais sobre ${subject}.`)}`;
-
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -105,9 +93,11 @@ export default function Home() {
   const [riderProfile, setRiderProfile] = useState<"homem" | "mulher">("homem");
   const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [videoIndex, setVideoIndex] = useState(0);
+  const [expandedVideoIndex, setExpandedVideoIndex] = useState<number | null>(null);
   const activeModel = models.find((model) => model.name === selectedModel) ?? models[0];
   const showcaseModel = models[showcaseIndex];
   const activeVideo = modelVideos[videoIndex];
+  const expandedVideo = expandedVideoIndex === null ? null : modelVideos[expandedVideoIndex];
   const activeRange = activeModel.range ?? 0;
   const fitsRoutine = dailyDistance <= activeRange;
   const dailyUsagePercentage = Math.min(100, Math.round((dailyDistance / activeRange) * 100));
@@ -121,6 +111,19 @@ export default function Home() {
     const timer = window.setTimeout(() => setShowcaseIndex((index) => (index + 1) % models.length), 4800);
     return () => window.clearTimeout(timer);
   }, [showcaseIndex]);
+
+  useEffect(() => {
+    if (expandedVideoIndex === null) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setExpandedVideoIndex(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [expandedVideoIndex]);
 
   return (
     <main id="inicio">
@@ -147,24 +150,28 @@ export default function Home() {
       <section className="spec-strip" aria-label="Destaques do portfólio"><article><strong>Até 80 km</strong><span>de autonomia no catálogo atual</span></article><article><strong>Até 1000 W</strong><span>para diferentes rotinas</span></article><article><strong>6 modelos</strong><span>disponíveis ou chegando à loja</span></article><article><strong>Loja física</strong><span>test ride e suporte local</span></article></section>
 
       <section className="decision-tools" id="economia">
-        <article className="tool-panel routine-input-panel">
-          <p className="section-label">1. Sua rotina</p><h2>Quantos quilômetros você percorre por dia?</h2><p>Considere o trajeto completo de ida e volta. Depois, escolha um modelo para comparar.</p>
-          <label htmlFor="daily-distance">Distância total diária</label><input className="distance-slider" id="daily-distance" type="range" min="5" max="100" step="5" value={dailyDistance} onChange={(event) => setDailyDistance(Number(event.target.value))} />
-          <div className="distance-value"><strong>{dailyDistance}</strong><span>km por dia</span></div>
-          <label htmlFor="range-model">Modelo para comparação</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{modelsWithConfirmedRange.map((model) => <option key={model.name} value={model.name}>{model.name} · até {model.range} km</option>)}</select>
-          <fieldset className="rider-profile"><legend>Quem vai pilotar?</legend><div><button type="button" className={riderProfile === "homem" ? "active" : ""} onClick={() => setRiderProfile("homem")} aria-pressed={riderProfile === "homem"}>Homem</button><button type="button" className={riderProfile === "mulher" ? "active" : ""} onClick={() => setRiderProfile("mulher")} aria-pressed={riderProfile === "mulher"}>Mulher</button></div></fieldset>
-        </article>
-        <article className={`tool-panel routine-result-panel ${fitsRoutine ? "is-compatible" : "needs-planning"}`}>
-          <p className="section-label">2. Seu resultado · {activeModel.name}</p><h2>{fitsRoutine ? `${activeModel.name} atende essa rotina.` : "Esse trajeto precisa de uma recarga."}</h2>
-          <div className="simple-journey" aria-label={`${riderProfile === "homem" ? "Homem" : "Mulher"} percorrendo uma linha de ${dailyDistance} quilômetros por dia`}>
-            <div className="simple-journey-header"><span>Seu percurso</span><strong>{dailyDistance} km por dia</strong></div>
-            <div className="simple-route"><span className="simple-route-used" style={{ width: `${dailyUsagePercentage}%` }} /><i className="route-start" /><i className="route-finish" /><div className="rider-on-route" style={{ left: `${Math.min(72, 4 + dailyUsagePercentage * 0.68)}%` }}><img src={riderProfile === "homem" ? "/interactive/rider-man.webp" : "/interactive/rider-woman.webp"} alt={riderProfile === "homem" ? "Ilustração de homem em bicicleta elétrica" : "Ilustração de mulher em bicicleta elétrica"} /></div></div>
-            <div className="simple-route-labels"><span>Partida</span><strong>{fitsRoutine ? "Destino alcançado" : "Recarga necessária"}</strong></div>
+        <article className={`tool-panel routine-unified ${fitsRoutine ? "is-compatible" : "needs-planning"}`}>
+          <div className="routine-unified-grid">
+            <div className="routine-input-panel routine-column">
+              <p className="section-label">1. Sua rotina</p><h2>Quantos quilômetros você percorre por dia?</h2><p>Considere o trajeto completo de ida e volta. Depois, escolha um modelo para comparar.</p>
+              <label htmlFor="daily-distance">Distância total diária</label><input className="distance-slider" id="daily-distance" type="range" min="5" max="100" step="5" value={dailyDistance} onChange={(event) => setDailyDistance(Number(event.target.value))} />
+              <div className="distance-value"><strong>{dailyDistance}</strong><span>km por dia</span></div>
+              <label htmlFor="range-model">Modelo para comparação</label><select id="range-model" value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>{modelsWithConfirmedRange.map((model) => <option key={model.name} value={model.name}>{model.name} · até {model.range} km</option>)}</select>
+              <fieldset className="rider-profile"><legend>Quem vai pilotar?</legend><div><button type="button" className={riderProfile === "homem" ? "active" : ""} onClick={() => setRiderProfile("homem")} aria-pressed={riderProfile === "homem"}>Homem</button><button type="button" className={riderProfile === "mulher" ? "active" : ""} onClick={() => setRiderProfile("mulher")} aria-pressed={riderProfile === "mulher"}>Mulher</button></div></fieldset>
+            </div>
+            <div className="routine-result-panel routine-column">
+              <p className="section-label">2. Seu resultado · {activeModel.name}</p><h2>{fitsRoutine ? `${activeModel.name} atende essa rotina.` : "Esse trajeto precisa de uma recarga."}</h2>
+              <div className="simple-journey" aria-label={`${riderProfile === "homem" ? "Homem" : "Mulher"} percorrendo uma linha de ${dailyDistance} quilômetros por dia`}>
+                <div className="simple-journey-header"><span>Seu percurso</span><strong>{dailyDistance} km por dia</strong></div>
+                <div className="simple-route"><span className="simple-route-used" style={{ width: `${dailyUsagePercentage}%` }} /><i className="route-start" /><i className="route-finish" /><div className="rider-on-route" style={{ left: `${Math.min(72, 4 + dailyUsagePercentage * 0.68)}%` }}><img src={riderProfile === "homem" ? "/interactive/rider-man.webp" : "/interactive/rider-woman.webp"} alt={riderProfile === "homem" ? "Ilustração de homem em bicicleta elétrica" : "Ilustração de mulher em bicicleta elétrica"} /></div></div>
+                <div className="simple-route-labels"><span>Partida</span><strong>{fitsRoutine ? "Destino alcançado" : "Recarga necessária"}</strong></div>
+              </div>
+              <Link className="selected-model-result" href={`/modelos/${activeModel.slug}`} aria-label={`Conhecer todos os detalhes da ${activeModel.name}`}><img src={activeModel.image} alt={activeModel.fullName} /><div className="selected-model-name"><span>Modelo escolhido</span><strong>{activeModel.name}</strong><small>{activeModel.category} · ver detalhes</small></div><div className="result-facts"><span><b>{activeRange} km</b> autonomia</span><span><b>{dailyUsagePercentage}%</b> da carga por dia</span><span><b>{fitsRoutine ? coverageDays.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) : "—"}</b> {fitsRoutine ? (coverageDays === 1 ? "dia por carga" : "dias por carga") : "planeje a recarga"}</span></div></Link>
+              <p className="range-context">{fitsRoutine ? <>Você ainda terá aproximadamente <strong>{remainingRange} km de margem</strong> depois desse percurso diário.</> : <>Compare outro modelo ou planeje uma recarga durante o trajeto.</>}</p>
+              <div className="compatible-models"><span>Modelos que atendem essa distância</span><div>{compatibleModels.length ? compatibleModels.map((model) => <button type="button" className={model.name === selectedModel ? "active" : ""} onClick={() => setSelectedModel(model.name)} key={model.name}>{model.name}</button>) : <p>Nenhum modelo do catálogo atual cobre essa distância em uma única carga.</p>}</div></div>
+            </div>
           </div>
-          <div className="selected-model-result"><img src={activeModel.image} alt={activeModel.fullName} /><div className="selected-model-name"><span>Modelo escolhido</span><strong>{activeModel.name}</strong><small>{activeModel.category}</small></div><div className="result-facts"><span><b>{activeRange} km</b> autonomia</span><span><b>{dailyUsagePercentage}%</b> da carga por dia</span><span><b>{fitsRoutine ? coverageDays.toLocaleString("pt-BR", { maximumFractionDigits: 1 }) : "—"}</b> {fitsRoutine ? (coverageDays === 1 ? "dia por carga" : "dias por carga") : "planeje a recarga"}</span></div></div>
-          <p className="range-context">{fitsRoutine ? <>Você ainda terá aproximadamente <strong>{remainingRange} km de margem</strong> depois desse percurso diário.</> : <>Compare outro modelo ou planeje uma recarga durante o trajeto.</>}</p>
-          <div className="compatible-models"><span>Modelos que atendem essa distância</span><div>{compatibleModels.length ? compatibleModels.map((model) => <button type="button" className={model.name === selectedModel ? "active" : ""} onClick={() => setSelectedModel(model.name)} key={model.name}>{model.name}</button>) : <p>Nenhum modelo do catálogo atual cobre essa distância em uma única carga.</p>}</div></div>
-          <small className="range-disclaimer">Estimativa baseada na autonomia informada em catálogo. O alcance real varia conforme peso, terreno, velocidade, temperatura e modo de condução.</small>
+          <aside className="autonomy-note"><strong>Importante sobre a autonomia</strong><p>A autonomia depende do peso total dos condutores, do modo de condução, do tipo de terreno, das inclinações e das condições gerais do percurso. Essas variações são normais e não caracterizam falha ou defeito do produto.</p></aside>
         </article>
       </section>
 
@@ -172,7 +179,7 @@ export default function Home() {
 
       <section className="models-section" id="modelos">
         <div className="section-heading"><div><p className="section-label">Modelos disponíveis</p><h2>Escolha pelo seu jeito de usar.</h2></div><p>Sem preços expostos. Consulte disponibilidade, cores e condições diretamente com a equipe pelo WhatsApp.</p></div>
-        <div className="model-grid">{models.map((model) => <article className="model-card" key={model.name}><div className="model-image"><span>{model.category}</span><img src={model.image} alt={model.fullName} /></div><div className="model-content"><div className="model-title"><h3>{model.name}</h3><span>{model.range ? `até ${model.range} km` : "lançamento"}</span></div><p>{model.fullName}</p><ul>{model.specs.map((spec) => <li key={spec}>{spec}</li>)}</ul><div className="color-list" aria-label={`Cores de ${model.name}`}>{model.colors.slice(0, 5).map((color) => <span key={color}>{color}</span>)}</div><a className="card-cta" href={whatsappFor(model.fullName)} target="_blank" rel="noreferrer">Consultar {model.name}</a></div></article>)}</div>
+        <div className="model-grid">{models.map((model) => <article className="model-card" key={model.name}><Link className="model-image" href={`/modelos/${model.slug}`} aria-label={`Conhecer ${model.fullName}`}><span>{model.category}</span><img className="model-image-primary" src={model.image} alt={model.fullName} /><img className="model-image-hover" src={model.hoverImage} alt="" aria-hidden="true" /></Link><div className="model-content"><Link className="model-title" href={`/modelos/${model.slug}`}><h3>{model.name}</h3><span>{model.range ? `até ${model.range} km` : "lançamento"}</span></Link><p>{model.fullName}</p><ul>{model.specs.map((spec) => <li key={spec}>{spec}</li>)}</ul><div className="color-list" aria-label={`Cores de ${model.name}`}>{model.colors.slice(0, 5).map((color) => <span key={color}>{color}</span>)}</div><Link className="card-cta" href={`/modelos/${model.slug}`}>Ver detalhes da {model.name}</Link></div></article>)}</div>
       </section>
 
       <section className="e16-arrival" aria-labelledby="e16-title">
@@ -200,14 +207,17 @@ export default function Home() {
           <div className="video-model-note"><strong>{activeVideo.name}</strong><span>{activeVideo.description}</span></div>
           <a className="primary" href={whatsappFor(`o modelo ${activeVideo.name}`)} target="_blank" rel="noreferrer">Consultar {activeVideo.name}</a>
         </div>
-        <div className="video-player-wrap">
+        <div className="video-player-wrap" role="button" tabIndex={0} aria-label={`Ampliar vídeo do modelo ${activeVideo.name}`} onClick={() => setExpandedVideoIndex(videoIndex)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") setExpandedVideoIndex(videoIndex); }}>
           <span className="video-badge">Vídeo real do modelo</span>
-          <video key={activeVideo.src} autoPlay muted loop playsInline controls preload="metadata" poster={activeVideo.poster} aria-label={`Vídeo do modelo Cavalletta ${activeVideo.name}`}>
+          <button className="video-expand" type="button" onClick={() => setExpandedVideoIndex(videoIndex)}>Ampliar vídeo</button>
+          <video key={activeVideo.src} autoPlay muted loop playsInline preload="metadata" poster={activeVideo.poster} aria-label={`Prévia em vídeo do modelo Cavalletta ${activeVideo.name}`}>
             <source src={activeVideo.src} type="video/mp4" />
           </video>
           <div className="video-player-caption"><span>{String(videoIndex + 1).padStart(2, "0")} / {String(modelVideos.length).padStart(2, "0")}</span><strong>{activeVideo.name}</strong></div>
         </div>
       </section>
+
+      {expandedVideo && <div className="video-lightbox" role="dialog" aria-modal="true" aria-label={`Vídeo ampliado da Cavalletta ${expandedVideo.name}`} onClick={() => setExpandedVideoIndex(null)}><div className="video-lightbox-content" onClick={(event) => event.stopPropagation()}><button className="video-lightbox-close" type="button" onClick={() => setExpandedVideoIndex(null)} aria-label="Fechar vídeo">×</button><video key={expandedVideo.src} autoPlay controls playsInline poster={expandedVideo.poster}><source src={expandedVideo.src} type="video/mp4" /></video><div><span>Modelo em destaque</span><strong>{expandedVideo.name}</strong></div></div></div>}
 
       <section className="blog-section" id="blog">
         <div className="section-heading">
