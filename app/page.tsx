@@ -11,12 +11,23 @@ const mapsEmbedUrl = "https://maps.google.com/maps?q=Galeria%20do%20Supermercado
 
 const modelVideos = [
   { name: "C3 Pro", src: "/videos/c3-pro.mp4", poster: "/models/c3-pro-studio.webp", description: "Tecnologia conectada e detalhes pensados para a rotina urbana." },
+  { name: "T3", src: "https://cavalletta.store/cdn/shop/videos/c/vp/59a89575f9a2413ca4b7e9f88627d1e1/59a89575f9a2413ca4b7e9f88627d1e1.HD-1080p-2.5Mbps-82966655.mp4?v=0", poster: "/models/gallery/t3-03.jpg", description: "O triciclo em movimento, com estabilidade, acabamento e presença vistos de perto." },
   { name: "C12", src: "/videos/c12.mp4", poster: "/models/c12-studio.webp", description: "Design clássico, painel digital e acabamento visto de perto." },
   { name: "C15", src: "/videos/c15.mp4", poster: "/models/c15-studio.webp", description: "Presença moderna, iluminação marcante e construção robusta." },
   { name: "AE8", src: "/videos/ae8.mp4", poster: "/models/ae8-studio.webp", description: "Formato versátil e visual urbano para trajetos mais longos." },
 ];
 
 const blogArticles = [
+  {
+    category: "Pós-venda e capacitação",
+    date: "29 jul 2026",
+    title: "Cavalletta e SENAI avançam em formação técnica para veículos elétricos",
+    excerpt: "A marca e a Escola SENAI de Tecnologia Automotiva discutiram capacitação profissional, padrões locais de manutenção e cuidados com baterias para fortalecer o pós-venda no Brasil.",
+    image: "/blog/cavalletta-senai.jpg",
+    alt: "Representantes da Cavalletta e do SENAI em encontro sobre capacitação técnica",
+    source: "Cavalletta Oficial",
+    url: "https://cavalletta.store/blogs/noticias/blog-cavalletta-senai-pos-venda-veiculos-eletricos-brasil",
+  },
   {
     category: "Cavalletta no Ipiranga",
     date: "19 jun 2026",
@@ -143,12 +154,12 @@ export default function Home() {
           <h1>Autonomia real.<br /><span>Atitude elétrica.</span></h1>
           <p className="hero-text">Modelos para cidade, trabalho e liberdade. Conheça, compare e agende seu test ride com atendimento direto da loja.</p>
           <div className="hero-actions"><a className="primary" href={whatsappFor("agendar um test ride")} target="_blank" rel="noreferrer">Agendar test ride</a><a className="secondary" href="#economia">Ver autonomia</a></div>
-          <div className="hero-proof"><strong>6 modelos</strong><span>Fotos oficiais e especificações do catálogo atual</span></div>
+          <div className="hero-proof"><strong>Linha atual</strong><span>Fotos oficiais e especificações do catálogo atual</span></div>
         </div>
         <div className="hero-scene-note"><span>C3 Pro</span><strong>Cidade em movimento.<br />Energia em silêncio.</strong></div>
       </section>
 
-      <section className="spec-strip" aria-label="Destaques do portfólio"><article><strong>Até 80 km</strong><span>de autonomia no catálogo atual</span></article><article><strong>Até 1000 W</strong><span>para diferentes rotinas</span></article><article><strong>6 modelos</strong><span>disponíveis ou chegando à loja</span></article><article><strong>Loja física</strong><span>test ride e suporte local</span></article></section>
+      <section className="spec-strip" aria-label="Destaques do portfólio"><article><strong>Até 80 km</strong><span>de autonomia no catálogo atual</span></article><article><strong>Até 1000 W</strong><span>para diferentes rotinas</span></article><article><strong>Linha completa</strong><span>opções para diferentes formas de uso</span></article><article><strong>Loja física</strong><span>test ride e suporte local</span></article></section>
 
       <section className="decision-tools" id="economia">
         <article className={`tool-panel routine-unified ${fitsRoutine ? "is-compatible" : "needs-planning"}`}>
@@ -186,7 +197,7 @@ export default function Home() {
 
       <section className="models-section" id="modelos">
         <div className="section-heading"><div><p className="section-label">Modelos disponíveis</p><h2>Escolha pelo seu jeito de usar.</h2></div><p>Sem preços expostos. Consulte disponibilidade, cores e condições diretamente com a equipe pelo WhatsApp.</p></div>
-        <div className="model-grid">{models.map((model) => <article className="model-card" key={model.name}><Link className="model-image" href={`/modelos/${model.slug}`} aria-label={`Conhecer ${model.fullName}`}><span>{model.category}</span><img className="model-image-primary" src={model.image} alt={model.fullName} /><img className="model-image-hover" src={model.hoverImage} alt="" aria-hidden="true" /></Link><div className="model-content"><Link className="model-title" href={`/modelos/${model.slug}`}><h3>{model.name}</h3><span>{model.range ? `até ${model.range} km` : "lançamento"}</span></Link><p>{model.fullName}</p><ul>{model.specs.map((spec) => <li key={spec}>{spec}</li>)}</ul><div className="color-list" aria-label={`Cores de ${model.name}`}>{model.colors.slice(0, 5).map((color) => <span key={color}>{color}</span>)}</div><Link className="card-cta" href={`/modelos/${model.slug}`}>Ver detalhes da {model.name}</Link></div></article>)}</div>
+        <div className="model-grid">{models.map((model) => <article className="model-card" key={model.name}><Link className="model-image" href={`/modelos/${model.slug}`} aria-label={`Conhecer ${model.fullName}`}><span>{model.category}</span><img className="model-image-primary" src={model.image} alt={model.fullName} /><img className="model-image-hover" src={model.hoverImage} alt="" aria-hidden="true" /></Link><div className="model-content"><Link className="model-title" href={`/modelos/${model.slug}`}><h3>{model.name}</h3><span>{model.range ? `até ${model.range} km` : "lançamento"}</span></Link><p>{model.fullName}</p><ul>{model.specs.map((spec) => <li key={spec}>{spec}</li>)}</ul><div className="color-block"><span className="color-heading">Cores disponíveis</span><div className="color-list" aria-label={`Cores de ${model.name}`}>{model.colors.map((color) => <span data-color={color.toLocaleLowerCase("pt-BR")} key={color}><i aria-hidden="true" /><b>{color}</b></span>)}</div><a className="color-link" href={whatsappFor(`as cores disponíveis da ${model.name}`)} target="_blank" rel="noreferrer">Consultar cores atuais</a></div><Link className="card-cta" href={`/modelos/${model.slug}`}>Ver detalhes da {model.name}</Link></div></article>)}</div>
       </section>
 
       <section className="e16-arrival" aria-labelledby="e16-title">
@@ -198,7 +209,7 @@ export default function Home() {
         <div className="technology-copy"><p className="section-label">Tecnologia para cada rotina</p><h2>Uma linha completa em movimento.</h2><p>Conheça os modelos disponíveis, compare alcance e formato e encontre a Cavalletta que combina com o seu dia a dia.</p><a className="primary" href={whatsappFor(showcaseModel.fullName)} target="_blank" rel="noreferrer">Consultar {showcaseModel.name}</a></div>
         <div className="technology-feature" aria-live="polite">
           <div className="technology-model-tabs" aria-label="Escolha um modelo para visualizar">{models.map((model, index) => <button type="button" className={index === showcaseIndex ? "active" : ""} onClick={() => setShowcaseIndex(index)} aria-pressed={index === showcaseIndex} key={model.name}>{model.name}</button>)}</div>
-          <img key={showcaseModel.name} src={showcaseModel.image} alt={showcaseModel.fullName} />
+          <img key={showcaseModel.name} src={showcaseModel.heroImage} alt={`${showcaseModel.fullName} em perspectiva`} />
           <div className="technology-model-copy"><span>{showcaseModel.feature}</span><strong>{showcaseModel.name}</strong><p>{showcaseModel.featureText}</p><small>{showcaseModel.range ? `Até ${showcaseModel.range} km de autonomia informada` : "Especificações finais em atualização"}</small></div>
         </div>
       </section>
@@ -229,7 +240,7 @@ export default function Home() {
       <section className="blog-section" id="blog">
         <div className="section-heading">
           <div><p className="section-label">Blog Cavalletta Leader</p><h2>Mobilidade elétrica com contexto.</h2></div>
-          <p>Pesquisa editorial revisada em 17 de agosto de 2026. Notícias da marca, tecnologia, cuidados e regras explicados com fontes identificadas.</p>
+          <p>Pesquisa editorial revisada em 25 de agosto de 2026. Notícias da marca, tecnologia, cuidados e regras explicados com fontes identificadas.</p>
         </div>
         <article className="blog-featured">
           <div className="blog-featured-image"><span>Notícia em destaque</span><img src={blogArticles[0].image} alt={blogArticles[0].alt} /></div>
@@ -262,6 +273,10 @@ export default function Home() {
             <figure><img src="/support/montagem-tecnica.webp" alt="Técnico realizando montagem com ferramenta de precisão" loading="lazy" /><figcaption>Montagem precisa</figcaption></figure>
             <figure><img src="/support/revisao-eletrica.webp" alt="Técnico Cavalletta verificando conexões elétricas dianteiras" loading="lazy" /><figcaption>Revisão elétrica</figcaption></figure>
           </div>
+        </div>
+        <div className="support-stock-video">
+          <div><p className="section-label">Estoque em Guarulhos</p><h3>Estrutura real para atender a rede.</h3><p>Veja de perto a operação de estoque e a preparação dos modelos antes de chegarem à loja.</p></div>
+          <video controls playsInline preload="metadata" aria-label="Vídeo do estoque Cavalletta em Guarulhos"><source src="/videos/estoque-guarulhos.mp4" type="video/mp4" /></video>
         </div>
       </section>
 
